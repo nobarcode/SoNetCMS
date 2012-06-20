@@ -1,0 +1,184 @@
+#message_box {
+	
+	width:100%;
+	float:left;
+	margin-bottom:5px;
+	color:#000000;
+	background:#edad00;
+	cursor:pointer;
+	
+}
+
+#message_box div {
+	
+	padding:5px;
+	
+}
+
+
+#subjects_list {
+	
+	width:100%;
+	float:left;
+	padding:0px;
+	margin:0px;
+	
+} 
+
+.subject_container {
+	
+	width:100%;
+	margin-top:5px;
+	float:left;
+	color:#333333;
+	background:#d8d8d8;
+	text-align:left;
+	
+}
+
+.subject_container:hover {
+	
+	background:#cdefcd;
+	
+}
+
+.subject_container a {
+	
+	color:#333333;
+	
+}
+
+.subject_container a:hover {
+	
+	color:#333333;
+	
+}
+
+.subject_container .handle {
+	
+	width:100%;
+	float:left;
+	
+}
+
+.subject_container .handle .name {
+	
+	float:left;
+	padding:5px;
+	
+}
+
+.subject_container .handle .toolbar {
+	
+	float:right;
+	padding:5px;
+	
+}
+
+.subject_container .handle .toolbar .documents {
+	
+	float:left;
+	
+}
+
+.subject_container .handle .toolbar .options {
+	
+	float:left;
+	margin-left:5px;
+	padding-left:5px;
+	border-left:1px solid #666666;
+	
+}
+
+.subject_container .handle .toolbar .delete {
+	
+	float:left;
+	margin-left:5px;
+	padding-left:5px;
+	border-left:1px solid #666666;
+	
+}
+
+#edit_subject_options_in_place {
+	
+	width:100%;
+	float:left;
+	color:#333333;
+	background:#ececec;
+	
+}
+
+.editor_subject_container {
+	
+	float:left;
+	padding:5px;
+	
+}
+
+.options_editor_container {
+	
+	padding-bottom:5px;
+	padding-right:5px;
+	
+}
+
+#editor_options {
+	
+	width:100%;
+	float:left;
+	margin-top:5px;
+	padding-bottom:5px;
+	
+}
+
+#add_subject_container {
+	
+	width:100%;
+	float:left;
+	padding-bottom:5px;
+	color:#333333;
+	
+}
+
+#add_subject_container form {
+	
+	padding:5px;
+	background:#d8d8d8;
+	
+}
+
+.label {
+	
+	padding-right:5px;
+	
+}
+
+.user_selectable {
+	
+	padding:5px 0px 5px 0px;
+	
+}
+
+.subheader_title {
+	
+	width:100%;
+	float:left;
+	margin-top:5px;
+	font-size:12pt;
+	font-weight:bold;
+	color:#333333;
+	
+}
+
+.subheader_title a {
+	
+	text-decoration:none;
+	color:#333333;
+	
+}
+
+.subheader_title a:hover {
+	
+	text-decoration:underline;
+	
+}

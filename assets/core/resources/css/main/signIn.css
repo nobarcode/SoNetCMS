@@ -1,0 +1,87 @@
+#message_box {
+	
+	width:910px;
+	float:left;
+	margin-bottom:5px;
+	padding:5px;
+	color:#000000;
+	background:#edad00;
+	cursor:pointer;
+	
+}
+
+#sign_in_required {
+	
+	width:910px;
+	float:left;
+	margin-bottom:5px;
+	padding:5px;
+	color:#ffffff;
+	background:#365164;
+	
+}
+
+#sign_in_required a {
+	
+	font-weight:bold;
+	color:#ffffff;
+	
+}
+
+.error_text {
+	
+	font-family:Arial;
+	font-weight:bold;
+	color:#dd0000;
+	
+}
+
+#form_container {
+	
+	width:910px;
+	float:left;
+	padding:5px;
+	color:#333333;
+	background:#d8d8d8;
+	
+}
+
+#form_container a {
+	
+	color:#333333;
+	
+}
+
+.form_buttons {
+	
+	width:920px;
+	margin-top:5px;
+	float:left;
+	
+}
+
+.subheader_title {
+	
+	width:910px;
+	float:left;
+	padding:5px;
+	font-size:12pt;
+	font-weight:bold;
+	color:#ffffff;
+	background:#365164;
+	
+}
+
+.subheader_title a {
+	
+	text-decoration:none;
+	color:#ffffff;
+	
+}
+
+.subheader_title a:hover {
+	
+	text-decoration:underline;
+	color:#ffffff;
+	
+}

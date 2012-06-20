@@ -1,0 +1,87 @@
+.rating_text {
+	
+	height:27px;
+	float:left;
+	margin-left:10px;
+	font-size:27px;
+	font-weight:bold;
+	line-height:30px;
+	color:#2b2d36;
+	overflow:hidden;
+	
+}
+
+.rating_graphic {
+	
+	height:27px;
+	float:left;
+	background:url("/assets/core/resources/images/rating_stars_large.jpg") no-repeat center left;
+	
+}
+
+.rating_graphic.rating0 {
+	
+	width:0px;
+		
+}
+
+.rating_graphic.rating1 {
+	
+	width:14px;
+		
+}
+
+.rating_graphic.rating2 {
+	
+	width:29px;
+		
+}
+
+.rating_graphic.rating3 {
+	
+	width:43px;
+		
+}
+
+.rating_graphic.rating4 {
+	
+	width:58px;
+		
+}
+
+.rating_graphic.rating5 {
+	
+	width:72px;
+		
+}
+
+.rating_graphic.rating6 {
+	
+	width:87px;
+		
+}
+
+
+.rating_graphic.rating7 {
+	
+	width:101px;
+		
+}
+
+.rating_graphic.rating8 {
+	
+	width:116px;
+	
+}
+
+.rating_graphic.rating9 {
+	
+	width:130px;
+		
+}
+
+.rating_graphic.rating10 {
+	
+	width:145px;
+		
+}

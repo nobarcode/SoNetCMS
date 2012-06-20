@@ -1,0 +1,34 @@
+#membership_pending_container {
+	
+	width:910px;
+	float:left;
+	padding:5px;
+	background:#d8d8d8;
+	
+}
+
+.subheader_title {
+	
+	width:910px;
+	float:left;
+	padding:5px;
+	font-size:12pt;
+	font-weight:bold;
+	color:#ffffff;
+	background:#365164;
+	
+}
+
+.subheader_title a {
+	
+	text-decoration:none;
+	color:#ffffff;
+	
+}
+
+.subheader_title a:hover {
+	
+	text-decoration:underline;
+	color:#ffffff;
+	
+}

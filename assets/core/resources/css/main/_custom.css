@@ -1,0 +1,69 @@
+.doc_menu_active {
+	
+	font-weight:bold;
+	
+}
+
+.doc_menu_active a {
+	
+	font-weight:bold;
+	text-decoration:none;
+	
+}
+
+.services_menu a {
+	
+	font-size:16px;
+	color:#365164;
+	
+}
+
+.services_menu_active a {
+	
+	font-size:16px;
+	color:#333333;
+	font-weight:bold;
+	text-decoration:none;
+	
+}
+
+.services_menu_active {
+	
+	font-size:16px;
+	color:#333333;
+	font-weight:bold;
+	
+}
+
+.flyout_menu {
+
+	width:200px;
+	float:left;
+	color:#333333;
+	background: #d8d8d8;
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	
+}
+
+.flyout_menu a {
+	
+	width:190px;
+	float:left;
+	padding:5px;
+	text-decoration:none;
+	color:#333333;
+	
+}
+
+.flyout_menu a:hover {
+	
+	color:#ffffff;
+	background:#666666;
+	
+}

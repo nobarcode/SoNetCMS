@@ -1,0 +1,611 @@
+#uploader {
+	margin:0px;
+	padding:0px;
+	text-align:right;
+}
+
+#location {
+	float:left;
+	line-height:20px;
+	text-align:left;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+#uploading {
+	display:none;
+	padding:0px 0px 10px 58px;
+	float:right;
+	line-height:20px;
+	text-align:left;
+	background-image:url(../images/uploading.gif);
+	background-position:left 5px;
+	background-repeat:no-repeat;
+	background-color:transparent;
+}
+
+#uploaderOptions {
+	float:right;
+	line-height:20px;
+	text-align:left;
+	white-space:nowrap;
+}
+
+#filetree .selectedDirectory {
+	background-color:#cdefcd;
+}
+
+#fileinfo {
+	overflow:auto;
+}
+
+#fileinfo {
+	text-align:center;
+}
+
+#fileinfo * {
+	font-size:12px;
+}
+
+#preview > img {
+	margin:25px;
+	max-width:80%;
+}
+
+#fileinfo > h1 {
+	font-size:16px;
+	margin:100px auto;
+}
+
+table#preview_data {
+	margin:25px auto 25px auto;
+}
+
+#preview_data td {
+	width:100px;
+	padding:4px;
+	text-align:left;
+	border-bottom:1px dotted #ccc;
+	overflow:hidden;
+}
+
+#preview_data td.data {
+	width:250px;
+}
+
+#edit_user_groups_in_place {
+	
+	width:460px;
+	margin:25px auto 25px auto;
+	
+}
+
+.groups_assignement_header {
+	
+	width:220px;
+	float:left;
+	margin-bottom:5px;
+	
+}
+
+.assigned_groups {
+	
+	width:220px;
+	float:left;
+	margin-right:20px;
+	
+}
+
+.remove_group {
+	
+	width:220px;
+	float:left;
+	margin-top:5px;
+	text-align:right;
+	
+}
+
+.available_groups {
+	
+	width:220px;
+	float:left;
+	
+}
+
+.add_group {
+	
+	width:220px;
+	float:left;
+	margin-top:5px;
+	text-align:left;
+	
+}
+
+.cancel_button {
+	
+	width:100%;
+	float:left;
+	margin:5px 0px 5px 0px;
+	text-align:left;
+	
+}
+
+#toolbar {
+	display:block;
+	clear:left;
+	margin:0px auto 25px auto;
+}
+
+button {
+	border:1px outset #ccc;
+	padding:2px;
+	margin-left:4px;
+	background-image:url(../images/btnOFF.gif);
+	background-repeat:repeat-x;
+}
+
+button:hover {
+	border:1px inset #ccc;
+	background-image:url(../images/btnON.gif);
+}
+
+button span {
+	display:block;
+	background-position:left center;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	height:16px;
+	white-space:nowrap;
+}
+
+button:active,
+button:focus {
+	font-weight:bold;
+	outline-color:transparent;
+	outline-style:none;
+	outline-width:0;
+}
+
+/* buttons */
+#select span {padding-left:20px; background-image:url(../images/accept.png); }
+#download span {padding-left:20px; background-image:url(../images/disk.png); }
+#copy span {padding-left:20px; background-image: url(../images/page_white_copy.png); }
+#cut span {padding-left:20px; background-image: url(../images/cut.png); }
+#paste span {padding-left:20px; background-image:url(../images/page_white_paste.png); }
+#rename span {padding-left:20px; background-image:url(../images/pencil.png); }
+#delete span {padding-left:20px; background-image:url(../images/bin_closed.png); }
+#upload span {padding-left:20px; background-image:url(../images/add.png); }
+#parentfolder span {padding-left:20px; background-image:url(../images/parentfolder.png); }
+#newfolder span {padding-left:20px; background-image:url(../images/folder_add.png); }
+#edit_groups {float:right; margin-top:5px;}
+
+#contents.grid {
+	text-align:left;
+	overflow:hidden;
+}
+
+#contents.grid li {
+	display:block;
+	float:left;
+	width:180px;
+	min-height:205px;
+	text-align:center;
+	overflow:hidden;
+	margin:0px 10px 10px 0px;
+	border:1px solid white;
+	border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	-ms-border-radius:8px;
+}
+
+#contents.grid li:hover {
+	border:1px solid #abcdab;
+	background-color:#cdefcd;
+	cursor:pointer;
+}
+
+div.clip {
+	width:170px;
+	height:195px;
+	margin:5px auto;
+	overflow:hidden;
+}
+
+div.clip p {
+	margin-top:10px;
+}
+
+#contents.list {
+	width:100%;
+	clear:left;
+}
+
+#contents.list th,
+#contents.list td {
+	text-align:left;
+	padding:6px;
+	white-space:nowrap;
+}
+
+#contents.list th {
+	padding-right:20px;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+#contents_length {
+	float:right;
+	padding:5px;
+}
+
+#contents_filter {
+	float:left;
+	padding:5px;
+}
+
+#contents_info {
+	float:left;
+	padding:5px;
+	font-weight:bold;
+	line-height:21px;
+}
+
+.dataTables_paginate {
+	float:right;
+	text-align:right;
+}
+
+.paging_full_numbers {
+	width:400px;
+	float:right;
+	padding:5px 2px 5px 0px;
+	line-height:21px;
+}
+
+.paging_full_numbers span.paginate_button, .paging_full_numbers span.paginate_active {
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	padding:2px 5px;
+	margin:0 3px;
+	cursor:pointer;
+}
+
+.paging_full_numbers span.paginate_button {
+	background:#eeeeee;
+	border:1px solid #999999;
+}
+
+.paging_full_numbers span.paginate_button:hover {
+	background:#cdefcd;
+	border:1px #779977 solid;
+}
+
+.paging_full_numbers span.paginate_active {
+	color:#ffffff;
+	background:#8a8a8a;
+	border:1px #8a8a8a solid;
+}
+
+#contents.list th {
+	width:100%;
+	background-color:#8a8a8a;
+	
+}
+
+#contents.list th.sorting_asc {
+	width:100%;
+	background-image:url(../images/bullet_arrow_up.png);
+	background-repeat:no-repeat;
+	background-position:right center;
+}
+
+#contents.list th.sorting_desc {
+	width:100%;
+	background-image:url(../images/bullet_arrow_down.png);
+	background-repeat:no-repeat;
+	background-position:right center;
+}
+
+#contents.list th div {
+	color:#ffffff;
+	
+}
+
+#contents.list td {
+	border-bottom:1px dotted #ccc;
+}
+
+#contents.list td:first-child {
+	width:100%;
+	padding-left:22px;
+	background-repeat:no-repeat;
+	background-position:3px center;
+}
+
+#contents.list tbody tr:hover {
+	background-color:#cdefcd;
+	cursor:pointer;
+}
+
+.meta {
+	display:none;
+}
+
+#activity {
+	margin:100px auto;
+}
+
+#grid span,
+#list span {
+	width:20px;
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+
+button.ON {
+	background-image:url(../images/btnON.gif);
+	border:1px inset #ccc;
+}
+
+#grid span { 
+	background-image:url(../images/application_view_icons.png);
+}
+
+#list span { 
+	background-image:url(../images/application_view_list.png);
+}
+
+#list {
+	margin-left:0;
+}
+
+/* Core Styles */
+.directory {
+	background:url(../images/fileicons_mini/directory.png) left top no-repeat;
+}
+
+.expanded {
+	background:url(../images/fileicons_mini/folder_open.png) left top no-repeat;
+}
+
+.file {
+	background:url(../images/fileicons_mini/file.png) left top no-repeat;
+}
+
+.wait {
+	background:url(../images/fileicons_mini/spinner.gif) left top no-repeat;
+}
+
+/* File Extensions*/
+.ext_3gp {
+	background:url(../images/fileicons_mini/film.png) left top no-repeat;
+}
+
+.ext_afp {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_afpa {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_asp {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_aspx {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_avi {
+	background:url(../images/fileicons_mini/film.png) left top no-repeat;
+}
+
+.ext_bat {
+	background:url(../images/fileicons_mini/application.png) left top no-repeat;
+}
+
+.ext_bmp {
+	background:url(../images/fileicons_mini/picture.png) left top no-repeat;
+}
+
+.ext_c {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_cfm {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_cgi {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_com {
+	background:url(../images/fileicons_mini/application.png) left top no-repeat;
+}
+
+.ext_cpp {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_css {
+	background:url(../images/fileicons_mini/css.png) left top no-repeat;
+}
+
+.ext_doc {
+	background:url(../images/fileicons_mini/doc.png) left top no-repeat;
+}
+
+.ext_exe {
+	background:url(../images/fileicons_mini/application.png) left top no-repeat;
+}
+
+.ext_gif {
+	background:url(../images/fileicons_mini/picture.png) left top no-repeat;
+}
+
+.ext_fla {
+	background:url(../images/fileicons_mini/flash.png) left top no-repeat;
+}
+
+.ext_h {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_htm {
+	background:url(../images/fileicons_mini/html.png) left top no-repeat;
+}
+
+.ext_html {
+	background:url(../images/fileicons_mini/html.png) left top no-repeat;
+}
+
+.ext_jar {
+	background:url(../images/fileicons_mini/java.png) left top no-repeat;
+}
+
+.ext_jpg {
+	background:url(../images/fileicons_mini/picture.png) left top no-repeat;
+}
+
+.ext_jpeg {
+	background:url(../images/fileicons_mini/picture.png) left top no-repeat;
+}
+
+.ext_js {
+	background:url(../images/fileicons_mini/script.png) left top no-repeat;
+}
+
+.ext_lasso {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_log {
+	background:url(../images/fileicons_mini/txt.png) left top no-repeat;
+}
+
+.ext_m4p {
+	background:url(../images/fileicons_mini/music.png) left top no-repeat;
+}
+
+.ext_mov {
+	background:url(../images/fileicons_mini/film.png) left top no-repeat;
+}
+
+.ext_mp3 {
+	background:url(../images/fileicons_mini/music.png) left top no-repeat;
+}
+
+.ext_mp4 {
+	background:url(../images/fileicons_mini/film.png) left top no-repeat;
+}
+
+.ext_mpg {
+	background:url(../images/fileicons_mini/film.png) left top no-repeat;
+}
+
+.ext_mpeg {
+	background:url(../images/fileicons_mini/film.png) left top no-repeat;
+}
+
+.ext_ogg {
+	background:url(../images/fileicons_mini/music.png) left top no-repeat;
+}
+
+.ext_pcx {
+	background:url(../images/fileicons_mini/picture.png) left top no-repeat;
+}
+
+.ext_pdf {
+	background:url(../images/fileicons_mini/pdf.png) left top no-repeat;
+}
+
+.ext_php {
+	background:url(../images/fileicons_mini/php.png) left top no-repeat;
+}
+
+.ext_png {
+	background:url(../images/fileicons_mini/picture.png) left top no-repeat;
+}
+
+.ext_ppt {
+	background:url(../images/fileicons_mini/ppt.png) left top no-repeat;
+}
+
+.ext_psd {
+	background:url(../images/fileicons_mini/psd.png) left top no-repeat;
+}
+
+.ext_pl {
+	background:url(../images/fileicons_mini/script.png) left top no-repeat;
+}
+
+.ext_py {
+	background:url(../images/fileicons_mini/script.png) left top no-repeat;
+}
+
+.ext_rb {
+	background:url(../images/fileicons_mini/ruby.png) left top no-repeat;
+}
+
+.ext_rbx {
+	background:url(../images/fileicons_mini/ruby.png) left top no-repeat;
+}
+
+.ext_rhtml {
+	background:url(../images/fileicons_mini/ruby.png) left top no-repeat;
+}
+
+.ext_rpm {
+	background:url(../images/fileicons_mini/linux.png) left top no-repeat;
+}
+
+.ext_ruby {
+	background:url(../images/fileicons_mini/ruby.png) left top no-repeat;
+}
+
+.ext_sql {
+	background:url(../images/fileicons_mini/db.png) left top no-repeat;
+}
+
+.ext_swf {
+	background:url(../images/fileicons_mini/flash.png) left top no-repeat;
+}
+
+.ext_tif {
+	background:url(../images/fileicons_mini/picture.png) left top no-repeat;
+}
+
+.ext_tiff {
+	background:url(../images/fileicons_mini/picture.png) left top no-repeat;
+}
+
+.ext_txt {
+	background:url(../images/fileicons_mini/txt.png) left top no-repeat;
+}
+
+.ext_vb {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_wav {
+	background:url(../images/fileicons_mini/music.png) left top no-repeat;
+}
+
+.ext_wmv {
+	background:url(../images/fileicons_mini/film.png) left top no-repeat;
+}
+
+.ext_xls {
+	background:url(../images/fileicons_mini/xls.png) left top no-repeat;
+}
+
+.ext_xml {
+	background:url(../images/fileicons_mini/code.png) left top no-repeat;
+}
+
+.ext_zip {
+	background:url(../images/fileicons_mini/zip.png) left top no-repeat;
+}

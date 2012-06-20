@@ -1,0 +1,169 @@
+#message_box {
+	
+	width:910px;
+	float:left;
+	margin-top:5px;
+	padding:5px;
+	color:#000000;
+	background:#edad00;
+	cursor:pointer;
+	
+}
+
+#friends_list {
+	
+	width:920px;
+	float:left;
+	
+} 
+
+.friend_container {
+	
+	margin-top:5px;
+	float:left;
+	padding:5px;
+	color:#ffffff;
+	background:#365164;
+	
+}
+
+.friend_container a {
+	
+	color:#ffffff;
+	
+}
+
+.column_separator {
+	
+	margin-right:5px;
+	
+}
+
+.image {
+	
+	width:170px;
+	height:170px;
+	text-align:center;
+	background:#d8d8d8;
+	overflow:hidden;
+	
+}
+
+.friend_details {
+	
+	width:170px;
+	margin-top:5px;
+	overflow:hidden;
+	
+}
+
+.friend_options {
+	
+	width:170px;
+	margin-top:5px;
+	
+}
+
+.friend_options .approve {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #ffffff;
+	
+}
+
+.friend_options .decline {
+	
+	float:left;
+	
+}
+
+#editor_navigation {
+	
+	width:920px;
+	float:left;
+	margin-top:5px;
+	color:#666666;
+	
+}
+
+#editor_navigation a {
+	
+	color:#666666;
+	
+}
+
+#editor_navigation a:hover {
+	
+	color:#333333;
+	
+}
+
+#editor_navigation .totals {
+	
+	float:left;
+	
+}
+
+#editor_navigation .navigation {
+	
+	float:right;
+	
+}
+
+#editor_navigation .pages {
+	
+	float:left;
+	margin-right:5px;
+	
+}
+
+#editor_navigation .previous {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #666666;
+	
+}
+
+#editor_navigation .next {
+	
+	float:left;
+	
+}
+
+#editor_options {
+	
+	width:920px;
+	float:left;
+	margin-top:5px;
+	
+}
+
+.subheader_title {
+	
+	width:910px;
+	float:left;
+	padding:5px;
+	font-size:12pt;
+	font-weight:bold;
+	color:#ffffff;
+	background:#365164;
+	
+}
+
+.subheader_title a {
+	
+	text-decoration:none;
+	color:#ffffff;
+	
+}
+
+.subheader_title a:hover {
+	
+	text-decoration:underline;
+	color:#ffffff;
+	
+}

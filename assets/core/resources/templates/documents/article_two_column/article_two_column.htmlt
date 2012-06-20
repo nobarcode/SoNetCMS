@@ -1,0 +1,24 @@
+<p>
+	<strong><span style="font-size:36px;">[attribute type="title"]</span></strong></p>
+<p>
+	<span style="font-size:20px;">By [attribute type="author"]</span></p>
+<p>
+	<span style="font-size:20px;">[attribute type="category"], [attribute type="subcategory"], [attribute type="subject"]</span></p>
+<p>
+	&nbsp;</p>
+<div style="width:450px; float:left; margin-right:20px;">
+	<p>
+		Body of left column goes here.</p>
+	<p>
+		Body of left column goes here.</p>
+	<p>
+		Body of left column goes here.</p>
+</div>
+<div style="width:450px; float:left;">
+	<p>
+		Body of right column goes here.</p>
+	<p>
+		Body of right column goes here.</p>
+	<p>
+		Body of right column goes here.</p>
+</div>

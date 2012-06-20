@@ -1,0 +1,512 @@
+#left_column {
+	
+	width:180px;
+	float:left;
+	margin-right:20px;
+	
+}
+
+#right_column {
+	
+	width:720px;
+	float:right;
+	
+}
+
+#link_back {
+	
+	width:920px;
+	float:left;
+	margin-bottom:5px;
+	font-family:Arial;
+	font-size:12pt;
+	font-weight:bold;
+	color:#333333;
+	overflow:hidden;
+	
+}
+
+#link_back a {
+	
+	padding-top:2px;
+	padding-left:21px;
+	padding-bottom:3px;
+	text-decoration:none;
+	color:#666666;
+	background:url("/assets/core/resources/images/button_back_to_document.gif") no-repeat left 2px;
+	
+	
+}
+
+#link_back a:hover {
+	
+	text-decoration:none;
+	color:#333333;
+	background-position:left -28px;
+	
+}
+
+#thumbs_container {
+	
+	position:relative;
+	width:180px;
+	float:left;
+	height:555px;
+	overflow:hidden;
+	z-index:999;
+	
+}
+
+#thumbs {
+	
+	position:relative;
+	z-index:1;
+	
+}
+
+.thumb_set {
+	
+	width:180px;
+	float:left;
+	height:555px;
+	
+}
+
+#thumbnail_arrow_left a {
+	
+	width:40px;
+	height:23px;
+	float:left;
+	margin-right:100px;
+	background:url("/assets/core/resources/images/image_gallery_arrow_left.gif") no-repeat 0px 0px;
+	
+}
+
+#thumbnail_arrow_left a:hover {
+	
+	background-position:0px -23px;
+	
+}
+
+#thumbnail_arrow_right a {
+	
+	width:40px;
+	height:23px;
+	float:left;
+	background:url("/assets/core/resources/images/image_gallery_arrow_right.gif") no-repeat 0px 0px;
+	
+}
+
+#thumbnail_arrow_right a:hover {
+	
+	background-position:0px -23px;
+	
+}
+
+.thumb_image_container {
+	
+	position:relative;
+	width:170px;
+	float:left;
+	margin-bottom:5px;
+	color:#ffffff;
+	background:#d8d8d8;
+	border:5px solid #d8d8d8;
+	
+}
+
+.thumb_image_container {
+	
+	cursor:pointer;
+	
+}
+
+.thumb_image_container_selected {
+	
+	position:relative;
+	width:170px;
+	margin-bottom:5px;
+	color:#ffffff;
+	background:#000000;
+	border:5px solid #000000;
+	
+}
+
+.thumb_image_container_selected {
+	
+	cursor:pointer;
+	
+}
+
+.image {
+	
+	width:170px;
+	height:170px;
+	float:left;
+	text-align:center;
+	background:#d8d8d8;
+	overflow:hidden;
+	
+}
+
+#main_content_container {
+	
+	width:720px;
+	float:left;
+	
+}
+
+.document_image_container {
+	
+	background:transparent;
+	
+}
+
+.document_image_container img {
+	
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	
+}
+
+#document_image_caption {
+	
+	width:720px;
+	float:left;
+	padding-top:5px;
+	font-size:8pt;
+	color:#333333;
+	
+}
+
+.document_image_caption_content {
+	
+	width:712px;
+	float:left;
+	overflow:hidden;
+	
+}
+
+#document_body {
+	
+	width:720px;
+	float:left;
+	padding-top:10px;
+	color:#333333;
+	overflow:hidden;
+	
+}
+
+#document_body a {
+	
+	color:#333333;
+	
+}
+
+#document_body a:hover {
+	
+	color:#666666;
+	
+}
+
+#comment_toggle_navigation {
+	
+	width:720px;
+	float:left;
+	margin-top:20px;
+	
+}
+
+#comments_main_container {
+	
+	width:720px;
+	float:right;
+	margin:20px 0px 0px 0px;
+	
+}
+
+#comments_main_container .header {
+	
+	width:712px;
+	float:left;
+	padding:5px;
+	font-weight:bold;
+	color:#ffffff;
+	background:#365164;
+	
+}
+
+#comments_main_container .body {
+	
+	width:712px;
+	float:left;
+	padding:5px;
+	background:#d8d8d8;
+	
+}
+
+#comments_container {
+	
+	width:712px;
+	float:left;
+	
+}
+
+.comment_container {
+	
+	width:712px;
+	float:left;
+	
+}
+
+.comment_header {
+	
+	width:702px;
+	float:left;
+	padding:5px;
+	font-weight:bold;
+	color:#ffffff;
+	background:#8a8a8a;
+	
+}
+
+.comment_header a {
+	
+	color:#ffffff;
+	
+}
+
+.comment_voting {
+	
+	float:right;
+	color:#ffffff;
+	
+}
+
+.comment_voting .vote_bar {
+	
+	float:left;
+	
+}
+
+.comment_voting .vote_bar .votes {
+	
+	float:left;
+	
+}
+
+.comment_voting .vote_bar .votes .yes {
+	
+	float:left;
+	margin-right:5px;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/core/resources/images/icon_comment_upvotes.gif') no-repeat left center;
+	cursor:pointer;
+	
+}
+
+.comment_voting .vote_bar .votes .no {
+	
+	float:left;
+	margin-right:5px;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/core/resources/images/icon_comment_downvotes.gif') no-repeat left center;
+	cursor:pointer;
+	
+}
+
+.comment_voting .vote_bar .score {
+	
+	float:left;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/core/resources/images/icon_comment_score.gif') no-repeat left center;
+	
+}
+
+.comment_body {
+	
+	width:712px;
+	float:left;
+	margin-top:5px;
+	color:#333333;
+	overflow:hidden;
+	
+}
+
+.comment_options {
+	
+	float:right;
+	margin-top:5px;
+	color:#333333;
+	
+}
+
+.comment_options a {
+	
+	color:#333333;
+	
+}
+
+.comment_options a:hover {
+	
+	color:#000000;
+	
+}
+
+.comment_options .edit {
+	
+	float:left;
+	
+}
+
+.comment_options .delete {
+	
+	float:left;
+	margin-left:5px;
+	padding-left:5px;
+	border-left:1px solid #333333;
+	
+}
+
+.comment_row_separator {
+	
+	margin-bottom:10px;
+	
+}
+
+#comments_list_navigation {
+	
+	width:712px;
+	float:left;
+	margin-top:5px;
+	padding-top:5px;
+	color:#333333;
+	border-top:1px solid #666666;
+	
+}
+
+#comments_list_navigation a {
+	
+	color:#333333;
+	
+}
+
+#comments_list_navigation a:hover {
+	
+	color:#000000;
+	
+}
+
+#comments_list_navigation .totals {
+	
+	float:left;
+	
+}
+
+#comments_list_navigation .navigation {
+	
+	float:right;
+	
+}
+
+#comments_list_navigation .pages {
+	
+	float:left;
+	margin-right:5px;
+	
+}
+
+#comments_list_navigation .previous {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #666666;
+	
+}
+
+#comments_list_navigation .next {
+	
+	float:left;
+	
+}
+
+#add_comment_navigation {
+	
+	width:712px;
+	float:left;
+	margin-top:5px;
+	color:#333333;
+	
+}
+
+#add_comment_container {
+	
+	width:720px;
+	float:right;
+	margin-top:5px;
+	
+}
+
+.add_comment_container_header {
+	
+	width:712px;
+	float:left;
+	padding:5px;
+	font-weight:bold;
+	color:#ffffff;
+	background:#365164;
+	
+}
+
+.add_comment_container_body {
+	
+	width:712px;
+	float:left;
+	padding:5px;
+	background:#d8d8d8;
+	
+}
+
+.comment_edit {
+	
+	width:702px;
+	margin:0px 0px 5px 0px;
+	padding:5px;
+	color:#333333;
+	background:#ffffff;
+	border:none;
+	
+}
+
+.comment_body_text_area {
+	
+	width:702px;
+	margin:0px 0px 5px 0px;
+	padding:5px;
+	color:#333333;
+	background:#ffffff;
+	border:none;
+	
+}
+
+.hide_comment {
+	
+	float:right;
+	font-weight:bold;
+	color:#ffffff;
+	
+}
+
+#message_box {
+	
+	width:710px;
+	float:left;
+	margin-bottom:5px;
+	padding:5px;
+	color:#000000;
+	background:#edad00;
+	cursor:pointer;
+	
+}

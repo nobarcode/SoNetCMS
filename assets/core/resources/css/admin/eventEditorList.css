@@ -1,0 +1,228 @@
+#message_box {
+	
+	width:100%;
+	float:left;
+	margin-top:5px;
+	color:#000000;
+	background:#edad00;
+	cursor:pointer;
+	
+}
+
+#message_box div {
+	
+	padding:5px;
+	
+}
+
+
+.editor_query_options {
+	
+	float:left;
+	margin-bottom:5px;
+	color:#333333;
+	
+}
+
+.editor_query_options form {
+	
+	float:left;
+	
+}
+
+#event_list {
+	
+	width:100%;
+	float:left;
+	color:#333333;
+	
+}
+
+.document_list_header {
+	
+	padding:5px;
+	font-weight:bold;
+	color:#ffffff;
+	background:#666666;
+	border-bottom:5px solid #ffffff;
+	
+}
+
+.document_list_header a {
+	
+	color:#ffffff;
+	
+}
+
+.document_header_checkbox {
+	
+	width:20px;
+	float:left;
+	
+}
+
+.document_container {
+	
+	padding:5px;
+	border-bottom:5px solid #ffffff;
+	
+}
+
+.document_container_row {
+	
+	background:#d8d8d8;
+	
+}
+
+.document_container_row:hover {
+	
+	background:#cdefcd;
+	
+}
+
+.document_container a {
+	
+	color:#333333;
+	
+}
+
+.document_container a:hover {
+	
+	color:#333333;
+	
+}
+
+.document_list_options {
+	
+	padding:5px;
+	font-weight:bold;
+	color:#ffffff;
+	background:#666666;
+	border-bottom:5px solid #ffffff;
+	
+}
+
+.document_list_options a {
+	
+	color:#ffffff;
+	
+}
+
+.check_all {
+	
+	width:20px;
+	float:left;
+	
+}
+
+.select_all {
+	
+	float:left;
+	
+}
+
+.toggle_selected_state {
+	
+	float:left;
+	margin-left:5px;
+	padding-left:5px;
+	border-left:1px solid #ffffff;
+	
+}
+
+.delete_selected {
+	
+	float:left;
+	margin-left:5px;
+	padding-left:5px;
+	border-left:1px solid #ffffff;
+	
+}
+
+#document_navigation {
+	
+	width:100%;
+	float:left;
+	
+}
+
+#document_navigation a {
+	
+	color:#333333;
+	
+}
+
+#document_navigation a:hover {
+	
+	color:#333333;
+	
+}
+
+#document_navigation .totals {
+	
+	float:left;
+	
+}
+
+#document_navigation .navigation {
+	
+	float:right;
+	
+}
+
+#document_navigation .pages {
+	
+	float:left;
+	margin-right:5px;
+	
+}
+
+#document_navigation .previous {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #666666;
+	
+}
+
+#document_navigation .next {
+	
+	float:left;
+	
+}
+
+#editor_options {
+	
+	width:100%;
+	float:left;
+	margin-top:5px;
+	padding-bottom:5px;
+	
+}
+
+.subheader_title {
+	
+	width:100%;
+	float:left;
+	margin:5px 0px 5px 0px;
+	padding-bottom:5px;
+	font-size:12pt;
+	font-weight:bold;
+	color:#333333;
+	border-bottom:1px solid #333333;
+	
+}
+
+.subheader_title a {
+	
+	text-decoration:none;
+	color:#333333;
+	
+}
+
+.subheader_title a:hover {
+	
+	text-decoration:underline;
+	
+}

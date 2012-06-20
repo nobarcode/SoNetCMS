@@ -1,0 +1,14 @@
+<p>
+	<strong><span style="font-size:36px;">[attribute type="title"]</span></strong></p>
+<p>
+	<span style="font-size:20px;">By [attribute type="author"]</span></p>
+<p>
+	<span style="font-size:20px;">[attribute type="category"], [attribute type="subcategory"], [attribute type="subject"]</span></p>
+<p>
+	&nbsp;</p>
+<p>
+	Body of article goes here.</p>
+<p>
+	&nbsp;</p>
+<p>
+	[attribute type="ratingGraphic"][attribute type="ratingText"]</p>

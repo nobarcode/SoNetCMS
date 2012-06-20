@@ -1,0 +1,166 @@
+#message_box {
+	
+	width:100%;
+	float:left;
+	color:#000000;
+	background:#edad00;
+	cursor:pointer;
+	
+}
+
+#message_box div {
+	
+	padding:5px;
+	
+}
+
+
+.editor_query_options {
+	
+	width:100%;
+	float:left;
+	color:#333333;
+	
+}
+
+#focused_documents_list {
+	
+	width:100%;
+	float:left;
+	padding:0px;
+	margin:0px;
+	
+} 
+
+.focused_document_container {
+	
+	width:100%;
+	margin-top:5px;
+	float:left;
+	color:#333333;
+	background:#d8d8d8;
+	text-align:left;
+	
+}
+
+.focused_document_container:hover {
+	
+	background:#cdefcd;
+	
+}
+
+.focused_document_container a {
+	
+	color:#333333;
+	
+}
+
+.focused_document_container a:hover {
+	
+	color:#333333;
+	
+}
+
+.focused_document_container table {
+	
+	padding:5px;
+	
+}
+
+.status {
+	
+	float:left;
+	margin-right:5px;
+	
+}
+
+.toolbar {
+	
+	float:right;
+	
+}
+
+.toolbar .state {
+	
+	float:left;
+	margin-left:5px;
+	padding-left:5px;
+	
+}
+
+
+.toolbar .options {
+	
+	float:left;
+	margin-left:5px;
+	padding-left:5px;
+	border-left:1px solid #666666;
+	
+}
+
+
+.toolbar .remove {
+	
+	float:left;
+	margin-left:5px;
+	padding-left:5px;
+	border-left:1px solid #666666;
+	
+}
+
+#edit_focused_document_options_in_place {
+	
+	width:100%;
+	float:left;
+	color:#333333;
+	background:#ececec;
+	
+}
+
+.editor_focused_document_container {
+	
+	float:left;
+	padding:0px 5px 5px 5px;
+	
+}
+
+.options_editor_container {
+	
+	padding-top:5px;
+	padding-right:5px;
+	
+}
+
+#editor_navigation {
+	
+	width:100%;
+	margin-top:5px;
+	float:left;
+	
+}
+
+.subheader_title {
+	
+	width:100%;
+	float:left;
+	margin:5px 0px 5px 0px;
+	padding-bottom:5px;
+	font-size:12pt;
+	font-weight:bold;
+	color:#333333;
+	border-bottom:1px solid #333333;
+	
+}
+
+.subheader_title a {
+	
+	text-decoration:none;
+	color:#d8d8d8;
+	
+}
+
+.subheader_title a:hover {
+	
+	text-decoration:underline;
+	
+}

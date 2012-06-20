@@ -1,0 +1,166 @@
+.date_selector {
+	
+	padding-left:19px;
+	background:url("/assets/core/resources/images/tiny_date_select_calendar_icon.gif") no-repeat center left;
+	cursor:pointer;
+	
+}
+
+#calendar_container {
+	
+	width:219px;
+	padding:5px;
+	float:left;
+	background:#ffffff;
+	border:1px solid #666666;
+	z-index:1000;
+	
+}
+
+#calendar_container a {
+	
+	color:#333333;
+	
+}
+
+.close_calendar {
+	
+	margin-bottom:5px;
+	padding:2px;
+	float:right;
+	font-size:10pt;
+	color:#666666;
+	background:#eeeeee;
+	border:1px solid #666666;
+	
+}
+
+.close_calendar:hover {
+	
+	color:#ffffff;
+	background:#8a8a8a;
+	border:1px solid #333333;
+	cursor:pointer;
+	
+}
+
+.calendar_header_main {
+	
+	width:100%;
+	font-family:Arial;
+	font-size:10pt;
+	background:#ffffff;
+	
+}
+
+.calendar_controls_link {
+	
+	width:20%;
+	padding:5px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:middle;
+	color:#333333;
+	background:#ffffff;
+	cursor:pointer;
+	
+}
+
+.calendar_controls_link:hover {
+	
+	width:20%;
+	padding:5px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:middle;
+	color:#333333;
+	background:#eeeeee;
+	
+}
+
+.calendar_header_main_links {
+	
+	padding:5px 0px 5px 0px;
+	text-align:center;
+	vertical-align:middle;
+	font-size:13pt;
+	color:#333333;
+	background:#ffffff;
+	
+}
+
+.calendar_header_main_links a {
+	
+	text-decoration:none;
+	color:#333333;
+	
+}
+
+.calendar_header_main_links a:hover {
+	
+	text-decoration:underline;
+	
+}
+
+.calendar_header_days {
+	
+	width:100%;
+	
+}
+
+.calendar_header_days_text {
+	
+	padding:5px;
+	text-align:left;
+	vertical-align:middle;
+	font-weight:bold;
+	
+}
+
+.blank_day {
+	
+	height:20px;
+	padding:5px;
+	text-align:left;
+	vertical-align:top;
+	font-size:9pt;
+	
+}
+
+.day {
+	
+	height:20px;
+	padding:5px;
+	text-align:left;
+	vertical-align:top;
+	font-size:9pt;
+	
+}
+
+.day:hover {
+	
+	background:#eeeeee;
+	cursor:pointer;
+	
+}
+
+.actday {
+	
+	height:20px;
+	padding:5px;
+	text-align:left;
+	vertical-align:top;
+	font-size:9pt;
+	font-weight:bold;
+	color:#333333;
+	border:1px solid #333333;
+	
+}
+
+.actday:hover {
+	
+	background:#eeeeee;
+	border:1px solid #333333;
+	cursor:pointer;
+	
+}

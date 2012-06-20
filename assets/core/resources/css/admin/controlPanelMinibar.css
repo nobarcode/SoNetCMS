@@ -1,0 +1,59 @@
+#control_panel_minibar {
+	
+	width:100%;
+	float:left;
+	color:#ffffff;
+	background:#666666;
+	border-bottom:3px solid #333333;
+	
+}
+
+#control_panel_minibar .minibar_padding {
+	
+	float:left;
+	padding:10px;
+	
+}
+
+#control_panel_minibar a {
+	
+	color:#ffffff;
+	
+}
+
+#control_panel_minibar .home {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #ffffff;
+	
+}
+
+#control_panel_minibar .control_panel {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #ffffff;
+	
+}
+
+#control_panel_minibar .sign_out {
+	
+	float:left;
+	
+}
+
+#loading {
+	
+	width:29px;
+	height:12px;
+	float:right;
+	margin:5px 5px 0px 0px;
+	padding:4px;
+	color:#cdefcd;
+	background:#567156 url('/assets/core/resources/images/cp_data_transfer.gif') no-repeat center center;
+	border:1px solid #cdefcd;
+	
+}

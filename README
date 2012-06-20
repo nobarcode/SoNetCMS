@@ -1,0 +1,21 @@
+----------------------------------------------------------------------------------------------------
+SoNet CMS Version 01.00.05 : 2012-06-20
+----------------------------------------------------------------------------------------------------
+
+SoNet CMS is Omega Net Research's open source social networking content management system.
+
+Please review the LICENSE.txt file for legalities regarding distribution and usage.
+
+Visit http://www.omeganetresearch.com/ for services, news, and support.
+
+----------------------------------------------------------------------------------------------------
+
+ZIP code location data obtained via:
+http://sourceforge.net/projects/zips/
+(ZIP code data last updated 2011-01-24)
+
+Rich text editor used in this system:
+http://ckeditor.com/
+
+The file manager used in this system is based on a modified version of Core Five Labs' FileManager:
+https://github.com/simogeo/Filemanager

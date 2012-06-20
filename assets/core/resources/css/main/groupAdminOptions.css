@@ -1,0 +1,74 @@
+#group_admin_options_container {
+	
+	width:910px;
+	float:left;
+	margin-bottom:5px;
+	padding:5px;
+	color:#ffffff;
+	background:#365164;
+	
+}
+
+#group_admin_options_container a {
+	
+	color:#ffffff;
+	
+}
+
+#group_admin_options_container a:hover {
+	
+	color:#ffffff;
+	
+}
+
+#group_admin_options_container .view_group {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #ffffff;
+	
+}
+
+#group_admin_options_container .edit_group {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #ffffff;
+	
+}
+
+#group_admin_options_container .manage_group_members {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #ffffff;
+	
+}
+
+#group_admin_options_container .group_event_editor {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #ffffff;
+	
+}
+
+#group_admin_options_container .group_conversations {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #ffffff;
+	
+}
+
+#group_admin_options_container .group_images {
+	
+	float:left;
+	margin-right:5px;
+	
+}

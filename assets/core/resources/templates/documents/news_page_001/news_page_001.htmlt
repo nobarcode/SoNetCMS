@@ -1,0 +1,18 @@
+<div id="left_column">
+	<p>
+		<strong><span style="font-size:36px;">[attribute type="title"]</span></strong></p>
+	<p>
+		<span style="font-size:20px;">By [attribute type="author"]</span></p>
+	<p>
+		<span style="font-size:20px;">[attribute type="category"], [attribute type="subcategory"], [attribute type="subject"]</span></p>
+	<p>
+		&nbsp;</p>
+	<p>
+		Body of article goes here.</p>
+</div>
+<div id="right_column">
+	<div id="more_news_container">
+		<div class="header">
+			<span style="font-size: 14px"><strong>MORE NEWS</strong></span></div>
+		[[rc_component type="document" documentType="" category="$_this" subcategory="" subject="" showTitle="true" showAuthor="false" showDate="true" showSummary="true" maxCharCount="" showSummaryLink="false" showRatingGraphic="false" showRatingText="false" showVotes="true" showScore="true" showTotalComments="true" organizedBy="latest" showImage="false" imageWidth="" imageHeight="" maxDisplay="10" startAt="" maxPerRow="1" highlightCurrent="true" skip="" noContent="Coming Soon!"]]</div>
+</div>

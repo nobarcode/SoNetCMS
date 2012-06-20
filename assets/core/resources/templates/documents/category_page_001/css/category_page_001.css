@@ -1,0 +1,517 @@
+#left_column {
+	
+	width:650px;
+	float:left;
+	margin-right:20px;
+	
+}
+
+#right_column {
+	
+	width:250px;
+	float:right;
+	
+}
+
+#newest_document_container {
+	
+	width:920px;
+	float:left;
+	margin-bottom:20px;
+	
+}
+
+#newest_document_container .header {
+	
+	margin-bottom:10px;
+	padding-bottom:2px;
+	border-bottom:5px solid #f18c33;
+	
+}
+
+#newest_document_container .item .image {
+	
+	width:250px;
+	float:left;
+	
+}
+
+#newest_document_container .item .image_offset {
+	
+	margin-left:255px;
+	
+}
+
+#newest_document_container .details .title {
+	
+	font-size:16pt;
+	font-weight:bold;
+	
+}
+
+#newest_document_container .details .date {
+	
+
+	font-size:9pt;
+	color:#666666;
+	
+}
+
+#newest_document_container .details .summary {
+	
+	margin-top:5px;
+	font-size:12pt;
+	color:#333333;
+	
+}
+
+#newest_document_container .details .link {
+	
+	float:right;
+	margin-top:10px;
+	font-size:12pt;
+	
+}
+
+#more_new_documents_container {
+	
+	width:650px;
+	float:left;
+	
+}
+
+#more_new_documents_container .header {
+	
+	margin-bottom:10px;
+	padding:5px;
+	background:#d8d8d8;
+	border-bottom:1px dotted #333333;
+	
+}
+
+#more_new_documents_container .item {
+	
+	width:650px;
+	float:left;
+	
+}
+
+#more_new_documents_container .item .image {
+	
+	width:170px;
+	float:left;
+	
+}
+
+#more_new_documents_container .item .image img {
+	
+	display:block;
+	
+}
+
+#more_new_documents_container .item .image_offset {
+	
+	margin-left:175px;
+	
+}
+
+#more_new_documents_container .item .details .title {
+	
+	margin-bottom:2px;
+	font-size:11pt;
+	font-weight:normal;
+	
+}
+
+#more_new_documents_container .item.highlight .details .title {
+	
+	margin-bottom:2px;
+	font-size:11pt;
+	font-weight:bold;
+	
+}
+
+#more_new_documents_container .item .details .date {
+	
+
+	font-size:9pt;
+	color:#666666;
+	
+}
+
+#more_new_documents_container .item .details .summary {
+	
+	margin-top:2px;
+	font-size:10pt;
+	color:#333333;
+	
+}
+
+#more_new_documents_container .item .details .link {
+	
+	float:right;
+	margin-top:10px;
+	font-size:12pt;
+	
+}
+
+#more_new_documents_container .item .details .vote_bar {
+	
+	float:left;
+	margin-top:5px;
+	
+}
+
+#more_new_documents_container .item .details .vote_bar .votes {
+	
+	float:left;
+	
+}
+
+#more_new_documents_container .item .details .vote_bar .votes .yes {
+	
+	float:left;
+	margin-right:5px;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/upvotes.gif') no-repeat left center;
+	
+}
+
+#more_new_documents_container .item .details .vote_bar .votes .no {
+	
+	float:left;
+	margin-right:5px;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/downvotes.gif') no-repeat left center;
+	
+}
+
+#more_new_documents_container .item .details .vote_bar .score {
+	
+	float:left;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/score.gif') no-repeat left center;
+	
+}
+
+#more_new_documents_container .item .details .total_comments {
+	
+	float:right;
+	margin-top:5px;
+	padding:0px 0px 0px 18px;
+	background:transparent url('/assets/images/comments.gif') no-repeat left center;
+	
+}
+
+#more_new_documents_container .separator {
+	
+	margin-right:10px;
+	
+}
+
+#more_new_documents_container .row_separator {
+	
+	width:650px;
+	height:10px;
+	float:left;
+	
+}
+
+#blogs_container {
+	
+	width:250px;
+	float:left;
+	
+}
+
+#blogs_container .header {
+	
+	margin-bottom:5px;
+	padding:5px;
+	background:#f18c33;
+	
+}
+
+#blogs_container .item {
+	
+	width:250px;
+	float:left;
+	
+}
+
+#blogs_container .item .details .title {
+	
+	font-weight:bold;
+	
+}
+
+#blogs_container .item .details .date {
+	
+
+	font-size:9pt;
+	color:#666666;
+	
+}
+
+#blogs_container .item .details .summary {
+	
+	margin-top:5px;
+	font-size:10pt;
+	color:#333333;
+	
+}
+
+#blogs_container .item .details .vote_bar {
+	
+	float:left;
+	margin-top:5px;
+	
+}
+
+#blogs_container .item .details .vote_bar .votes {
+	
+	float:left;
+	
+}
+
+#blogs_container .item .details .vote_bar .votes .yes {
+	
+	float:left;
+	margin-right:5px;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/upvotes.gif') no-repeat left center;
+	
+}
+
+#blogs_container .item .details .vote_bar .votes .no {
+	
+	float:left;
+	margin-right:5px;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/downvotes.gif') no-repeat left center;
+	
+}
+
+#blogs_container .item .details .vote_bar .score {
+	
+	float:left;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/score.gif') no-repeat left center;
+	
+}
+
+#blogs_container .item .details .total_comments {
+	
+	float:right;
+	margin-top:5px;
+	padding:0px 0px 0px 18px;
+	background:transparent url('/assets/images/comments.gif') no-repeat left center;
+	
+}
+
+#blogs_container .row_separator {
+	
+	width:250px;
+	float:left;
+	margin-bottom:5px;
+	padding-bottom:5px;
+	border-bottom:1px dotted #666666;
+	
+}
+
+#popular_documents_container {
+	
+	width:250px;
+	float:left;
+	margin-top:20px;
+	
+}
+
+#popular_documents_container .header {
+	
+	margin-bottom:5px;
+	padding:5px;
+	background:#f18c33;
+	
+}
+
+#popular_documents_container .item {
+	
+	width:250px;
+	float:left;
+	
+}
+
+#popular_documents_container .item .details .title {
+	
+	font-weight:bold;
+	
+}
+
+#popular_documents_container .item .details .date {
+	
+
+	font-size:9pt;
+	color:#666666;
+	
+}
+
+#popular_documents_container .item .details .summary {
+	
+	margin-top:5px;
+	font-size:10pt;
+	color:#333333;
+	
+}
+
+#popular_documents_container .item .details .vote_bar {
+	
+	float:left;
+	margin-top:5px;
+	
+}
+
+#popular_documents_container .item .details .vote_bar .votes {
+	
+	float:left;
+	
+}
+
+#popular_documents_container .item .details .vote_bar .votes .yes {
+	
+	float:left;
+	margin-right:5px;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/upvotes.gif') no-repeat left center;
+	
+}
+
+#popular_documents_container .item .details .vote_bar .votes .no {
+	
+	float:left;
+	margin-right:5px;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/downvotes.gif') no-repeat left center;
+	
+}
+
+#popular_documents_container .item .details .vote_bar .score {
+	
+	float:left;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/score.gif') no-repeat left center;
+	
+}
+
+#popular_documents_container .item .details .total_comments {
+	
+	float:right;
+	margin-top:5px;
+	padding:0px 0px 0px 18px;
+	background:transparent url('/assets/images/comments.gif') no-repeat left center;
+	
+}
+
+#popular_documents_container .row_separator {
+	
+	width:250px;
+	float:left;
+	margin-bottom:5px;
+	padding-bottom:5px;
+	border-bottom:1px dotted #666666;
+	
+}
+
+#recent_comments_container {
+	
+	width:250px;
+	float:left;
+	margin-top:20px;
+	
+}
+
+#recent_comments_container .header {
+	
+	margin-bottom:5px;
+	padding:5px;
+	background:#f18c33;
+	
+}
+
+#recent_comments_container .item {
+	
+	width:250px;
+	float:left;
+	
+}
+
+#recent_comments_container .item .details .title {
+	
+	font-weight:bold;
+	
+}
+
+#recent_comments_container .item .details .date {
+	
+
+	font-size:9pt;
+	color:#666666;
+	
+}
+
+#recent_comments_container .item .details .summary {
+	
+	margin-top:5px;
+	font-size:10pt;
+	color:#333333;
+	
+}
+
+#recent_comments_container .item .details .vote_bar {
+	
+	float:left;
+	margin-top:5px;
+	
+}
+
+#recent_comments_container .item .details .vote_bar .votes {
+	
+	float:left;
+	
+}
+
+#recent_comments_container .item .details .vote_bar .votes .yes {
+	
+	float:left;
+	margin-right:5px;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/upvotes.gif') no-repeat left center;
+	
+}
+
+#recent_comments_container .item .details .vote_bar .votes .no {
+	
+	float:left;
+	margin-right:5px;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/downvotes.gif') no-repeat left center;
+	
+}
+
+#recent_comments_container .item .details .vote_bar .score {
+	
+	float:left;
+	padding:0px 0px 0px 15px;
+	background:transparent url('/assets/images/score.gif') no-repeat left center;
+	
+}
+
+#recent_comments_container .row_separator {
+	
+	width:250px;
+	float:left;
+	margin-bottom:5px;
+	padding-bottom:5px;
+	border-bottom:1px dotted #666666;
+	
+}

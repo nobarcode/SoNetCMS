@@ -1,0 +1,66 @@
+#warning_message {
+	
+	width:100%;
+	float:left;
+	margin:0px;
+	color:#ffffff;
+	background:#cc4444;
+	
+}
+
+#warning_message div {
+	
+	padding:5px;
+	
+}
+
+.icons {
+	
+	float:left;
+	margin-left:55px;
+	
+}
+
+.icon {
+	
+	width:140px;
+	margin:55px 55px 0px 0px;
+	float:left;
+	
+}
+
+.icon_image {
+	
+	width:140px;
+	float:left;
+	
+}
+
+.icon_image img {
+	
+	display:block
+	
+}
+
+.icon_description {
+	
+	width:140px;
+	float:left;
+	margin-top:10px;
+	text-align:center;
+	
+}
+
+.icon_description a {
+	
+	color:#333333;
+	text-decoration:none;
+	
+}
+
+.icon_description a:hover {
+	
+	color:#333333;
+	text-decoration:underline;
+	
+}

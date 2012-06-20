@@ -1,0 +1,152 @@
+html {
+	
+	margin:0px;
+	font-family:Arial;
+	font-size:10pt;
+	text-align:left;
+	background:#ffffff;
+	
+}
+
+body {
+	
+	margin:0px;
+	
+}
+
+input[type="checkbox"] {
+	
+	margin:0;
+	padding:0;
+	
+}
+
+div.clear_left {
+	
+	height:0px;
+	margin:0px;
+	padding:0px;
+	font-size:1px;
+	line-height:0px;
+	clear:left;
+	overflow:hidden;
+	
+}
+
+div.clear_right {
+	
+	height:0px;
+	margin:0px;
+	padding:0px;
+	font-size:1px;
+	line-height:0px;
+	clear:right;
+	overflow:hidden;
+	
+}
+
+div.clear_both {
+	
+	height:0px;
+	margin:0px;
+	padding:0px;
+	font-size:1px;
+	line-height:0px;
+	clear:both;
+	overflow:hidden;
+	
+}
+
+a.button {
+	
+	background:transparent url('/assets/core/resources/images/cp_bg_button_a.gif') no-repeat scroll top right;
+	color:#ffffff;
+	display:block;
+	float:left;
+	font:normal 12px arial, sans-serif;
+	height:24px;
+	padding-right:18px; /* sliding doors padding */
+	text-decoration: none;
+	
+}
+
+a.button span {
+	
+	background:transparent url('/assets/core/resources/images/cp_bg_button_span.gif') no-repeat;
+	display:block;
+	line-height:14px;
+	padding:5px 0px 5px 18px;
+	
+}
+
+a.button:active {
+	
+	background-position:bottom right;
+	color:#ffffff;
+	outline:none; /* hide dotted outline in Firefox */
+	
+}
+
+a.button:active span {
+	
+	background-position:bottom left;
+	padding:6px 0 4px 18px; /* push text down 1px */
+	
+}
+
+.button_spacer {
+	
+	width:5px;
+	height:24px;
+	margin:0px;
+	padding:0px;
+	float:left;
+	line-height:14px;
+	
+}
+
+#body_inner {
+	
+	padding:5px;
+	
+}
+
+.template_row {
+	
+	background:none;
+	
+}
+
+.template_row:hover {
+	
+	background:#edffed;
+	cursor:pointer;
+	
+}
+
+.template_row td {
+	
+	padding:5px;
+	
+}
+
+.template_category_row td {
+	
+	padding-top:5px;
+	
+}
+
+.separator td {
+	
+	border-bottom:1px solid #d8d8d8;
+	
+}
+
+.template_category {
+	
+	margin-bottom:5px;
+	padding:5px;
+	font-size:18pt;
+	background:#d8d8d8;
+	
+}

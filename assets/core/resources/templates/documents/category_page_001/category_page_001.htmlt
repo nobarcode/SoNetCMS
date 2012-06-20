@@ -1,0 +1,22 @@
+<div id="newest_document_container">
+	[[rc_component type="document" documentType="" category="$_this" subcategory="" subject="" showTitle="true" showAuthor="false" showDate="false" showSummary="true" maxCharCount="" showSummaryLink="true" showRatingGraphic="false" showRatingText="false" showVotes="false" showScore="false" showTotalComments="false" organizedBy="latest" showImage="true" imageWidth="250" imageHeight="" maxDisplay="1" startAt="" maxPerRow="1" highlightCurrent="false" skip="$_this" noContent="Coming Soon!"]]</div>
+<div id="left_column">
+	<div id="more_new_documents_container">
+		<div class="header">
+			<span style="font-size: 20px"><strong>MORE</strong></span></div>
+		[[rc_component type="document" documentType="" category="$_this" subcategory="" subject="" showTitle="true" showAuthor="false" showDate="true" showSummary="true" maxCharCount="" showSummaryLink="false" showRatingGraphic="false" showRatingText="false" showVotes="true" showScore="true" showTotalComments="true" organizedBy="latest" showImage="true" imageWidth="" imageHeight="" maxDisplay="10" startAt="1" maxPerRow="1" highlightCurrent="false" skip="$_this" noContent="Coming Soon!"]]</div>
+</div>
+<div id="right_column">
+	<div id="blogs_container">
+		<div class="header">
+			<span style="font-size: 14px"><strong>RECENT BLOGS</strong></span></div>
+		[[rc_component type="blog" author="" documentType="" category="$_this" subcategory="" subject="" showTitle="true" showAuthor="true" showDate="true" showSummary="false" maxCharCount="60" showRatingGraphic="false" showRatingText="false" showVotes="true" showScore="true" showTotalComments="true" organizedBy="latest" showImage="false" imageWidth="250" imageHeight="" maxDisplay="5" startAt="" maxPerRow="1" skip="" noContent="Coming Soon!"]]</div>
+	<div id="popular_documents_container">
+		<div class="header">
+			<span style="font-size: 14px"><strong>POPULAR</strong></span></div>
+		[[rc_component type="document" documentType="" category="$_this" subcategory="" subject="" showTitle="true" showAuthor="false" showDate="true" showSummary="false" maxCharCount="" showSummaryLink="false" showRatingGraphic="false" showRatingText="false" showVotes="true" showScore="true" showTotalComments="true" organizedBy="popular,5" showImage="false" imageWidth="" imageHeight="" maxDisplay="5" startAt="" maxPerRow="1" highlightCurrent="false" skip="$_this" noContent="Coming Soon!"]]</div>
+	<div id="recent_comments_container">
+		<div class="header">
+			<span style="font-size: 14px"><strong>LATEST COMMENTS</strong></span></div>
+		[[rc_component type="comment" category="$_this" subcategory="" subject="" showTitle="true" showDate="false" showUsername="false" showBody="true" maxCharCount="60" showVotes="true" showScore="true" organizedBy="latest" maxDisplay="5" startAt="" maxPerRow="" noContent="No comments yet."]]</div>
+</div>

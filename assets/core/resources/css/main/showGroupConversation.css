@@ -1,0 +1,346 @@
+#message_box {
+	
+	width:910px;
+	float:left;
+	margin-bottom:5px;
+	padding:5px;
+	color:#000000;
+	background:#edad00;
+	cursor:pointer;
+	
+}
+
+#conversation_editor_container {
+	
+	width:910px;
+	float:left;
+	padding:5px;
+	color:#333333;
+	background:#d8d8d8;
+	
+}
+
+.label {
+	
+	padding-right:5px;
+	
+}
+
+.locked {
+	
+	padding-right:16px;
+	background: url('/assets/core/resources/images/group_conversation_locked_posts.gif') no-repeat scroll center right;
+	
+}
+
+.restricted_option {
+	
+	padding:5px 0px 5px 0px;
+	
+}
+
+.locked_option {
+	
+	padding:0px 0px 5px 0px;
+	
+}
+
+#conversation_list {
+	
+	width:920px;
+	float:left;
+	margin:0px;
+	padding:0px;
+	
+} 
+
+.post_container {
+	
+	width:920px;
+	float:left;
+	margin-top:5px;
+	
+}
+
+.post_container .header {
+	
+	width:910px;
+	float:left;
+	padding:5px;
+	color:#333333;
+	background:#d8d8d8;
+	
+}
+
+.post_container .header .date {
+	
+	float:left;
+	color:#333333;
+	
+}
+
+.post_container .header .profile {
+	
+	float:left;
+	margin-left:5px;
+	padding-left:5px;
+	color:#333333;
+	border-left:1px solid #333333;
+	
+}
+
+.post_container .header .profile a {
+	
+	color:#333333;
+	
+}
+
+.post_container .header .options {
+	
+	float:right;
+	
+}
+
+.post_container .header .options .edit {
+	
+	float:left;
+	color:#333333;
+	
+}
+
+.post_container .header .options .edit a {
+	
+	color:#333333;
+	
+}
+
+.post_container .header .options .delete {
+	
+	float:left;
+	margin-left:5px;
+	padding-left:5px;
+	color:#333333;
+	border-left:1px solid #333333;
+	
+}
+
+.post_container .header .options .delete a {
+	
+	color:#333333;
+	
+}
+
+.post_container .body_container {
+	
+	width:900px;
+	float:left;
+	padding:5px;
+	color:#333333;
+	background:#ececec;
+	border-left:5px solid #d8d8d8;
+	border-right:5px solid #d8d8d8;
+	border-bottom:5px solid #d8d8d8;
+	
+}
+
+.post_container .body {
+	
+	width:900px;
+	float:left;
+	overflow:hidden;
+	
+}
+
+.post_container .body a {
+	
+	color:#666666;
+	
+}
+
+.post_container .body a:hover {
+	
+	color:#333333;
+	
+}
+
+.reply_button {
+	
+	float:right;
+	margin-top:5px;
+	
+}
+
+.post_container .body .quote_container {
+	
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+
+.post_container .body .quote_container .quote_user {
+	
+	padding:5px;
+	color:#ffffff;
+	background:#333333;
+	
+}
+
+.post_container .body .quote_container .quote_body {
+	
+	padding:5px;
+	color:#333333;
+	background:#dedede;
+	border:1px solid #333333;
+	
+}
+
+#post_navigation {
+	
+	width:920px;
+	float:left;
+	margin-top:5px;
+	color:#666666;
+	
+}
+
+#post_navigation a {
+	
+	color:#666666;
+	
+}
+
+#post_navigation a:hover {
+	
+	color:#333333;
+	
+}
+
+#post_navigation .totals {
+	
+	float:left;
+	
+}
+
+#post_navigation .navigation {
+	
+	float:right;
+	
+}
+
+#post_navigation .pages {
+	
+	float:left;
+	margin-right:5px;
+	
+}
+
+#post_navigation .first {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #666666;
+	
+}
+
+#post_navigation .previous {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #666666;
+	
+}
+
+#post_navigation .next {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #666666;
+	
+}
+
+#post_navigation .last {
+	
+	float:left;
+	
+}
+
+#edit_in_place {
+	
+	width:920px;
+	float:left;
+	margin-top:5px;
+	
+}
+
+#post_edit {
+	
+	width:920px;
+	float:left;
+	
+}
+
+#conversation_options {
+	
+	width:920px;
+	float:left;
+	margin-top:5px;
+	
+}
+
+#conversation_search {
+	
+	float:right;
+	
+}
+
+#reply_container {
+	
+	width:920px;
+	float:left;
+	margin-top:5px;
+	
+}
+
+#reply_to_conversation {
+	
+	width:920px;
+	float:left;
+	
+}
+
+.editor_buttons {
+	
+	float:left;
+	margin-top:5px;
+	
+}
+
+.subheader_title {
+	
+	width:910px;
+	float:left;
+	padding:5px;
+	font-size:12pt;
+	font-weight:bold;
+	color:#ffffff;
+	background:#365164;
+	
+}
+
+.subheader_title a {
+	
+	text-decoration:none;
+	color:#ffffff;
+	
+}
+
+.subheader_title a:hover {
+	
+	text-decoration:underline;
+	color:#ffffff;
+	
+}

@@ -1,0 +1,74 @@
+body {
+	
+	color:#333333;
+	font-family:Arial;
+	font-size:10pt;
+	
+}
+
+body a {
+	
+	color:#666666;
+	
+}
+
+body a:hover {
+	
+	color:#333333;
+	
+}
+
+p {
+	
+	margin:0px;
+	padding:0px;
+	
+}
+
+h1, h2, h3, h4, h5, h6 {
+	
+	margin:0px;
+	
+}
+
+form, input, button, select, option, textarea {
+	
+	margin:0px;
+	
+}
+
+div.clear_left {
+	
+	height:0px;
+	margin:0px;
+	padding:0px;
+	font-size:1px;
+	line-height:0px;
+	clear:left;
+	overflow:hidden;
+	
+}
+
+div.clear_right {
+	
+	height:0px;
+	margin:0px;
+	padding:0px;
+	font-size:1px;
+	line-height:0px;
+	clear:right;
+	overflow:hidden;
+	
+}
+
+div.clear_both {
+	
+	height:0px;
+	margin:0px;
+	padding:0px;
+	font-size:1px;
+	line-height:0px;
+	clear:both;
+	overflow:hidden;
+	
+}

@@ -1,0 +1,24 @@
+DirectoryIndex index.php index.html index.htm
+
+<Files ~ "\.properties$">
+Order allow,deny
+Deny from all
+</Files>
+
+Options +FollowSymlinks
+
+RewriteEngine on
+
+RewriteRule ^documents/id/(.*) /index.php?id=$1 [NC]
+RewriteRule ^galleries/id/(.*) /showGallery.php?id=$1 [NC]
+RewriteRule ^usergalleries/username/(.*) /showUserGallery.php?username=$1 [NC]
+RewriteRule ^blogs/id/(.*) /showBlog.php?id=$1 [NC]
+RewriteRule ^groups/id/(.*) /showGroup.php?groupId=$1 [NC]
+RewriteRule ^groupgalleries/id/(.*) /showGroupGallery.php?groupId=$1 [NC]
+RewriteRule ^events/id/(.*) /showEventCalendar.php?id=$1 [NC]
+
+RewriteRule ^documents/open/(.*) /index.php?shortcut=$1 [NC]
+RewriteRule ^events/open/(.*) /showEventCalendar.php?id=$1 [NC]
+
+RewriteRule .* - [E=HTTP_IF_MODIFIED_SINCE:%{HTTP:If-Modified-Since}]
+RewriteRule .* - [E=HTTP_IF_NONE_MATCH:%{HTTP:If-None-Match}]

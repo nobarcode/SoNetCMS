@@ -1,0 +1,40 @@
+<div id="left_column">
+	<div id="featured_documents_container">
+		<div class="header">
+			<span style="font-size: 20px"><strong>FEATURED</strong></span></div>
+		[[rc_component type="document" documentType="" category="" subcategory="" subject="" showTitle="true" showAuthor="false" showDate="false" showSummary="true" maxCharCount="" showSummaryLink="true" showRatingGraphic="false" showRatingText="false" showVotes="false" showScore="false" showTotalComments="false" organizedBy="featured" showImage="true" imageWidth="210" imageHeight="" maxDisplay="1" startAt="" maxPerRow="1" highlightCurrent="false" skip="$_this" noContent="Coming Soon!"]]</div>
+	<div id="more_featured_container">
+		<div class="header">
+			<span style="font-size: 10px"><strong>MORE FEATURES</strong></span></div>
+		[[rc_component type="document" documentType="" category="" subcategory="" subject="" showTitle="true" showAuthor="false" showDate="true" showSummary="true" maxCharCount="" showSummaryLink="false" showRatingGraphic="false" showRatingText="false" showVotes="true" showScore="true" showTotalComments="true" organizedBy="featured" showImage="true" imageWidth="210" imageHeight="" maxDisplay="3" startAt="1" maxPerRow="3" highlightCurrent="false" skip="$_this" noContent="Coming Soon!"]]</div>
+	<div id="focused_documents_container">
+		<div class="header">
+			<span style="font-size: 20px"><strong>IN DEPTH</strong></span></div>
+		[[rc_component type="document" documentType="" category="" subcategory="" subject="" showTitle="true" showAuthor="false" showDate="true" showSummary="true" maxCharCount="" showSummaryLink="false" showRatingGraphic="false" showRatingText="false" showVotes="true" showScore="true" showTotalComments="true" organizedBy="focused" showImage="true" imageWidth="210" imageHeight="" maxDisplay="3" startAt="" maxPerRow="3" highlightCurrent="false" skip="$_this $_featured" noContent="Coming Soon!"]]</div>
+	<div id="popular_documents_container">
+		<div class="header">
+			<span style="font-size: 20px"><strong>POPULAR</strong></span></div>
+		[[rc_component type="document" documentType="" category="" subcategory="" subject="" showTitle="true" showAuthor="false" showDate="true" showSummary="true" maxCharCount="" showSummaryLink="false" showRatingGraphic="false" showRatingText="false" showVotes="true" showScore="true" showTotalComments="true" organizedBy="popular,3" showImage="true" imageWidth="210" imageHeight="" maxDisplay="6" startAt="" maxPerRow="3" highlightCurrent="false" skip="$_this $_featured $_focused" noContent="Coming Soon!"]]</div>
+</div>
+<div id="right_column">
+	<div id="members_container">
+		<div class="header">
+			<span style="font-size: 14px"><strong>MEMBERS</strong></span></div>
+		[[rc_component type="member" showImage="true" imageWidth="120" imageHeight="120" showOnlineNow="false" onlineLabel="I\'m online!" offlineLabel="Leave a message!" showUsername="false" showLastActive="false" lastActiveLabel="Last Seen:" showLastLogin="false" lastLoginLabel="Last Login:" showMemberSince="false" memberSinceLabel="Member Since:" hasImage="true" noImageUrl="" organizedBy="active" maxDisplay="4" startAt="" maxPerRow="2" separatorCharacter="" noContent="Sign up Today!"]]</div>
+	<div id="blogs_container">
+		<div class="header">
+			<span style="font-size: 14px"><strong>BLOGS</strong></span></div>
+		[[rc_component type="blog" author="" documentType="" category="" subcategory="" subject="" showTitle="true" showAuthor="true" showDate="true" showSummary="false" maxCharCount="60" showRatingGraphic="false" showRatingText="false" showVotes="true" showScore="true" showTotalComments="true" organizedBy="popular,8" showImage="false" imageWidth="250" imageHeight="" maxDisplay="6" startAt="" maxPerRow="1" skip="" noContent="Coming Soon!"]]</div>
+	<div id="events_container">
+		<div class="header">
+			<span style="font-size: 14px"><strong>EVENTS</strong></span></div>
+		[[rc_component type="event" category="" subcategory="" subject="" showTitle="true" showDate="true, m/d/Y h:i A" showAuthor="true" showSummary="true" maxCharCount="" showImage="false" imageWidth="250" imageHeight="" showTotalComments="true" organizedBy="unexpired" maxDisplay="6" startAt="" maxPerRow="2" noContent="No new events scheduled."]]</div>
+	<div id="announcements_container">
+		<div class="header">
+			<span style="font-size: 14px"><strong>ANNOUNCEMENTS</strong></span></div>
+		[[rc_component type="announcement" id="announcement" showDate="true" showLink="true" togglerStyle="fade" maxDisplay="6" startAt="" maxPerRow="1" noContent="No new announcements."]]</div>
+	<div id="conversations_container">
+		<div class="header">
+			<span style="font-size: 14px"><strong>CHATTER</strong></span></div>
+		[[rc_component type="conversation" showTitle="true" showDate="true" showAuthor="true" showBody="true" maxCharCount="60" maxDisplay="5" startAt="" maxPerRow="1" noContent="No conversations have been started."]]</div>
+</div>

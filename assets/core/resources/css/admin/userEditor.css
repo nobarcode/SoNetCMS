@@ -1,0 +1,369 @@
+#message_box {
+	
+	width:100%;
+	float:left;
+	margin-bottom:5px;
+	color:#000000;
+	background:#edad00;
+	cursor:pointer;
+	
+}
+
+#message_box div {
+	
+	padding:5px;
+	
+}
+
+
+#editor_query_options {
+	
+	width:100%;
+	float:left;
+	margin-bottom:5px;
+	font-weight:bold;
+	color:#333333;
+	
+}
+
+#editor_query_options form {
+	
+	float:left;
+	
+}
+
+#users_list {
+	
+	width:100%;
+	float:left;
+	color:#333333;
+	
+} 
+
+.user_header_checkbox {
+	
+	width:20px;
+	float:left;
+	
+}
+
+.user_container {
+	
+	padding:5px;
+	border-bottom:5px solid #ffffff;
+	
+}
+
+.user_container_row {
+	
+	background:#d8d8d8;
+	
+}
+
+.user_container_row:hover {
+	
+	background:#cdefcd;
+	
+}
+
+.user_container a {
+	
+	color:#333333;
+	
+}
+
+.user_container a:hover {
+	
+	color:#333333;
+	
+}
+
+.user_container .toolbar {
+	
+	float:right;
+	margin-left:10px;
+	
+}
+
+.user_container .toolbar .status {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #333333;
+	
+}
+
+.user_container .toolbar .groups {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #333333;
+	
+}
+
+.user_container .toolbar .impersonate {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #333333;
+	
+}
+
+.user_container .toolbar .delete {
+	
+	float:left;
+	
+}
+
+.user_list_options {
+	
+	padding:5px;
+	font-weight:bold;
+	color:#ffffff;
+	background:#666666;
+	
+}
+
+.user_list_options a {
+	
+	color:#ffffff;
+	
+}
+
+.user_list_options a {
+	
+
+	color:#ffffff;
+	
+}
+
+.user_list_options .check_all {
+	
+	width:20px;
+	float:left;
+	
+}
+
+.user_list_options .select_all {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #ffffff;
+	
+}
+
+.user_list_options .approve_multiple {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #ffffff;
+	
+}
+
+.user_list_options .delete_selected {
+	
+	float:left;
+	
+}
+
+#edit_in_place {
+	
+	width:100%;
+	float:left;
+	padding-bottom:5px;
+	color:#333333;
+	text-align:left;
+	
+}
+
+#edit_in_place a {
+	
+	color:#ffffff;
+	
+}
+
+#edit_in_place form {
+	
+	width:100%;
+	float:left;
+	background:#d8d8d8;
+	
+}
+
+#edit_in_place table {
+	
+	padding:5px;
+	
+}
+
+.looking_for_options {
+	
+	padding-bottom:3px;
+	
+}
+
+.editor_user_container {
+	
+	padding:5px;
+	background:#d8d8d8;
+	
+}
+
+.groups_assignement_header {
+	
+	width:445px;
+	float:left;
+	padding-bottom:5px;
+	
+}
+
+.assigned_groups {
+	
+	width:445px;
+	float:left;
+	margin-right:20px;
+	
+}
+
+.remove_group {
+	
+	width:445px;
+	float:left;
+	margin-top:5px;
+	text-align:right;
+	
+}
+
+.available_groups {
+	
+	width:445px;
+	float:left;
+	
+}
+
+.add_group {
+	
+	width:445px;
+	float:left;
+	margin-top:5px;
+	text-align:left;
+	
+}
+
+.cancel_button {
+	
+	clear:left;
+	padding-top:5px;
+	
+}
+
+#editor_navigation {
+	
+	width:100%;
+	float:left;
+	margin-top:5px;
+	color:#666666;
+	
+}
+
+#editor_navigation a {
+	
+	color:#666666;
+	
+}
+
+#editor_navigation a:hover {
+	
+	color:#333333;
+	
+}
+
+#editor_navigation .totals {
+	
+	float:left;
+	
+}
+
+#editor_navigation .navigation {
+	
+	float:right;
+	
+}
+
+#editor_navigation .pages {
+	
+	float:left;
+	margin-right:5px;
+	
+}
+
+#editor_navigation .previous {
+	
+	float:left;
+	margin-right:5px;
+	padding-right:5px;
+	border-right:1px solid #666666;
+	
+}
+
+#editor_navigation .next {
+	
+	float:left;
+	
+}
+
+#editor_options {
+	
+	width:100%;
+	float:left;
+	margin-top:5px;
+	padding-bottom:5px;
+	
+}
+
+#add_user_container {
+	
+	width:100%;
+	float:left;
+	padding-bottom:5px;
+	color:#333333;
+	
+}
+
+#add_user_container form {
+	
+	padding:5px;
+	background:#d8d8d8;
+	
+}
+
+.subheader_title {
+	
+	width:100%;
+	float:left;
+	margin:5px 0px 5px 0px;
+	padding-bottom:5px;
+	font-size:12pt;
+	font-weight:bold;
+	color:#333333;
+	border-bottom:1px solid #333333;
+	
+}
+
+.subheader_title a {
+	
+	text-decoration:none;
+	color:#d8d8d8;
+	
+}
+
+.subheader_title a:hover {
+	
+	text-decoration:underline;
+	
+}

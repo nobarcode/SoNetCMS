@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>File Manager</title>
+<link rel="stylesheet" type="text/css" href="styles/reset.css" />
+<link rel="stylesheet" type="text/css" href="scripts/jquery.alerts/jquery.alerts.css" />
+<link rel="stylesheet" type="text/css" href="scripts/jquery.filetree/jqueryFileTree.css" />
+<link rel="stylesheet" type="text/css" href="scripts/jquery.contextmenu/jquery.contextMenu.css" />
+<link rel="stylesheet" type="text/css" href="scripts/jquery.layout/layout-default-latest.css" />
+<link rel="stylesheet" type="text/css" href="styles/filemanager.css" />
+</head>
+<body>
+<div id="header" class="ui-layout-north">
+	<div id="location"><h1></h1></div>
+	<div id="uploaderOptions">
+		<form id="uploader" method="post">
+		<input id="mode" name="mode" type="hidden" value="add" /> <input id="currentpath" name="currentpath" type="hidden" /> <input id="newfile" name="newfile" type="file" /> <select id="newfile_security" name="newfile_security"><option value="private">Private</option><option value="friends">Friends Only</option><option value="authenticated">Site Members</option><option value="public">Public</option></select>
+		<button id="upload" name="upload" type="submit" value="Upload"><span></span></button>
+		<button id="newfolder" name="newfolder" type="button" value="New Folder"><span></span></button>
+		<button id="grid" class="ON" type="button"><span>&nbsp;</span></button>
+		<button id="list" type="button"><span>&nbsp;</span></button>
+		</form>
+	</div>
+	<div id="uploading"></div>
+</div>
+<div id="filetree" class="ui-layout-west"></div>
+<div id="fileinfo" class="ui-layout-center"></div>
+<ul id="itemOptions" class="contextMenu">
+	<li class="select separator"><a href="#select"></a></li>
+	<li class="download separator"><a href="#download"></a></li>
+	<li class="rename separator"><a href="#rename"></a></li>
+	<li class="delete separator"><a href="#delete"></a></li>
+	<li class="copy"><a href="#copy"></a></li>
+	<li class="cut"><a href="#cut"></a></li>
+	<li class="paste"><a href="#paste"></a></li>
+	
+</ul>
+<ul id="homeItemOptions" class="contextMenu">
+	<li class="paste"><a href="#paste"></a></li>
+</ul>
+<script type="text/javascript" src="/assets/core/resources/javascript/jquery.js"></script>
+<script type="text/javascript" src="/assets/core/resources/javascript/jquery-ui.js"></script>
+<script type="text/javascript" src="scripts/jquery.cookie/jquery.cookie.js"></script>
+<script type="text/javascript" src="scripts/jquery.form/jquery.form.js"></script>
+<script type="text/javascript" src="scripts/jquery.layout/jquery.layout-latest.js"></script>
+<script type="text/javascript" src="scripts/jquery.filetree/jqueryFileTree.js"></script>
+<script type="text/javascript" src="scripts/jquery.contextmenu/jquery.contextMenu.js"></script>
+<script type="text/javascript" src="scripts/jquery.alerts/jquery.alerts.js"></script>
+<script type="text/javascript" src="scripts/DataTables-1.7.4/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="scripts/DataTables-FileManager/FileManager.js"></script>
+<script type="text/javascript" src="scripts/filemanager.config.js"></script>
+<script type="text/javascript" src="scripts/filemanager.js"></script>
+</body>
+</html>
