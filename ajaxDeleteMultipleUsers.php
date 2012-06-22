@@ -22,30 +22,30 @@ if (is_array($multipleId)) {
 			
 			//if user to delete is not a master account, continue with deletion
 			if ($row->level != 1) {
-			
+				
 				//delete this user's friends
 				mysql_query("DELETE FROM friends WHERE owner = '{$multipleId[$x]}'");
-		
+				
 				//delete user from any user who has this user as a friend (regardless of status) and reorder their friend's list for them
 				$result = mysql_query("SELECT owner FROM friends WHERE friend = '{$multipleId[$x]}'");
-		
+				
 				while($row = mysql_fetch_object($result)) {
-		
+					
 					$weight = mysql_result(mysql_query("SELECT weight FROM friends WHERE owner = '{$row->owner}' AND friend = '{$multipleId[$x]}'"), 0, "weight");
 					$totalRows = mysql_result(mysql_query("SELECT COUNT(*) AS totalRows FROM friends WHERE owner = '{$row->owner}'"), 0, "totalRows");
-		
+					
 					if ($totalRows == 0) {$error = 1;}
-		
+					
 					if ($error != 1) {
-		
+						
 						mysql_query("DELETE FROM friends WHERE owner = '{$row->owner}' AND friend = '{$multipleId[$x]}'");
-		
+						
 						for ($x = $weight + 1; $x <= $totalRows; $x++) {
-		
+							
 							mysql_query("UPDATE friends SET weight = (weight-1) WHERE owner = '{$row->owner}' AND weight = '{$x}'");
-		
+							
 						}
-		
+						
 					}
 					
 				}
@@ -105,6 +105,7 @@ if (is_array($multipleId)) {
 				
 				//delete the user's personal directory
 				$script_directory = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
+				mysql_query("DELETE FROM fileManager WHERE fsPath LIKE BINARY '{$script_directory}/cms_users/{$multipleId[$x]}%'");
 				deleteTree("$script_directory/cms_users/$multipleId[$x]");
 				
 			}
@@ -135,6 +136,7 @@ function deleteGroup($result) {
 			
 			//delete the user's personal directory
 			$script_directory = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
+			mysql_query("DELETE FROM fileManager WHERE fsPath LIKE BINARY '{$script_directory}/cms_groups/{$row->parentId}%'");
 			deleteTree("$script_directory/cms_groups/$row->parentId");
 			
 		}
@@ -143,27 +145,75 @@ function deleteGroup($result) {
 	
 }
 
-function deleteTree($dir) {
+function deleteTree($dir,$deleteRootToo=true) {
 	
-	$dir = rtrim($dir, '/');
-	
-	foreach(glob($dir . '/*') as $file) {
+	if(!$dh = @opendir($dir)) {
 		
-		if(is_dir($file)) {
+		return;
+		
+	}
+	
+	while(false !== ($obj = readdir($dh))) {
+		
+		if($obj == '.' || $obj == '..') {
 			
-			deleteTree($file);
+			continue;
 			
-		} else {
+		}
+		 
+		if(!@unlink($dir . '/' . $obj)) {
 			
-			unlink($file);
-			mysql_query("DELETE FROM fileManager WHERE fsPath = '{$file}'");
+			deleteTree($dir . '/' . $obj, true);
 			
 		}
 		
 	}
+
+	closedir($dh);
+
+	if($deleteRootToo) {
+		
+		@rmdir($dir);
+		
+	}
 	
-	rmdir($dir);
+	return(true);
 	
 }
+
+//I've seen some behavior where more than just the directory that was
+//passed is deleted. (i.e. passed: /dir/dir1/dir2/ and everything in
+///dir2 is deleted as well as everything in /dir1) The function below
+//will be temprarily replaced by the function above for testing.
+
+//Affects:
+// ajaxDeleteGroup
+// ajaxDeleteMultipleGroups
+// ajaxDeleteMultipleUsers
+// ajaxDeleteUser
+// deleteGroup
+
+//function deleteTree($dir) {
+//	
+//	$dir = rtrim($dir, '/');
+//	
+//	foreach(glob($dir . '/*') as $file) {
+//		
+//		if(is_dir($file)) {
+//			
+//			deleteTree($file);
+//			
+//		} else {
+//			
+//			unlink($file);
+//			mysql_query("DELETE FROM fileManager WHERE fsPath = '{$file}'");
+//			
+//		}
+//		
+//	}
+//	
+//	rmdir($dir);
+//	
+//}
 
 ?>

@@ -115,6 +115,26 @@ if ($error != 1) {
 		$script_directory = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
 		rename("$script_directory/cms_users/$oldUsername", "$script_directory/cms_users/$username");
 		
+		//update filemanager database links
+		$oldFsPath = "$script_directory/cms_users/$oldUsername";
+		
+		$result = mysql_query("SELECT wwwPath, fsPath FROM fileManager WHERE fsPath LIKE BINARY '{$oldFsPath}%'");
+		
+		while ($row = mysql_fetch_object($result)) {
+			
+			$updatedWwwPath = str_replace("/cms_users/$oldUsername", "/cms_users/$username", $row->wwwPath);
+			$updatedFsPath = str_replace("/cms_users/$oldUsername", "/cms_users/$username", $row->fsPath);
+			
+			mysql_query("UPDATE fileManager SET wwwPath = '{$updatedWwwPath}', fsPath = '{$updatedFsPath}' WHERE fsPath = '{$row->fsPath}'");
+			
+		}
+		
+		//update user's profile photo url
+		$result = mysql_query("SELECT imageUrl FROM users WHERE username = '{$username}'");
+		$row = mysql_fetch_object($result);
+		$updatedPath = str_replace("/cms_users/$oldUsername", "/cms_users/$username", $row->imageUrl);
+		mysql_query("UPDATE users SET imageUrl = '{$updatedPath}' WHERE username = '{$username}'");
+				
 		//update user's image body text with the new path
 		$result = mysql_query("SELECT id, body, imageUrl FROM imagesUsers WHERE username = '{$username}'");
 		

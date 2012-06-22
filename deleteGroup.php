@@ -51,6 +51,7 @@ if ($error != 1) {
 		
 		//delete the user's personal directory
 		$script_directory = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
+		mysql_query("DELETE FROM fileManager WHERE fsPath LIKE BINARY '{$script_directory}/cms_groups/{$groupId}%'");
 		deleteTree("$script_directory/cms_groups/$groupId");
 		
 	}
@@ -59,27 +60,75 @@ if ($error != 1) {
 	
 }
 
-function deleteTree($dir) {
+function deleteTree($dir,$deleteRootToo=true) {
 	
-	$dir = rtrim($dir, '/');
-	
-	foreach(glob($dir . '/*') as $file) {
+	if(!$dh = @opendir($dir)) {
 		
-		if(is_dir($file)) {
+		return;
+		
+	}
+	
+	while(false !== ($obj = readdir($dh))) {
+		
+		if($obj == '.' || $obj == '..') {
 			
-			deleteTree($file);
+			continue;
 			
-		} else {
+		}
+		 
+		if(!@unlink($dir . '/' . $obj)) {
 			
-			unlink($file);
-			mysql_query("DELETE FROM fileManager WHERE fsPath = '{$file}'");
+			deleteTree($dir . '/' . $obj, true);
 			
 		}
 		
 	}
+
+	closedir($dh);
+
+	if($deleteRootToo) {
+		
+		@rmdir($dir);
+		
+	}
 	
-	rmdir($dir);
+	return(true);
 	
 }
+
+//I've seen some behavior where more than just the directory that was
+//passed is deleted. (i.e. passed: /dir/dir1/dir2/ and everything in
+///dir2 is deleted as well as everything in /dir1) The function below
+//will be temprarily replaced by the function above for testing.
+
+//Affects:
+// ajaxDeleteGroup
+// ajaxDeleteMultipleGroups
+// ajaxDeleteMultipleUsers
+// ajaxDeleteUser
+// deleteGroup
+
+//function deleteTree($dir) {
+//	
+//	$dir = rtrim($dir, '/');
+//	
+//	foreach(glob($dir . '/*') as $file) {
+//		
+//		if(is_dir($file)) {
+//			
+//			deleteTree($file);
+//			
+//		} else {
+//			
+//			unlink($file);
+//			mysql_query("DELETE FROM fileManager WHERE fsPath = '{$file}'");
+//			
+//		}
+//		
+//	}
+//	
+//	rmdir($dir);
+//	
+//}
 
 ?>

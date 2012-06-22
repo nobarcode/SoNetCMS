@@ -268,7 +268,7 @@ function changeUserStatus(username) {
 		
 	}).done(function(data) {
 		
-		$('user_status_' + username).html(data);
+		$('#user_status_' + username).html(data);
 		
 	});
 	

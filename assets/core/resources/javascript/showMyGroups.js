@@ -2,7 +2,7 @@ function deleteGroup(groupId, s, nameOrder, membersOrder, typeOrder, levelOrder,
 	
 	$.ajax({
 		
-		url: '/ajaxShowMyGroupsDeleteGroup.php',
+		url: '/ajaxDeleteGroup.php',
 		type: 'post',
 		dataType: 'text',
 		data: {groupId: groupId}
@@ -19,7 +19,7 @@ function deleteMultipleGroups(s, nameOrder, membersOrder, typeOrder, levelOrder,
 	
 	$.ajax({
 		
-		url: '/ajaxShowMyGroupsDeleteMultipleGroups.php',
+		url: '/ajaxDeleteMultipleGroups.php',
 		type: 'post',
 		dataType: 'text',
 		data: $('#deleteMultipleGroups').serialize()

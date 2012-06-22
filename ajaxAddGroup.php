@@ -81,38 +81,7 @@ if ($error == 1) {
 			} else {
 				
 				$script_directory = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
-
-				//create this group's file directory
-				if(mkdir("$script_directory/cms_groups/$groupId")) {
-					
-					//set the access files for this group's directory
-					$fm_access_file_contents .= "upload.maxsize=10MB\n";
-					$fm_access_file_contents .= "upload.extensions=pdf,zip,txt,swf,dcr,mov,qt,ram,rm,avi,mp3,mp4,mpg,mpeg,asf,flv,doc,docx,xls\n";
-
-					$im_access_file_contents .= "upload.maxsize=10MB\n";
-					$im_access_file_contents .= "upload.extensions=gif,jpg,png,bmp,swf,dcr,mov,qt,ram,rm,avi,mpg,mpeg,asf,flv\n";
-					$im_access_file_contents .= "upload.autoresize=true\n";
-
-					//write the access files
-					$resource = fopen("$script_directory/cms_groups/$groupId/fm_access", "w");
-					fwrite($resource, $fm_access_file_contents);
-					fclose($resource);
-
-					$resource = fopen("$script_directory/cms_groups/$groupId/im_access", "w");
-					!fwrite($resource, $im_access_file_contents);
-					fclose($resource);
-
-					//if a summary image was provided, copy it from the user's directory to the group's directory and update the database
-					if (trim($summaryImage) != "") {
-
-						$copyToGroupDirectory = "$script_directory/cms_groups/$groupId/" . basename($summaryImage);
-						$updateSummaryImage = "/cms_groups/$groupId/" . basename($summaryImage);
-						copy("$script_directory/$summaryImage", $copyToGroupDirectory);
-						mysql_query("UPDATE groups SET summaryImage = '{$updateSummaryImage}' WHERE id = '{$groupId}'");
-
-					}
-					
-				}
+				mkdir("$script_directory/cms_groups/$groupId");
 				
 			}
 			

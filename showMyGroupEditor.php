@@ -102,7 +102,7 @@ print <<< EOF
 			<div id="message_box" style="display:none;" onClick="$(this).hide();"></div>
 			<div class="subheader_title">Group Editor</div>
 			<div class="editor_box_container">
-				<form id="newDocumentForm" action="showMyBlogEditor.php" method="post" enctype="multipart/form-data">
+				<form id="newDocumentForm" action="ajaxAddGroup.php" method="post" enctype="multipart/form-data">
 				<table border="0" cellspacing="0" cellpadding="2" width="100%">
 					<tr valign="center"><td nowrap>Group Name:</td><td width="100%"><input type="text" id="name" name="name"$showName style="width:99%"></td></tr>
 					<tr valign="center"><td nowrap>Image or Logo:</td><td width="100%"><input style="width:450px;" type="text" id="summaryImage" name="summaryImage"$showSummaryImage><input style="margin-left:5px;" type="button" onclick="openFileManager('selectPath', 'summaryImage');" value="Browse"></td></tr>

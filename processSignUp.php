@@ -118,7 +118,7 @@ if ($error != 1) {
 			
 			include("assets/core/config/notifications/process_sign_up/notification.php");
 			
-			mysql_query("INSERT INTO messages (dateSent, toUser, fromUser, subject, body, status, system) VALUES ($time, '{$row->username}', '{$username}', '" . sanitize_string($subjectSystem) . "', '" . sanitize_string($messageSystem) . "', 'unread', 1)");
+			mysql_query("INSERT INTO messages (dateSent, toUser, fromUser, subject, body, status, system) VALUES ($time, '{$row->username}', '{$username}', '" . sanitize_string($subject) . "', '" . sanitize_string($message) . "', 'unread', 1)");
 			
 			if ($row->allowEmailNotifications == 1) {
 				
