@@ -12,7 +12,8 @@ if (trim($groupId) != "") {
 			$script_directory = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
 
 			//set this new user's file manager session variables	
-			$_SESSION['rootPath'] = "$script_directory/cms_groups/" . $groupId;
+			$_SESSION['sysRootPath'] = "$script_directory/cms_groups/$groupId";
+			$_SESSION['wwwRootPath'] = "/cms_groups/$groupId";
 
 		}
 

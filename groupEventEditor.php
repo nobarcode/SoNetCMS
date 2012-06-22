@@ -9,9 +9,10 @@ include("requestVariableSanitizer.inc");
 include("class_site_container.php");
 include("class_category_user_group_validator.php");
 include("class_config_reader.php");
-include("part_update_rootPath_group.php");
 
 $groupId = sanitize_string($_REQUEST['groupId']);
+include("part_update_rootPath_group.php");
+
 $id = sanitize_string($_REQUEST['id']);
 $category = sanitize_string($_REQUEST['category']);
 $subcategory = sanitize_string($_REQUEST['subcategory']);

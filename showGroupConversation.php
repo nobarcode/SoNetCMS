@@ -9,6 +9,7 @@ include("class_site_container.php");
 include("class_category_user_group_validator.php");
 include("class_group_membership_validator.php");
 include("class_config_reader.php");
+include("part_update_rootPath_user.php");
 
 $parentId = sanitize_string($_REQUEST['parentId']);
 $findId = sanitize_string($_REQUEST['findId']);

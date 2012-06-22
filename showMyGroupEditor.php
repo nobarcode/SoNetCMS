@@ -9,9 +9,9 @@ include("requestVariableSanitizer.inc");
 include("class_site_container.php");
 include("class_category_user_group_validator.php");
 include("class_config_reader.php");
-include("part_update_rootPath_group.php");
 
 $groupId = sanitize_string($_REQUEST['groupId']);
+include("part_update_rootPath_group.php");
 
 //check if a group is being edited
 if (trim($groupId) != "") {
