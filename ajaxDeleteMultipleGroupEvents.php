@@ -10,7 +10,7 @@ include("class_config_reader.php");
 $groupId = sanitize_string($_REQUEST['groupId']);
 $multipleId = sanitize_string($_REQUEST['multipleId']);
 
-if (trim($groupId) == "") {exit;}
+if (trim($groupId) == ""|| !is_array($multipleId)) {exit;}
 
 //validate group and requesting user access rights
 if ($_SESSION['userLevel'] != 1 && $_SESSION['userLevel'] != 2 || $_SESSION['userLevel'] != 3) {
@@ -26,15 +26,13 @@ if ($_SESSION['userLevel'] != 1 && $_SESSION['userLevel'] != 2 || $_SESSION['use
 
 }
 
-if (!is_array($multipleId)) {exit;}
-	
-for ($x = 0; $x < count($multipleId); $x++) {
+foreach($multipleId as $id) {
 	
 	//delete the document's comments and any votes associated to each comment
-	mysql_query("DELETE commentsDocuments, documentVotes FROM commentsDocuments LEFT JOIN documentVotes ON documentVotes.parentId = commentsDocuments.id AND documentVotes.type = 'eventComment' WHERE commentsDocuments.parentId = '{$multipleId[$x]}' AND commentsDocuments.type = 'eventComment'");
+	mysql_query("DELETE commentsDocuments, documentVotes FROM commentsDocuments LEFT JOIN documentVotes ON documentVotes.parentId = commentsDocuments.id AND documentVotes.type = 'eventComment' WHERE commentsDocuments.parentId = '{$id}' AND commentsDocuments.type = 'eventComment'");
 	
 	//delete the document and its associated votes if there are any
-	mysql_query("DELETE FROM events WHERE id = '{$multipleId[$x]}' AND groupId = '{$groupId}'");
+	mysql_query("DELETE FROM events WHERE id = '{$id}' AND groupId = '{$groupId}'");
 	
 }
 

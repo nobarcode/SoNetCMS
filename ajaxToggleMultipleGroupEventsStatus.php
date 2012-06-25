@@ -8,7 +8,7 @@ include("class_category_user_group_validator.php");
 include("class_config_reader.php");
 
 $groupId = sanitize_string($_REQUEST['groupId']);
-$toggleStatusId = sanitize_string($_REQUEST['multipleId']);
+$multipleId = sanitize_string($_REQUEST['multipleId']);
 
 if (trim($groupId) == "") {exit;}
 
@@ -26,12 +26,12 @@ if ($_SESSION['userLevel'] != 1 && $_SESSION['userLevel'] != 2 || $_SESSION['use
 
 }
 
-if (!is_array($toggleStatusId)) {exit;}
+if (!is_array($multipleId)) {exit;}
 	
-for ($x = 0; $x < count($toggleStatusId); $x++) {
+foreach($multipleId as $id) {
 	
 	//update the publishState based on its current state
-	mysql_query("UPDATE events SET publishState = IF(publishState = 'Unpublished', 'Published', IF(publishState = 'Published', 'Unpublished', publishState)) WHERE id = '{$toggleStatusId[$x]}' AND groupId = '{$groupId}'");
+	mysql_query("UPDATE events SET publishState = IF(publishState = 'Unpublished', 'Published', IF(publishState = 'Published', 'Unpublished', publishState)) WHERE id = '{$id}' AND groupId = '{$groupId}'");
 	
 }
 

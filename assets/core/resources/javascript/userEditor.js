@@ -104,7 +104,7 @@ function initEditUser(username, s) {
 					
 					url: this.action,
 					type: 'post',
-					dataType: 'text',
+					dataType: 'script',
 					data: $(this).serialize()
 					
 				}).complete(function() {

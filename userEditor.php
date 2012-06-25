@@ -9,6 +9,7 @@ include("part_admin_check.php");
 include("requestVariableSanitizer.inc");
 include("class_category_user_group_validator.php");
 include("class_config_reader.php");
+include("part_update_rootPath_user.php");
 include("assets/core/config/part_profile_variables.php");
 include("assets/core/config/part_user_levels.php");
 

@@ -9,15 +9,11 @@ include("class_config_reader.php");
 
 $deleteId = sanitize_string($_REQUEST['deleteId']);
 
-if (!is_array($deleteId) || trim($_SESSION['username']) == "") {$error = 1;}
+if (!is_array($deleteId) || trim($_SESSION['username']) == "") {exit;}
 
-if ($error != 1) {
+foreach($deleteId as $id) {
 	
-	for ($x = 0; $x < count($deleteId); $x++) {
-		
-		mysql_query("DELETE FROM messages WHERE id = '{$deleteId[$x]}' AND toUser = '{$_SESSION['username']}'");
-		
-	}
+	mysql_query("DELETE FROM messages WHERE id = '{$id}' AND toUser = '{$_SESSION['username']}'");
 	
 }
 

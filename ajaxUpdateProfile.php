@@ -55,6 +55,9 @@ if (trim($password) != "") {
 if (trim($name) == "") {$error = 1; $errorMessage .= "- Please provide a name.<br>";}
 if (trim($email) == "") {$error = 1; $errorMessage .= "- Please provide an e-mail address.<br>";}
 
+$result = mysql_query("SELECT email FROM users WHERE email = '{$email}' AND username != '{$_SESSION['username']}'");
+if (mysql_num_rows($result) > 0) {$error = 1; $errorMessage .= "- The e-mail address you supplied is not available.<br>";}
+
 if ($error != 1) {
 	
 	$dateOfBirth = "$birthYear-$birthMonth-$birthDay";

@@ -447,6 +447,18 @@ if (trim($submit) != "" && $error != 1) {
 				
 			}
 			
+			//rename logs htaccess
+			if(rename("$script_directory/assets/logs/_htaccess", "$script_directory/assets/logs/.htaccess")) {
+				
+				$message .= "<div style=\"font-weight:bold; color:#006600;\">logs .htaccess file setup successfully.</div>\n";
+				$success++;
+				
+			} else {	
+				
+				$message .= "<div style=\"font-weight:bold; color:#660000;\">Unable to setup logs .htaccess file.</div>\n";
+				
+			}
+			
 		} else {
 			
 			$message .= "<div style=\"font-weight:bold; color:#660000;\">Error creating database: ". mysql_error() . "</div>";
@@ -461,7 +473,7 @@ if (trim($submit) != "" && $error != 1) {
 	
 	$message .= "</div>";
 	
-	if ($success == 15) {
+	if ($success == 16) {
 		
 		$message .= "<div style=\"padding:5px; background:#006600; color:#ffffff; border-right:1px solid #006600; border-bottom:1px solid #006600; border-left:1px solid #006600;\">Your SoNet setup appears to have completed successfully! <a style=\"color:#ffffff;\" href=\"assets/_delete_me.php\">Click here</a> to choose an administrative username and password and initiate the installation clean-up process. Please note that you must manually delete the file: <i>_delete_me.php</i> from your server.</div>";
 		

@@ -29,7 +29,7 @@ $orientation = sanitize_string($_REQUEST['orientation']);
 $religion = sanitize_string($_REQUEST['religion']);
 $smoke = sanitize_string($_REQUEST['smoke']);
 $drink = sanitize_string($_REQUEST['drink']);
-$hereFor = implode("", sanitize_string($_REQUEST['hereFor']));
+$hereFor = convertCheckboxes(sanitize_string($_REQUEST['hereFor']));
 $city = sanitize_string($_REQUEST['city']);
 $state = sanitize_string($_REQUEST['state']);
 $zip = sanitize_string($_REQUEST['zip']);
@@ -45,6 +45,19 @@ if (trim($oldUsername) == "") {exit;}
 
 if (trim($username) == "") {$error = 1; $errorMessage .= "- Please provide a username.<br>";}
 if (trim($username) !="" && !preg_match("/^[0-9a-z_:.-]+$/i", $username)) {$error = 1; $errorMessage .="- Usernames can only contain letters and numbers or the following: hyphens (\"-\"), underscores (\"_\"), colons (\":\"), or periods (\".\")<br>";}
+
+//if a new username is supplied, check if the new username already exists
+if ($username != $oldUsername) {
+	
+	$result = mysql_query("SELECT username FROM users WHERE username = '{$username}'"); 
+	
+	if (mysql_num_rows($result) > 0) {
+		
+		$error = 1; $errorMessage .= "- The supplied username already exists.<br>";
+		
+	}
+	
+}
 
 if (trim($password) != "") {
 	
@@ -68,7 +81,7 @@ if ($row->level == 1 && $_SESSION['userLevel'] != 1) {
 	
 }
 
-//check is user being edited is trying to be set as a master account, if it is and there is already a master account, deny the request
+//check is user being edited is trying to be set as a master account, if it is and there is already a master account, deny the request -- unless it's the master account that attempting to set it
 $result = mysql_query("SELECT username FROM users WHERE level = 1"); 
 $row = mysql_fetch_object($result);
 
@@ -116,14 +129,14 @@ if ($error != 1) {
 		rename("$script_directory/cms_users/$oldUsername", "$script_directory/cms_users/$username");
 		
 		//update filemanager database links
-		$oldFsPath = "$script_directory/cms_users/$oldUsername";
+		$oldFsPath = "$script_directory/cms_users/$oldUsername/";
 		
 		$result = mysql_query("SELECT wwwPath, fsPath FROM fileManager WHERE fsPath LIKE BINARY '{$oldFsPath}%'");
 		
 		while ($row = mysql_fetch_object($result)) {
 			
-			$updatedWwwPath = str_replace("/cms_users/$oldUsername", "/cms_users/$username", $row->wwwPath);
-			$updatedFsPath = str_replace("/cms_users/$oldUsername", "/cms_users/$username", $row->fsPath);
+			$updatedWwwPath = str_replace("/cms_users/$oldUsername/", "/cms_users/$username/", $row->wwwPath);
+			$updatedFsPath = str_replace("/cms_users/$oldUsername/", "/cms_users/$username/", $row->fsPath);
 			
 			mysql_query("UPDATE fileManager SET wwwPath = '{$updatedWwwPath}', fsPath = '{$updatedFsPath}' WHERE fsPath = '{$row->fsPath}'");
 			
@@ -132,7 +145,7 @@ if ($error != 1) {
 		//update user's profile photo url
 		$result = mysql_query("SELECT imageUrl FROM users WHERE username = '{$username}'");
 		$row = mysql_fetch_object($result);
-		$updatedPath = str_replace("/cms_users/$oldUsername", "/cms_users/$username", $row->imageUrl);
+		$updatedPath = str_replace("/cms_users/$oldUsername/", "/cms_users/$username/", $row->imageUrl);
 		mysql_query("UPDATE users SET imageUrl = '{$updatedPath}' WHERE username = '{$username}'");
 				
 		//update user's image body text with the new path
@@ -140,8 +153,8 @@ if ($error != 1) {
 		
 		while($row = mysql_fetch_object($result)) {
 			
-			$newImageURL = preg_replace("/users\/$oldUsername\//", "users/$username/", $row->imageUrl);
-			$newBody = preg_replace("/users\/$oldUsername\//", "users/$username/", $row->body);
+			$newImageURL = str_replace("/cms_users/$oldUsername/", "/cms_users/$username/", $row->imageUrl);
+			$newBody = str_replace("/cms_users/$oldUsername/", "/cms_users/$username/", $row->body);
 			
 			mysql_query("UPDATE imagesUsers SET body = '{$newBody}', imageUrl = '{$newImageURL}' WHERE id = '{$row->id}'");
 			
@@ -152,7 +165,7 @@ if ($error != 1) {
 		
 		while($row = mysql_fetch_object($result)) {
 			
-			$newBody = preg_replace("/users\/$oldUsername\//", "users/$username/", $row->body);
+			$newBody = str_replace("/cms_users/$oldUsername/", "/cms_users/$username/", $row->body);
 			mysql_query("UPDATE blogs SET body = '{$newBody}' WHERE id = '{$row->id}'");
 			
 		}
@@ -181,5 +194,17 @@ print <<< EOF
 $('#message_box').html('<div>User information updated successfully.</div>');
 $('#message_box').show();
 EOF;
+
+function convertCheckboxes($data) {
+	
+	for ($x = 0; $x < count($data); $x++) {
+		
+		$return .= "<" . $data[$x] . ">";
+		
+	}
+	
+	return($return);
+	
+}
 
 ?>

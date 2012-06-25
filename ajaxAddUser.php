@@ -53,7 +53,7 @@ $result = mysql_query("SELECT username FROM users WHERE username = '{$username}'
 $row = mysql_fetch_object($result);
 $matchRows = mysql_num_rows($result);
 
-if ($matchRows > 0) {$error = 1; $errorMessage .= "- The username provided already exists.<br>";}
+if ($matchRows > 0) {$error = 1; $errorMessage .= "- The supplied username already exists.<br>";}
 
 if ($error != 1) {
 	

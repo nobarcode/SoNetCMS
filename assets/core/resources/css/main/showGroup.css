@@ -116,6 +116,7 @@
 	
 	width:920px;
 	float:left;
+	margin-top:20px;
 	
 }
 
@@ -148,7 +149,7 @@
 	
 	float:left;
 	padding:5px;
-	margin-top:5px;
+	margin-bottom:5px;
 	color:#ffffff;
 	background:#365164;
 	
@@ -194,7 +195,6 @@
 	
 	width:910px;
 	float:left;
-	margin-top:5px;
 	padding:5px;
 	color:#ffffff;
 	background:#365164;

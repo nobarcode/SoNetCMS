@@ -10,31 +10,50 @@ include("class_config_reader.php");
 $deleteId = sanitize_string($_REQUEST['deleteId']);
 
 if (!is_array($deleteId) || trim($_SESSION['username']) == "") {exit;}
+
+$script_directory = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
+
+//log file
+if (file_exists("$script_directory/assets/logs/delete_group.html")) {
 	
-for ($x = 0; $x < count($deleteId); $x++) {
-	
-	if (validateGroupUserLevel($deleteId[$x])) {
+	if (filesize("$script_directory/assets/logs/delete_group.html") > 524288) {
 		
-		if (trim($deleteId[$x]) != "") {
+		unlink("$script_directory/assets/logs/delete_group.html");
+		
+	}
+	
+}
+
+$handle = fopen("$script_directory/assets/logs/delete_group.html", "a");
+fwrite($handle, "#" . date(DATE_ATOM) . " by " . $_SESSION['username'] . "@" . $_SERVER['REMOTE_ADDR'] . "<br>");
+
+foreach($deleteId as $id) {
+	
+	if (validateGroupUserLevel($id)) {
+		
+		if (trim($id) != "") {
 			
 			//delete the group's image gallery comments and any votes associated to each image gallery comment
-			mysql_query("DELETE commentsImages, documentVotes, imagesGroups FROM imagesGroups LEFT JOIN commentsImages ON commentsImages.parentId = imagesGroups.parentId AND commentsImages.imageId = imagesGroups.id AND commentsImages.type = 'groupImageComment' LEFT JOIN documentVotes ON documentVotes.parentId = commentsImages.id AND documentVotes.type = 'groupImageComment' WHERE imagesGroups.parentId = '{$deleteId[$x]}'");
+			mysql_query("DELETE commentsImages, documentVotes, imagesGroups FROM imagesGroups LEFT JOIN commentsImages ON commentsImages.parentId = imagesGroups.parentId AND commentsImages.imageId = imagesGroups.id AND commentsImages.type = 'groupImageComment' LEFT JOIN documentVotes ON documentVotes.parentId = commentsImages.id AND documentVotes.type = 'groupImageComment' WHERE imagesGroups.parentId = '{$id}'");
 			
 			//delete the group's conversations
-			mysql_query("DELETE conversationsPosts, conversations FROM conversations INNER JOIN conversationsPosts ON conversationsPosts.parentId = conversations.id WHERE conversations.groupId = '{$deleteId[$x]}'");
+			mysql_query("DELETE conversationsPosts, conversations FROM conversations INNER JOIN conversationsPosts ON conversationsPosts.parentId = conversations.id WHERE conversations.groupId = '{$id}'");
 			
-			//delete the group's events, event comments, and event comment votes
-			mysql_query("DELETE commentsDocuments, documentVotes, events FROM events LEFT JOIN commentsDocuments ON commentsDocuments.parentId = events.id AND commentsDocuments.type = 'eventComment' LEFT JOIN documentVotes ON documentVotes.parentId = commentsDocuments.id AND documentVotes.type = 'eventComment' WHERE events.groupId = '{$deleteId[$x]}'");
+			//delete the group's event, event comments, and event comment votes
+			mysql_query("DELETE commentsDocuments, documentVotes, events FROM events LEFT JOIN commentsDocuments ON commentsDocuments.parentId = events.id AND commentsDocuments.type = 'eventComment' LEFT JOIN documentVotes ON documentVotes.parentId = commentsDocuments.id AND documentVotes.type = 'eventComment' WHERE events.groupId = '{$id}'");
 			
 			//delete the group and its members
-			$result = mysql_query("DELETE groups, groupsMembers FROM groups LEFT JOIN groupsMembers ON groupsMembers.parentId = groups.id LEFT JOIN events ON events.groupId = groups.id WHERE groups.id = '{$deleteId[$x]}'");
+			$test = mysql_query("DELETE groups, groupsMembers FROM groups LEFT JOIN groupsMembers ON groupsMembers.parentId = groups.id WHERE groups.id = '{$id}'");
 			
-			if ($result) {
+			if ($test) {
 				
 				//delete the user's personal directory
-				$script_directory = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
-				mysql_query("DELETE FROM fileManager WHERE fsPath LIKE BINARY '{$script_directory}/cms_groups/{$deleteId[$x]}%'");
-				deleteTree("$script_directory/cms_groups/$deleteId[$x]");
+				mysql_query("DELETE FROM fileManager WHERE fsPath LIKE BINARY '{$script_directory}/cms_groups/{$id}/%'");
+				
+				//log file
+				fwrite($handle, "<br>#GROUP: " . $id . "<br>");
+				
+				deleteTree($handle, "$script_directory/cms_groups/$id");
 				
 			}
 			
@@ -66,75 +85,36 @@ function validateGroupUserLevel($deleteId) {
 	
 }
 
-function deleteTree($dir,$deleteRootToo=true) {
+
+function deleteTree($handle, $dir) {
 	
-	if(!$dh = @opendir($dir)) {
-		
-		return;
-		
-	}
+	$dir = rtrim($dir, '/');
 	
-	while(false !== ($obj = readdir($dh))) {
+	foreach(glob($dir . '/*') as $file) {
 		
-		if($obj == '.' || $obj == '..') {
+		if(is_dir($file)) {
 			
-			continue;
+			deleteTree($handle, $file);
 			
-		}
-		 
-		if(!@unlink($dir . '/' . $obj)) {
+		} else {
 			
-			deleteTree($dir . '/' . $obj, true);
+			unlink($file);
+			
+			//log file
+			fwrite($handle, " -- (f) " . date(DATE_ATOM) . " unlink: " . $file . "<br>");
 			
 		}
 		
 	}
-
-	closedir($dh);
-
-	if($deleteRootToo) {
-		
-		@rmdir($dir);
-		
-	}
 	
-	return(true);
+	rmdir($dir);
+	
+	//log file
+	fwrite($handle, " -- (d) " . date(DATE_ATOM) . " rmdir: " . $dir . "<br>");
 	
 }
 
-//I've seen some behavior where more than just the directory that was
-//passed is deleted. (i.e. passed: /dir/dir1/dir2/ and everything in
-///dir2 is deleted as well as everything in /dir1) The function below
-//will be temprarily replaced by the function above for testing.
-
-//Affects:
-// ajaxDeleteGroup
-// ajaxDeleteMultipleGroups
-// ajaxDeleteMultipleUsers
-// ajaxDeleteUser
-// deleteGroup
-
-//function deleteTree($dir) {
-//	
-//	$dir = rtrim($dir, '/');
-//	
-//	foreach(glob($dir . '/*') as $file) {
-//		
-//		if(is_dir($file)) {
-//			
-//			deleteTree($file);
-//			
-//		} else {
-//			
-//			unlink($file);
-//			mysql_query("DELETE FROM fileManager WHERE fsPath = '{$file}'");
-//			
-//		}
-//		
-//	}
-//	
-//	rmdir($dir);
-//	
-//}
+//log file
+fwrite($handle, "<br><hr><br>");
 
 ?>

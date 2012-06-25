@@ -10,18 +10,14 @@ include("class_config_reader.php");
 
 $deleteId = sanitize_string($_REQUEST['deleteId']);
 
-if (!is_array($deleteId)) {$error = 1;}
+if (!is_array($deleteId)) {exit;}
 
-if ($error != 1) {
+foreach($deleteId as $id) {
 	
-	for ($x = 0; $x < count($deleteId); $x++) {
-		
-		mysql_query("DELETE FROM userGroups WHERE id = '{$deleteId[$x]}'");
-		mysql_query("DELETE FROM userGroupsMembers WHERE groupId = '{$deleteId[$x]}'");
-		mysql_query("DELETE FROM categoriesUserGroups WHERE groupId = '{$deleteId[$x]}'");
-		mysql_query("UPDATE fileManager SET groupId = '' WHERE groupId = '{$deleteId[$x]}'");
-		
-	}
+	mysql_query("DELETE FROM userGroups WHERE id = '{$id}'");
+	mysql_query("DELETE FROM userGroupsMembers WHERE groupId = '{$id}'");
+	mysql_query("DELETE FROM categoriesUserGroups WHERE groupId = '{$id}'");
+	mysql_query("UPDATE fileManager SET groupId = '' WHERE groupId = '{$id}'");
 	
 }
 

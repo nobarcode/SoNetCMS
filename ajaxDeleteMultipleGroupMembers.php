@@ -10,7 +10,7 @@ include("class_config_reader.php");
 $groupId = sanitize_string($_REQUEST['groupId']);
 $multipleId = sanitize_string($_REQUEST['multipleId']);
 
-if (trim($groupId) == "" || !is_array($multipleId) || trim($_SESSION['username']) == "") {$error = 1;}
+if (trim($groupId) == "" || !is_array($multipleId) || trim($_SESSION['username']) == "") {exit}
 
 if ($_SESSION['userLevel'] != 1 && $_SESSION['userLevel'] != 2) {
 	
@@ -25,13 +25,9 @@ if ($_SESSION['userLevel'] != 1 && $_SESSION['userLevel'] != 2) {
 	
 }
 
-if ($error != 1) {
+foreach($multipleId as $id) {
 	
-	for ($x = 0; $x < count($multipleId); $x++) {
-		
-		mysql_query("DELETE FROM groupsMembers WHERE parentId = '{$groupId}' AND username = '{$multipleId[$x]}' AND memberLevel != '1'");
-		
-	}
+	mysql_query("DELETE FROM groupsMembers WHERE parentId = '{$groupId}' AND username = '{$id}' AND memberLevel != '1'");
 	
 }
 

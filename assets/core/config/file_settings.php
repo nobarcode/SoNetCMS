@@ -6,7 +6,7 @@ $messageTextColor = array(64, 64, 64);
 $font = '/assets/core/resources/fonts/Microsoft_Sans_Serif.ttf';
 
 //when an image is detected and the image cannot be displayed due to its security settings, a message is displayed in place of the detected image
-if ($security == "private") {
+if ($security == "private" || $security == "authenticated") {
 	
 	if ($width <= 300) {
 		

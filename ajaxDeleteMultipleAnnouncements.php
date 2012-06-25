@@ -10,15 +10,11 @@ include("class_config_reader.php");
 
 $multipleId = sanitize_string($_REQUEST['multipleId']);
 
-if (!is_array($multipleId)) {$error = 1;}
+if (!is_array($multipleId)) {exit;}
 
-if ($error != 1) {
+foreach($multipleId as $id) {
 	
-	for ($x = 0; $x < count($multipleId); $x++) {
-		
-		mysql_query("DELETE FROM announcements WHERE id = '{$multipleId[$x]}'");
-		
-	}
+	mysql_query("DELETE FROM announcements WHERE id = '{$id}'");
 	
 }
 

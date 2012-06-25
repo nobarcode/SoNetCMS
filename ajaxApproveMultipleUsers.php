@@ -16,13 +16,13 @@ $config->loadConfigFile('assets/core/config/config.properties');
 
 if (!is_array($multipleId)) {exit;}
 
-for ($x = 0; $x < count($multipleId); $x++) {
+foreach($multipleId as $id) {
 	
-	mysql_query("UPDATE users SET status = 'approved' WHERE username = '{$multipleId[$x]}' AND status != 'approved'");
+	mysql_query("UPDATE users SET status = 'approved' WHERE username = '{$id}' AND status != 'approved'");
 	
 	if (mysql_affected_rows() > 0) {
 		
-		$result = mysql_query("SELECT name, email, allowEmailNotifications FROM users WHERE username = '{$multipleId[$x]}' LIMIT 1");
+		$result = mysql_query("SELECT name, email, allowEmailNotifications FROM users WHERE username = '{$id}' LIMIT 1");
 		$row = mysql_fetch_object($result);
 		
 		if ($row->allowEmailNotifications == 1) {

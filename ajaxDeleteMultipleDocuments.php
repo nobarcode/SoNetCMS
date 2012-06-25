@@ -16,21 +16,21 @@ if (!is_array($multipleId)) {exit;}
 $userGroup = new CategoryUserGroupValidator();
 $excludeCategories = $userGroup->viewCategoryExclusionList('documents');
 
-for ($x = 0; $x < count($multipleId); $x++) {
+foreach($multipleId as $id) {
 	
 	//delete the document and its associated votes if there are any
-	mysql_query("DELETE documents, documentVotes FROM documents LEFT JOIN documentVotes ON documentVotes.parentId = documents.id AND documentVotes.type = 'document' WHERE documents.id = '{$multipleId[$x]}'$excludeCategories");
+	mysql_query("DELETE documents, documentVotes FROM documents LEFT JOIN documentVotes ON documentVotes.parentId = documents.id AND documentVotes.type = 'document' WHERE documents.id = '{$id}'$excludeCategories");
 	
 	if (mysql_affected_rows() > 0) {
 		
 		//delete the document's comments and any votes associated to each comment
-		mysql_query("DELETE commentsDocuments, documentVotes FROM commentsDocuments LEFT JOIN documentVotes ON documentVotes.parentId = commentsDocuments.id AND documentVotes.type = 'documentComment' WHERE commentsDocuments.parentId = '{$multipleId[$x]}' AND commentsDocuments.type = 'documentComment'");
+		mysql_query("DELETE commentsDocuments, documentVotes FROM commentsDocuments LEFT JOIN documentVotes ON documentVotes.parentId = commentsDocuments.id AND documentVotes.type = 'documentComment' WHERE commentsDocuments.parentId = '{$id}' AND commentsDocuments.type = 'documentComment'");
 		
 		//delete the document's image gallery comments and any votes associated to each image gallery comment
-		mysql_query("DELETE commentsImages, documentVotes FROM commentsImages LEFT JOIN documentVotes ON documentVotes.parentId = commentsImages.id AND documentVotes.type = 'documentImageComment' WHERE commentsImages.parentId = '{$multipleId[$x]}' AND commentsImages.type = 'documentImageComment'");
+		mysql_query("DELETE commentsImages, documentVotes FROM commentsImages LEFT JOIN documentVotes ON documentVotes.parentId = commentsImages.id AND documentVotes.type = 'documentImageComment' WHERE commentsImages.parentId = '{$id}' AND commentsImages.type = 'documentImageComment'");
 		
 		//delete the versioning information for each image related to this document
-		$result = mysql_query("SELECT id FROM imagesDocuments WHERE parentId = '{$multipleId[$x]}'");
+		$result = mysql_query("SELECT id FROM imagesDocuments WHERE parentId = '{$id}'");
 		while ($row = mysql_fetch_object($result)) {
 			
 			mysql_query("DELETE FROM documentVersioning WHERE parentId = '{$row->id}' AND documentType = 'documentImage'");
@@ -38,7 +38,7 @@ for ($x = 0; $x < count($multipleId); $x++) {
 		}
 		
 		//delete the document's image gallery
-		mysql_query("DELETE FROM imagesDocuments WHERE imagesDocuments.parentId = '{$multipleId[$x]}'");
+		mysql_query("DELETE FROM imagesDocuments WHERE imagesDocuments.parentId = '{$id}'");
 		
 		//delete document versioning information
 		mysql_query("DELETE FROM documentVersioning WHERE parentId = '{$id}' AND documentType = 'document'");
@@ -46,8 +46,8 @@ for ($x = 0; $x < count($multipleId); $x++) {
 		//delete document edit tracking data
 		mysql_query("DELETE FROM documentEditTracking WHERE documentType = 'document' AND id = '{$id}'");
 		
-		deleteFeatured($multipleId[$x]);
-		deleteFocused($multipleId[$x]);
+		deleteFeatured($id);
+		deleteFocused($id);
 		
 	}
 	

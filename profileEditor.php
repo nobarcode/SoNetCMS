@@ -10,6 +10,7 @@ include("class_site_container.php");
 include("class_category_user_group_validator.php");
 include("class_config_reader.php");
 include("assets/core/config/part_profile_variables.php");
+include("part_update_rootPath_user.php");
 
 //read config file and grab the allowed profile fields
 $config = new ConfigReader();

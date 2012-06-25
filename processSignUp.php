@@ -58,14 +58,14 @@ $testUsername = strtoupper($username);
 $result = mysql_query("SELECT username FROM users WHERE UPPER(username) = '{$testUsername}'");
 $row = mysql_fetch_object($result);
 
-if (mysql_num_rows($result) > 0) {$error = 1; $errorMessage .= "- The username you selected is not available.<br>";}
+if (mysql_num_rows($result) > 0) {$error = 1; $errorMessage .= "- The username you supplied is not available.<br>";}
 
 //check if the selected e-mail address already exists
 $testUsername = strtoupper($email);
 $result = mysql_query("SELECT email FROM users WHERE UPPER(email) = '{$email}'");
 $row = mysql_fetch_object($result);
 
-if (mysql_num_rows($result) > 0) {$error = 1; $errorMessage .= "- The e-mail address you selected is not available.<br>";}
+if (mysql_num_rows($result) > 0) {$error = 1; $errorMessage .= "- The e-mail address you supplied is not available.<br>";}
 
 if ($error != 1) {
 	

@@ -9,16 +9,12 @@ include("class_config_reader.php");
 
 $multipleId = sanitize_string($_REQUEST['multipleId']);
 
-if (!is_array($multipleId) || trim($_SESSION['username']) == "") {$error = 1;}
+if (!is_array($multipleId) || trim($_SESSION['username']) == "") {exit;}
 
-if ($error != 1) {
+foreach($multipleId as $id) {
 	
-	for ($x = 0; $x < count($multipleId); $x++) {
-		
-		mysql_query("DELETE blogs, documentVotes FROM blogs LEFT JOIN documentVotes ON documentVotes.parentId = blogs.id AND documentVotes.type = 'blog' WHERE blogs.id = '{$multipleId[$x]}' AND blogs.author = '{$_SESSION['username']}'");
-		mysql_query("DELETE commentsDocuments, documentVotes FROM commentsDocuments LEFT JOIN documentVotes ON documentVotes.parentId = commentsDocuments.id AND documentVotes.type = 'blogComment' WHERE commentsDocuments.parentId = '{$multipleId[$x]}' AND commentsDocuments.type = 'blogComment'");
-		
-	}
+	mysql_query("DELETE blogs, documentVotes FROM blogs LEFT JOIN documentVotes ON documentVotes.parentId = blogs.id AND documentVotes.type = 'blog' WHERE blogs.id = '{$id}' AND blogs.author = '{$_SESSION['username']}'");
+	mysql_query("DELETE commentsDocuments, documentVotes FROM commentsDocuments LEFT JOIN documentVotes ON documentVotes.parentId = commentsDocuments.id AND documentVotes.type = 'blogComment' WHERE commentsDocuments.parentId = '{$id}' AND commentsDocuments.type = 'blogComment'");
 	
 }
 
