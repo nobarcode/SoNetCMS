@@ -63,25 +63,25 @@ if ($result) {
 	//create a message for the user being added
 	include("assets/core/config/notifications/add_friend/notification.php");
 	
-	mysql_query("INSERT INTO messages (dateSent, toUser, fromUser, subject, body, status, system) VALUES ($time, '{$username}', '{$_SESSION['username']}', '" . sanitize_string($subject) . "', '" . sanitize_string($message) . "', 'unread', 1)");
+	mysql_query("INSERT INTO messages (dateSent, toUser, fromUser, subject, body, status, system) VALUES ($time, '{$username}', '{$_SESSION['username']}', '" . sanitize_string($subject) . "', '" . sanitize_string($notificationText) . "', 'unread', 1)");
 	
 	if ($row->allowEmailNotifications == 1) {
 		
 		//send an e-mail to the user being added
 		$to = $row->email;
 	
-		$messageEmail = "<html>";
-		$messageEmail .= "<body>";
-		$messageEmail .= $message;
-		$messageEmail .= "</body>";
-		$messageEmail .= "</html>";
+		$notificationEmail = "<html>";
+		$notificationEmail .= "<body>";
+		$notificationEmail .= $notificationText;
+		$notificationEmail .= "</body>";
+		$notificationEmail .= "</html>";
 		
 		$headers = "MIME-Version: 1.0\r\n"; 
 		$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
 		$headers .= "From: " . $config->readValue('siteEmailAddress') . "\r\n";
 		$headers .= "Reply-To: " . $config->readValue('siteEmailAddress') . "\r\n";
 		
-		mail($to, $subject, $messageEmail, $headers);
+		mail($to, $subject, $notificationEmail, $headers);
 		
 	}
 	

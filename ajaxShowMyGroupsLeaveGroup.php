@@ -62,23 +62,26 @@ if ($result) {
 	
 	while($row = mysql_fetch_object($result)) {
 		
-		//send a message to the owner/admin of the group
-		$subject = "A member has left $row->groupName";
-		$subject = sanitize_string($subject);
-		$messageSystem = "Hello $row->name,<br><br>A member has left $row->groupName<br><br>To view the group's current members <a href=\"manageGroupMembers.php?groupId=$groupId\">click here</a>.";
-		$messageSystem = sanitize_string($messageSystem);
+		include("assets/core/config/notifications/my_groups_leave_group/notification.php");
 		
-		mysql_query("INSERT INTO messages (dateSent, toUser, fromUser, subject, body, status, system) VALUES ($time, '{$row->username}', '{$_SESSION['username']}', '{$subject}', '{$messageSystem}', 'unread', 1)");
+		mysql_query("INSERT INTO messages (dateSent, toUser, fromUser, subject, body, status, system) VALUES ($time, '{$row->username}', '{$_SESSION['username']}', '" . sanitize_string($subject) . "', '" . sanitize_string($notificationText) . "', 'unread', 1)");
 		
 		if ($row->allowEmailNotifications == 1) {
 			
-			//send an e-mail to the owner/admin of the group
 			$to = $row->email;
-			$subject = "A member has left $row->groupName";
-			$message = "Hello $row->name,\n\nA member has left $row->groupName\n\nTo view the group's current members follow the link below:\n\nhttp://" . $_SERVER['HTTP_HOST'] . "/manageGroupMembers.php?groupId=$groupId";
-			$headers = "From: " . $config->readValue('siteEmailAddress') . "\r\nReply-To: " . $config->readValue('siteEmailAddress') . "\r\n";
 			
-			mail($to, $subject, $message, $headers);
+			$notificationEmail = "<html>";
+			$notificationEmail .= "<body>";
+			$notificationEmail .= $notificationText;
+			$notificationEmail .= "</body>";
+			$notificationEmail .= "</html>";
+			
+			$headers = "MIME-Version: 1.0\r\n"; 
+			$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
+			$headers .= "From: " . $config->readValue('siteEmailAddress') . "\r\n";
+			$headers .= "Reply-To: " . $config->readValue('siteEmailAddress') . "\r\n";
+			
+			mail($to, $subject, $notificationEmail, $headers);
 			
 		}
 		

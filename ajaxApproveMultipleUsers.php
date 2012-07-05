@@ -27,23 +27,22 @@ foreach($multipleId as $id) {
 		
 		if ($row->allowEmailNotifications == 1) {
 			
-			$subject = "Your " . preg_replace("/^www\.{1}/i", "", $_SERVER['HTTP_HOST']) . " access request has been approved.";
-			$message = "Hello " . htmlentities($row->name) . ",<br><br>Your access request for " . preg_replace("/^www\.{1}/i", "", $_SERVER['HTTP_HOST']) . " has been approved. Please use the username and password you provided when you signed up to login.";
+			include("assets/core/config/notifications/approve_user/notification.php");
 			
 			$to = $row->email;
 			
-			$messageEmail = "<html>";
-			$messageEmail .= "<body>";
-			$messageEmail .= $message;
-			$messageEmail .= "</body>";
-			$messageEmail .= "</html>";
+			$notificationEmail = "<html>";
+			$notificationEmail .= "<body>";
+			$notificationEmail .= $notificationText;
+			$notificationEmail .= "</body>";
+			$notificationEmail .= "</html>";
 			
 			$headers = "MIME-Version: 1.0\r\n"; 
 			$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
 			$headers .= "From: " . $config->readValue('siteEmailAddress') . "\r\n";
 			$headers .= "Reply-To: " . $config->readValue('siteEmailAddress') . "\r\n";
 			
-			mail($to, $subject, $messageEmail, $headers);
+			mail($to, $subject, $notificationEmail, $headers);
 			
 		}
 		

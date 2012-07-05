@@ -23,7 +23,7 @@ if (trim($username) != "" && trim($email) != "") {
 
 	if ($matchRows < 1) {
 
-		$message = "<div id=\"message_box\" class=\"message_box\" onClick=\"$('#message_box').hide();\"><b>There was an error processing your request, please check the following:</b><br>- Please verify your username and email address.</div>";
+		$showMessage = "<div id=\"message_box\" class=\"message_box\" onClick=\"$('#message_box').hide();\"><b>There was an error processing your request, please check the following:</b><br>- Verify that your username and email address are correct.</div>";
 		
 	} else {
 		
@@ -41,12 +41,22 @@ if (trim($username) != "" && trim($email) != "") {
 		include("assets/core/config/notifications/forgot_password/notification.php");
 		
 		$to = $email;
-		$headers = "From: " . $config->readValue('siteEmailAddress') . "\r\nReply-To: " . $config->readValue('siteEmailAddress') . "\r\n";
 		
-		mail($to, $subject, $messageEmail, $headers);
+		$notificationEmail = "<html>";
+		$notificationEmail .= "<body>";
+		$notificationEmail .= $notificationText;
+		$notificationEmail .= "</body>";
+		$notificationEmail .= "</html>";
+		
+		$headers = "MIME-Version: 1.0\r\n"; 
+		$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
+		$headers .= "From: " . $config->readValue('siteEmailAddress') . "\r\n";
+		$headers .= "Reply-To: " . $config->readValue('siteEmailAddress') . "\r\n";
+		
+		mail($to, $subject, $notificationEmail, $headers);
 		
 		//set the message
-		$message = "<div id=\"message_box\" class=\"message_box\" onClick=\"$('#message_box').hide();\"><b>Your password has been reset and sent to the e-mail address associated with your account.</b></div>";
+		$showMessage = "<div id=\"message_box\" class=\"message_box\" onClick=\"$('#message_box').hide();\">Your password has been reset and sent to the e-mail address associated with your account.</div>";
 		
 	}
 	
@@ -71,7 +81,7 @@ $site_container->showSiteHeader(false, '', $_css_load, '');
 $site_container->showSiteContainerTop();
 
 print <<< EOF
-			$message
+			$showMessage
 			<div class="subheader_title">Reset Password</div>
 			<div id="form_container">
 				<form id="resetPassword" name="resetPassword" action="forgotPassword.php" method="post" enctype="multipart/form-data">

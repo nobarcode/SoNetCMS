@@ -211,26 +211,26 @@ if ($error != 1) {
 		while ($row = mysql_fetch_object($result)) {
 			
 			$subject = $_SESSION['username'] . " has posted a new comment on " . preg_replace("/^www\.{1}/i", "", $_SERVER['HTTP_HOST']) . "!";
-			$message = "Hello " . htmlentities($row->name) . ",<br><br>Your friend " . $_SESSION['username'] . $messageBody;
+			$notificationMessage = "Hello " . htmlentities($row->name) . ",<br><br>Your friend " . $_SESSION['username'] . $notificationText;
 			
-			mysql_query("INSERT INTO messages (dateSent, toUser, fromUser, subject, body, status, system) VALUES ($time, '{$row->username}', '{$_SESSION['username']}', '" . sanitize_string($subject) . "', '" . sanitize_string($message) . "', 'unread', 1)");
+			mysql_query("INSERT INTO messages (dateSent, toUser, fromUser, subject, body, status, system) VALUES ($time, '{$row->username}', '{$_SESSION['username']}', '" . sanitize_string($subject) . "', '" . sanitize_string($notificationMessage) . "', 'unread', 1)");
 			
 			if ($row->allowEmailNotifications == 1) {
 				
 				$to = $row->email;
 				
-				$messageEmail = "<html>";
-				$messageEmail .= "<body>";
-				$messageEmail .= $message;
-				$messageEmail .= "</body>";
-				$messageEmail .= "</html>";
+				$notificationEmail = "<html>";
+				$notificationEmail .= "<body>";
+				$notificationEmail .= $notificationMessage;
+				$notificationEmail .= "</body>";
+				$notificationEmail .= "</html>";
 				
 				$headers = "MIME-Version: 1.0\r\n"; 
 			    $headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
 				$headers .= "From: " . $config->readValue('siteEmailAddress') . "\r\n";
 				$headers .= "Reply-To: " . $config->readValue('siteEmailAddress') . "\r\n";
 				
-				mail($to, $subject, $messageEmail, $headers);
+				mail($to, $subject, $notificationEmail, $headers);
 				
 			}
 			

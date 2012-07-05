@@ -23,7 +23,7 @@ function showCommentsList() {
 	
 	if (!$('#comments_main_container').is(":visible")) {
 		
-		$('#add_comment_container').fadeIn(500);
+		$('#comments_main_container').fadeIn(500);
 		$('#comment_toggle_navigation').hide();
 		
 	} else {
@@ -37,10 +37,16 @@ function showCommentsList() {
 
 function regenerateCommentsList(s, d) {
 	
-	new Ajax.Updater('comments_container', '/ajaxShowComments.php', {
+	$.ajax({
+			
+		url: '/ajaxShowComments.php',
+		type: 'post',
+		dataType: 'html',
+		data: {id: id, type: 'documentComment', commentFilter: $('#commentFilter').val(), s: s, d: d}
 		
-		parameters: {id: id, type: 'documentComment', commentFilter: $('#commentFilter').val(), s: s, d: d},
-		evalScripts: true
+	}).done(function(data) {
+		
+		$('#comments_container').html(data);
 		
 	});
 	

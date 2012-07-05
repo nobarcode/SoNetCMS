@@ -1563,11 +1563,11 @@ class ComponentLoader {
 				//if no format value was specified, give it a default value
 				if (trim($dateOptions[2]) != "") {
 					
-					$joinedOnDateFormat = $dateOptions[2];
+					$memberSinceDateFormat = $dateOptions[2];
 					
 				} else {
 					
-					$joinedOnDateFormat = "F jS, Y h:i A";
+					$memberSinceDateFormat = "F jS, Y h:i A";
 					
 				}
 				
@@ -1755,13 +1755,13 @@ class ComponentLoader {
 			
 			if ($showLastLogin == "true") {
 				
-				$return .= "		<div class=\"last_login\"><div class=\"label\">$lastLoginLabel</div>" . date("$lastLoginDateFormat", $row->lastLogin) ."</div>\n";
+				$return .= "		<div class=\"last_login\"><div class=\"label\">$lastLoginLabel</div>" . date("$lastLoginDateFormat", strtotime($row->lastLogin)) ."</div>\n";
 				
 			}
 			
 			if ($showMemberSince == "true") {
 				
-				$return .= "		<div class=\"member_since\"><div class=\"label\">$memberSinceLabel</div>" . date("$joinedOnDateFormat", $row->joinedOn) . "</div>\n";
+				$return .= "		<div class=\"member_since\"><div class=\"label\">$memberSinceLabel</div>" . date("$memberSinceDateFormat", strtotime($row->dateCreated)) . "</div>\n";
 				
 			}
 			
