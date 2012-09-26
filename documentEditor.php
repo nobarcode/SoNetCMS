@@ -390,6 +390,35 @@ function initializeEditor(path) {
 		
 	}
 	
+	CKEDITOR.instances.documentBody.on('instanceReady', function(){
+		
+		CKEDITOR.instances.documentBody.dataProcessor.htmlFilter.addRules ({
+			
+			text : function(data) {
+				//find all bits in double brackets                       
+				var matches = data.match(/\[\[(.*?)\]\]/g);
+				
+				//go through each match and replace the encoded characters
+				if (matches != null) {
+					
+					for (i = 0; i < matches.length; i++) {
+						
+						var replacedString = matches[i];
+						replacedString = matches[i].replace(/&quot;/g,'"');
+						data = data.replace(matches[i],replacedString);
+						
+					}
+					
+				}
+				
+				return data;
+				
+			}
+				
+		});
+		
+	});
+	
 }
 
 </script>
@@ -410,55 +439,55 @@ print <<< EOF
 	<div id="body_inner">
 		$showEditTracking
 		<div class="subheader_title">Document Editor</div>
-		<div class="editor_box_container">
-			<form id="newDocumentForm">
-			<table border="0" cellspacing="0" cellpadding="2" width="100%">
-			<tr valign="center"><td nowrap>Shortcut:</td><td width="100%"><input type="text" id="shortcut" name="shortcut"$showShortcut style="width:99%"></td></tr>
-			<tr valign="center"><td nowrap>Type:</td><td width="100%"><select id="documentTypes" name="documentType">
-			<option value="">Please Select</option>$documentTypeList
-			</select></td></tr>
-			<tr valign="center"><td nowrap>Category:</td><td width="100%"><select id="categories" name="category">
-			<option value="">Please Select</option>$categoryList
-			</select></td></tr>
-			<tr valign="center"><td nowrap>Subcategory:</td><td width="100%"><select id="subcategories" name="subcategory">
-			<option value="">Select a category above</option>$subcategoryList
-			</select></td></tr>
-			<tr valign="center"><td nowrap>Subject:</td><td width="100%"><select id="subjects" name="subject">
-			<option value="">Select a category above</option>$subjectList
-			</select></td></tr>
-			<tr valign="center"><td nowrap>Rating:</td><td width="100%"><select id="rating" name="rating">
-			<option value="">No Rating</option>$showRating
-			</select></td></tr>
-			<tr valign="center"><td nowrap>Author:</td><td width="100%"><input type="text" id="author" name="author"$showAuthor style="width:99%"></td></tr>
-			<tr valign="center"><td nowrap>Title:</td><td width="100%"><input type="text" id="title" name="title"$showTitle style="width:99%"></td></tr>
-			<tr valign="center"><td nowrap>Summary Image:</td><td width="100%"><input style="width:450px;" type="text" id="summaryImage" name="summaryImage"$showSummaryImage><input style="margin-left:5px;" type="button" onclick="openFileManager('selectPath', 'summaryImage');" value="Browse"></td></tr>
-			<tr valign="top"><td nowrap>Summary:</td><td width="100%"><textarea id="summary" name="summary" rows="5" style="width:99%;">$showDocumentSummary</textarea></td></tr>
-			<tr valign="center"><td nowrap>Summary Link:</td><td width="100%"><input type="text" id="summaryLinkText" name="summaryLinkText"$showSummaryLinkText style="width:99%"></td></tr>
-			<tr valign="top"><td nowrap>Keywords:</td><td width="100%"><textarea id="keywords" name="keywords" rows="5" style="width:99%;">$showKeywords</textarea></td></tr>
-			<tr valign="center"><td nowrap>Gallery Link:</td><td width="100%"><input type="text" id="galleryLinkText" name="galleryLinkText"$showGalleryLinkText style="width:99%"></td></tr>
-			<tr valign="center"><td nowrap>Gallery Link Back:</td><td width="100%"><input type="text" id="galleryLinkBackText" name="galleryLinkBackText"$showGalleryLinkBackText size="32"> URL: <input style="width:450px;" type="text" id="galleryLinkBackUrl" name="galleryLinkBackUrl"$showGalleryLinkBackURL><input style="margin-left:5px;" type="button" onclick="openDocumentManager('selectPath', 'galleryLinkBackUrl');" value="Browse"></td></tr>
-			<tr valign="center"><td nowrap>CSS File:</td><td width="100%"><input style="width:450px;" type="text" id="cssPath" name="cssPath"$showCssPath><input style="margin-left:5px;" type="button" onclick="openFileManager('selectPathCss', 'cssPath');" value="Browse"><input style="margin-left:5px;" type="button" onclick="clearCss();" value="Clear"></td></tr>
-			<tr valign="top"><td nowrap>Options:</td><td width="100%">
-			<table border="0" cellspacing="0" cellpadding="0">
-				<tr valign="top">
-				<td>
-					<input type="checkbox" id="showToolbar" name="showToolbar" value="1"$showToolbarChecked> Display a toolbar for this document<br>
-					<input type="checkbox" id="showComments" name="showComments" value="1"$showCommentsChecked> Display the comments for this document<br>
-					<input type="checkbox" id="requireAuthentication" name="requireAuthentication" value="1"$showRequireAuthenticationChecked> Require authentication to view this document
-				</td>
-				<td style="width:20px;"></td>
-				<td>
-					<input type="checkbox" id="doNotSyndicate" name="doNotSyndicate" value="1"$showDoNotSyndicateChecked> Do not syndicate this document<br>
-					<input type="checkbox" id="component" name="component" value="1"$showComponentChecked> This document is a component
-				</td>
-				</tr>
-			</table>
-			</td></tr>
-			</table>$showDocumentId
-			<input type="hidden" id="oldShortcut" name="oldShortcut"$showShortcut>
-			<input type="hidden" id="componentJb" name="componentJb" value="$htmlComponentJb">
-			</form>
-		</div>
+		<form id="newDocumentForm">
+			<div class="editor_box_container">
+				<table border="0" cellspacing="0" cellpadding="2" width="100%">
+				<tr valign="center"><td nowrap>Shortcut:</td><td width="100%"><input type="text" id="shortcut" name="shortcut"$showShortcut style="width:99%"></td></tr>
+				<tr valign="center"><td nowrap>Type:</td><td width="100%"><select id="documentTypes" name="documentType">
+				<option value="">Please Select</option>$documentTypeList
+				</select></td></tr>
+				<tr valign="center"><td nowrap>Category:</td><td width="100%"><select id="categories" name="category">
+				<option value="">Please Select</option>$categoryList
+				</select></td></tr>
+				<tr valign="center"><td nowrap>Subcategory:</td><td width="100%"><select id="subcategories" name="subcategory">
+				<option value="">Select a category above</option>$subcategoryList
+				</select></td></tr>
+				<tr valign="center"><td nowrap>Subject:</td><td width="100%"><select id="subjects" name="subject">
+				<option value="">Select a category above</option>$subjectList
+				</select></td></tr>
+				<tr valign="center"><td nowrap>Rating:</td><td width="100%"><select id="rating" name="rating">
+				<option value="">No Rating</option>$showRating
+				</select></td></tr>
+				<tr valign="center"><td nowrap>Author:</td><td width="100%"><input type="text" id="author" name="author"$showAuthor style="width:99%"></td></tr>
+				<tr valign="center"><td nowrap>Title:</td><td width="100%"><input type="text" id="title" name="title"$showTitle style="width:99%"></td></tr>
+				<tr valign="center"><td nowrap>Summary Image:</td><td width="100%"><input style="width:450px;" type="text" id="summaryImage" name="summaryImage"$showSummaryImage><input style="margin-left:5px;" type="button" onclick="openFileManager('selectPath', 'summaryImage');" value="Browse"></td></tr>
+				<tr valign="top"><td nowrap>Summary:</td><td width="100%"><textarea id="summary" name="summary" rows="5" style="width:99%;">$showDocumentSummary</textarea></td></tr>
+				<tr valign="center"><td nowrap>Summary Link:</td><td width="100%"><input type="text" id="summaryLinkText" name="summaryLinkText"$showSummaryLinkText style="width:99%"></td></tr>
+				<tr valign="top"><td nowrap>Keywords:</td><td width="100%"><textarea id="keywords" name="keywords" rows="5" style="width:99%;">$showKeywords</textarea></td></tr>
+				<tr valign="center"><td nowrap>Gallery Link:</td><td width="100%"><input type="text" id="galleryLinkText" name="galleryLinkText"$showGalleryLinkText style="width:99%"></td></tr>
+				<tr valign="center"><td nowrap>Gallery Link Back:</td><td width="100%"><input type="text" id="galleryLinkBackText" name="galleryLinkBackText"$showGalleryLinkBackText size="32"> URL: <input style="width:450px;" type="text" id="galleryLinkBackUrl" name="galleryLinkBackUrl"$showGalleryLinkBackURL><input style="margin-left:5px;" type="button" onclick="openDocumentManager('selectPath', 'galleryLinkBackUrl');" value="Browse"></td></tr>
+				<tr valign="center"><td nowrap>CSS File:</td><td width="100%"><input style="width:450px;" type="text" id="cssPath" name="cssPath"$showCssPath><input style="margin-left:5px;" type="button" onclick="openFileManager('selectPathCss', 'cssPath');" value="Browse"><input style="margin-left:5px;" type="button" onclick="clearCss();" value="Clear"></td></tr>
+				<tr valign="top"><td nowrap>Options:</td><td width="100%">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr valign="top">
+					<td>
+						<input type="checkbox" id="showToolbar" name="showToolbar" value="1"$showToolbarChecked> Display a toolbar for this document<br>
+						<input type="checkbox" id="showComments" name="showComments" value="1"$showCommentsChecked> Display the comments for this document<br>
+						<input type="checkbox" id="requireAuthentication" name="requireAuthentication" value="1"$showRequireAuthenticationChecked> Require authentication to view this document
+					</td>
+					<td style="width:20px;"></td>
+					<td>
+						<input type="checkbox" id="doNotSyndicate" name="doNotSyndicate" value="1"$showDoNotSyndicateChecked> Do not syndicate this document<br>
+						<input type="checkbox" id="component" name="component" value="1"$showComponentChecked> This document is a component
+					</td>
+					</tr>
+				</table>
+				</td></tr>
+				</table>$showDocumentId
+				<input type="hidden" id="oldShortcut" name="oldShortcut"$showShortcut>
+				<input type="hidden" id="componentJb" name="componentJb" value="$htmlComponentJb">
+			</div>
+		</form>
 		<div id="message_box" style="display:none;" onClick="$(this).hide();"></div>
 		<div id="loading_editor_message"><div>Loading editor, please wait...</div></div>
 		<div id="editor_container" style="display:none;">

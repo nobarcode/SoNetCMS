@@ -284,6 +284,35 @@ function initializeEditor() {
 $richTextEditorConfig				
 	});
 	
+	CKEDITOR.instances.documentBody.on('instanceReady', function(){
+		
+		CKEDITOR.instances.documentBody.dataProcessor.htmlFilter.addRules ({
+			
+			text : function(data) {
+				//find all bits in double brackets                       
+				var matches = data.match(/\[\[(.*?)\]\]/g);
+				
+				//go through each match and replace the encoded characters
+				if (matches != null) {
+					
+					for (i = 0; i < matches.length; i++) {
+						
+						var replacedString = matches[i];
+						replacedString = matches[i].replace(/&quot;/g,'"');
+						data = data.replace(matches[i],replacedString);
+						
+					}
+					
+				}
+				
+				return data;
+				
+			}
+				
+		});
+		
+	});
+	
 }
 
 function initializeCustomHeaderEditor() {
@@ -291,6 +320,35 @@ function initializeCustomHeaderEditor() {
 	CKEDITOR.replace('customHeader', {
 		filebrowserBrowseUrl: '/assets/core/resources/filemanager/index.html',
 		customConfig : '/assets/core/resources/javascript/ckeditor/config_custom_header_event.js'
+	});
+	
+	CKEDITOR.instances.customHeader.on('instanceReady', function(){
+		
+		CKEDITOR.instances.customHeader.dataProcessor.htmlFilter.addRules ({
+			
+			text : function(data) {
+				//find all bits in double brackets                       
+				var matches = data.match(/\[\[(.*?)\]\]/g);
+				
+				//go through each match and replace the encoded characters
+				if (matches != null) {
+					
+					for (i = 0; i < matches.length; i++) {
+						
+						var replacedString = matches[i];
+						replacedString = matches[i].replace(/&quot;/g,'"');
+						data = data.replace(matches[i],replacedString);
+						
+					}
+					
+				}
+				
+				return data;
+				
+			}
+				
+		});
+		
 	});
 	
 }
@@ -314,37 +372,36 @@ print <<< EOF
 	<div id="body_inner">
 		$showEditTracking
 		<div class="subheader_title">Event Editor</div>
-		<div class="editor_box_container">
-			<form id="newDocumentForm">
-			<table border="0" cellspacing="0" cellpadding="2" width="100%">
-			<tr valign="center"><td nowrap>Category:</td><td width="100%"><select id="categories" name="category">
-			<option value="">Please Select</option>$categoryList
-			</select></td></tr>
-			<tr valign="center"><td nowrap>Subcategory:</td><td width="100%"><select id="subcategories" name="subcategory">
-			<option value="">Select a category above</option>$subcategoryList
-			</select></td></tr>
-			<tr valign="center"><td nowrap>Subject:</td><td width="100%"><select id="subjects" name="subject">
-			<option value="">Select a category above</option>$subjectList
-			</select></td></tr>
-			<tr valign="center"><td nowrap>Title:</td><td width="100%"><input type="text" id="title" name="title"$showTitle style="width:99%"></td></tr>
-			<tr valign="center"><td nowrap>Starts:</td><td width="100%"><input type="text" id="startMonth" name="startMonth" size="2" value="$startMonth"> <input type="text" id="startDay" name="startDay" size="2" value="$startDay"> <input type="text" id="startYear" name="startYear" size="4" value="$startYear"> <span id="start_date_selector" class="date_selector">mm/dd/yyyy</span> <input type="text" id="startHour" name="startHour" size="2" value="$start_hour">:<input type="text" id="startMinute" name="startMinute" size="2" value="$start_minute"> <input type="radio" name="start_AMPM" value="AM"$startAMSelected> AM <input type="radio" name="start_AMPM" value="PM"$startPMSelected> PM</td></tr>
-			<tr valign="center"><td nowrap>Expires:</td><td width="100%"><input type="text" id="expireMonth" name="expireMonth" size="2" value="$expireMonth"> <input type="text" id="expireDay" name="expireDay" size="2" value="$expireDay"> <input type="text" id="expireYear" name="expireYear" size="4" value="$expireYear"> <span id="expire_date_selector" class="date_selector">mm/dd/yyyy</span> <input type="text" id="expireHour" name="expireHour" size="2" value="$expire_hour">:<input type="text" id="expireMinute" name="expireMinute" size="2" value="$expire_minute"> <input type="radio" name="expire_AMPM" value="AM"$expireAMSelected> AM <input type="radio" name="expire_AMPM" value="PM"$expirePMSelected> PM</td></tr>
-			<tr valign="center"><td nowrap>Summary Image:</td><td width="100%"><input style="width:450px;" type="text" id="summaryImage" name="summaryImage"$showSummaryImage><input style="margin-left:5px;" type="button" onclick="openFileManager('selectPath', 'summaryImage');" value="Browse"></td></tr>
-			<tr valign="top"><td nowrap>Summary:</td><td width="100%"><textarea id="summary" name="summary" rows="5" style="width:99%;">$showDocumentSummary</textarea></td></tr>
-			<tr valign="center"><td nowrap>Summary Link:</td><td width="100%"><input type="text" id="summaryLinkText" name="summaryLinkText"$showSummaryLinkText style="width:99%"></td></tr>
-			<tr valign="top"><td nowrap>Header:</td>
-			<td width="100%">
-<div id="customHeader">
-$showCustomHeader
-</div>
-<input type="button" id="activate_custom_header_editor" value="Advanced Header Customization" onClick="toggleCustomHeaderEditor();">
-			</td>
+		<form id="newDocumentForm">
+			<div class="editor_box_container">
+				<table border="0" cellspacing="0" cellpadding="2" width="100%">
+				<tr valign="center"><td nowrap>Category:</td><td width="100%"><select id="categories" name="category">
+				<option value="">Please Select</option>$categoryList
+				</select></td></tr>
+				<tr valign="center"><td nowrap>Subcategory:</td><td width="100%"><select id="subcategories" name="subcategory">
+				<option value="">Select a category above</option>$subcategoryList
+				</select></td></tr>
+				<tr valign="center"><td nowrap>Subject:</td><td width="100%"><select id="subjects" name="subject">
+				<option value="">Select a category above</option>$subjectList
+				</select></td></tr>
+				<tr valign="center"><td nowrap>Title:</td><td width="100%"><input type="text" id="title" name="title"$showTitle style="width:99%"></td></tr>
+				<tr valign="center"><td nowrap>Starts:</td><td width="100%"><input type="text" id="startMonth" name="startMonth" size="2" value="$startMonth"> <input type="text" id="startDay" name="startDay" size="2" value="$startDay"> <input type="text" id="startYear" name="startYear" size="4" value="$startYear"> <span id="start_date_selector" class="date_selector">mm/dd/yyyy</span> <input type="text" id="startHour" name="startHour" size="2" value="$start_hour">:<input type="text" id="startMinute" name="startMinute" size="2" value="$start_minute"> <input type="radio" name="start_AMPM" value="AM"$startAMSelected> AM <input type="radio" name="start_AMPM" value="PM"$startPMSelected> PM</td></tr>
+				<tr valign="center"><td nowrap>Expires:</td><td width="100%"><input type="text" id="expireMonth" name="expireMonth" size="2" value="$expireMonth"> <input type="text" id="expireDay" name="expireDay" size="2" value="$expireDay"> <input type="text" id="expireYear" name="expireYear" size="4" value="$expireYear"> <span id="expire_date_selector" class="date_selector">mm/dd/yyyy</span> <input type="text" id="expireHour" name="expireHour" size="2" value="$expire_hour">:<input type="text" id="expireMinute" name="expireMinute" size="2" value="$expire_minute"> <input type="radio" name="expire_AMPM" value="AM"$expireAMSelected> AM <input type="radio" name="expire_AMPM" value="PM"$expirePMSelected> PM</td></tr>
+				<tr valign="center"><td nowrap>Summary Image:</td><td width="100%"><input style="width:450px;" type="text" id="summaryImage" name="summaryImage"$showSummaryImage><input style="margin-left:5px;" type="button" onclick="openFileManager('selectPath', 'summaryImage');" value="Browse"></td></tr>
+				<tr valign="top"><td nowrap>Summary:</td><td width="100%"><textarea id="summary" name="summary" rows="5" style="width:99%;">$showDocumentSummary</textarea></td></tr>
+				<tr valign="center"><td nowrap>Summary Link:</td><td width="100%"><input type="text" id="summaryLinkText" name="summaryLinkText"$showSummaryLinkText style="width:99%"></td></tr>
+				<tr valign="top"><td nowrap>Header:</td>
+				<td width="100%">
+					<div id="customHeader">
+					$showCustomHeader
+					</div>
+					<input type="button" id="activate_custom_header_editor" value="Advanced Header Customization" onClick="toggleCustomHeaderEditor();">
+				</td>
 				</tr>
-
-			<tr valign="center"><td nowrap>Options:</td><td width="100%"><input type="checkbox" id="showComments" name="showComments" value="1"$showCommentsChecked> Display the comments for this document</td></tr>
-			</table>$showDocumentId
-			</form>
-		</div>
+				<tr valign="center"><td nowrap>Options:</td><td width="100%"><input type="checkbox" id="showComments" name="showComments" value="1"$showCommentsChecked> Display the comments for this document</td></tr>
+				</table>$showDocumentId
+			</div>
+		</form>
 		<div id="message_box" style="display:none;" onClick="$(this).hide();"></div>
 		<div id="loading_editor_message"><div>Loading editor, please wait...</div></div>
 		<div id="editor_container" style="display:none;">

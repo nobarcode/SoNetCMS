@@ -128,6 +128,31 @@ function initializeEditor() {
 			
 			instanceReady : function() {
 				
+				CKEDITOR.instances.post_edit.dataProcessor.htmlFilter.addRules ({
+					
+					text : function(data) {
+						//find all bits in double brackets                       
+						var matches = data.match(/\[\[(.*?)\]\]/g);
+						
+						//go through each match and replace the encoded characters
+						if (matches != null) {
+							
+							for (match in matches) {
+								
+								var replacedString=matches[match];
+								replacedString = matches[match].replace(/&quot;/g,'"');
+								data = data.replace(matches[match],replacedString);
+								
+							}
+							
+						}
+						
+						return data;
+						
+					}
+						
+				});
+				
 				scrollTo($('#edit_in_place'));
 				
 			}

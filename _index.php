@@ -231,7 +231,7 @@ $body = preg_replace("/\[\[\/toggler\]\]<\/p>/i", "[[/toggler]]", $body);
 $body = preg_replace_callback("/\[\[toggler text=\"(.*?)\" id=\"(.*?)\" activeDocument=\"(.*?)\" cssClassLink=\"(.*?)\" activeCssClassLink=\"(.*?)\" cssClassContent=\"(.*?)\" togglerStyle=\"(.*?)\"\]\](.*?)\[\[\/toggler\]\]/is", $convertToggler, $body);
 
 //document attributes
-$body = preg_replace_callback("/\[attribute type=\"(.*?)\"\]/i", $loadAttributes, $body);
+$body = preg_replace_callback("/\[\[attribute type=\"(.*?)\"\]\]/i", $loadAttributes, $body);
 
 //rich content component & <p> cleanup
 $body = preg_replace("/<p>\n[\t]+\[\[rc_component (.*?)\]\]<\/p>/i", "[[rc_component $1]]", $body);

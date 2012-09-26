@@ -99,7 +99,7 @@ $componentLoader = new ComponentLoader();
 $loadAttributes = array($componentLoader, 'loadAttributes');
 
 //document attributes
-$body = preg_replace_callback("/\[attribute type=\"(.*?)\"\]/i", $loadAttributes, $body);
+$body = preg_replace_callback("/\[\[attribute type=\"(.*?)\"\]\]/i", $loadAttributes, $body);
 
 //update hit counter and last access date/time
 $time = date("Y-m-d H:i:s", time());

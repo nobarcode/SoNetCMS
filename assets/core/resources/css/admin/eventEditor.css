@@ -64,21 +64,19 @@
 	
 }
 
-
-.editor_box_container {
+#newDocumentForm {
 	
 	width:100%;
 	float:left;
-	margin-top:5px;
-	background:#d8d8d8;
-	color:#333333;
 	
 }
 
-.editor_box_container form {
+.editor_box_container {
 	
-	float:left;
+	margin-top:5px;
 	padding:5px;
+	background:#d8d8d8;
+	color:#333333;
 	
 }
 

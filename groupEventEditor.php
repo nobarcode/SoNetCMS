@@ -264,8 +264,37 @@ groupId = '$groupId';
 function initializeEditor() {
 	
 	CKEDITOR.replace('documentBody', {
-	filebrowserBrowseUrl: '/assets/core/resources/filemanager/index.html',
+		filebrowserBrowseUrl: '/assets/core/resources/filemanager/index.html',
 $richTextEditorConfig				
+	});
+	
+	CKEDITOR.instances.documentBody.on('instanceReady', function(){
+		
+		CKEDITOR.instances.documentBody.dataProcessor.htmlFilter.addRules ({
+			
+			text : function(data) {
+				//find all bits in double brackets                       
+				var matches = data.match(/\[\[(.*?)\]\]/g);
+				
+				//go through each match and replace the encoded characters
+				if (matches != null) {
+					
+					for (i = 0; i < matches.length; i++) {
+						
+						var replacedString = matches[i];
+						replacedString = matches[i].replace(/&quot;/g,'"');
+						data = data.replace(matches[i],replacedString);
+						
+					}
+					
+				}
+				
+				return data;
+				
+			}
+				
+		});
+		
 	});
 	
 }
@@ -275,6 +304,35 @@ function initializeCustomHeaderEditor() {
 	CKEDITOR.replace('customHeader', {
 		filebrowserBrowseUrl: '/assets/core/resources/filemanager/index.html',
 		customConfig : '/assets/core/resources/javascript/ckeditor/config_custom_header_event.js'
+	});
+	
+	CKEDITOR.instances.customHeader.on('instanceReady', function(){
+		
+		CKEDITOR.instances.customHeader.dataProcessor.htmlFilter.addRules ({
+			
+			text : function(data) {
+				//find all bits in double brackets                       
+				var matches = data.match(/\[\[(.*?)\]\]/g);
+				
+				//go through each match and replace the encoded characters
+				if (matches != null) {
+					
+					for (i = 0; i < matches.length; i++) {
+						
+						var replacedString = matches[i];
+						replacedString = matches[i].replace(/&quot;/g,'"');
+						data = data.replace(matches[i],replacedString);
+						
+					}
+					
+				}
+				
+				return data;
+				
+			}
+				
+		});
+		
 	});
 	
 }

@@ -34,8 +34,8 @@ if ($count > 0) {
 		
 	}
 	
-	print "<div class=\"editor_category_container\">";
 	print "<form id=\"edit_category_options_form\" method=\"get\" action=\"ajaxUpdateCategoryOptions.php\">\n";
+	print "<div class=\"editor_category_container\">";
 	print "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">\n";
 	print "<tr valign=\"center\"><td class=\"options_editor_container\"><input type=\"checkbox\" id=\"userSelectable\" name=\"userSelectable\" value=\"1\"$userSelectableChecked></td><td class=\"options_editor_container\" width=\"100%\">User Selectable</td></tr>";
 	print "<tr valign=\"center\"><td class=\"options_editor_container\"><input type=\"checkbox\" id=\"hidden\" name=\"hidden\" value=\"1\"$hiddenChecked></td><td class=\"options_editor_container\" width=\"100%\">Hidden</td></tr>";
@@ -45,8 +45,8 @@ if ($count > 0) {
 	print "<tr valign=\"center\"><td></td><td width=\"100%\"><input type=\"submit\" id=\"submit\" value=\"Save\"> <input type=\"button\" id=\"edit_category_options_cancel\" value=\"Cancel\"></td></tr>\n";
 	print "</table>\n";
 	print "<input type=\"hidden\" id=\"id\" name=\"id\" value=\"$row->id\">\n";
-	print "</form>\n";
 	print "</div>";
+	print "</form>\n";
 	
 }
 

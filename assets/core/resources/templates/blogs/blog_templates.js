@@ -39,7 +39,7 @@ CKEDITOR.addTemplates( 'default',
 					'<p>' +
 					'	Body of blog goes here.</p>' +
 					'<p>' +
-					'	[attribute type="ratingGraphic"][attribute type="ratingText"]</p>'
+					'	[[attribute type="ratingGraphic"]][[attribute type="ratingText"]]</p>'
 			}
 		]
 });

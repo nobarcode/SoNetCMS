@@ -87,7 +87,7 @@ $componentLoader = new ComponentLoader();
 $loadAttributes = array($componentLoader, 'loadAttributes');
 
 //document attributes
-$body = preg_replace_callback("/\[attribute type=\"(.*?)\"\]/i", $loadAttributes, $body);
+$body = preg_replace_callback("/\[\[attribute type=\"(.*?)\"\]\]/i", $loadAttributes, $body);
 
 if (trim($row->groupId) != "") {
 	

@@ -101,6 +101,31 @@ function initializeEditor() {
 			
 			instanceReady : function() {
 				
+				CKEDITOR.instances.documentBody.dataProcessor.htmlFilter.addRules ({
+					
+					text : function(data) {
+						//find all bits in double brackets                       
+						var matches = data.match(/\[\[(.*?)\]\]/g);
+						
+						//go through each match and replace the encoded characters
+						if (matches != null) {
+							
+							for (i = 0; i < matches.length; i++) {
+								
+								var replacedString = matches[i];
+								replacedString = matches[i].replace(/&quot;/g,'"');
+								data = data.replace(matches[i],replacedString);
+								
+							}
+							
+						}
+						
+						return data;
+						
+					}
+						
+				});
+				
 				displayEditor();
 				
 			}
