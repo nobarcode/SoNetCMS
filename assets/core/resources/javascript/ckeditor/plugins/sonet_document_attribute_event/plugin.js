@@ -18,7 +18,7 @@ CKEDITOR.plugins.add('sonet_document_attribute_event', {
 			
 			exec : function( editor ) {
 				
-				//use the placeholder plugin to insert
+				//use insertText to insert
 				CKEDITOR.currentInstance.insertText( '[[attribute type="usernameCreated/usernameUpdated/documentType/category/subcategory/subject/dateCreated/datePublished/dateUpdated/startDate/expireDate/title"]]' );
 				
 			},

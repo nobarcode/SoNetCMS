@@ -18,8 +18,8 @@ CKEDITOR.plugins.add('sonet_component', {
 			
 			exec : function( editor ) {
 				
-				//use the placeholder plugin to insert
-				CKEDITOR.plugins.placeholder.createPlaceholder( editor, '', '[[component id/file="component-shortcut or filename"]]' );
+				//use insertHtml to insert
+				CKEDITOR.instances.documentBody.insertHtml( '<p>[[component id/file="component-shortcut or filename"]]</p><p>&nbsp;</p>' );
 				
 			},
 			

@@ -18,7 +18,7 @@ CKEDITOR.plugins.add('sonet_auth_content', {
 			
 			exec : function( editor ) {
 				
-				//use the placeholder plugin to insert
+				//use insertHtml to insert
 				CKEDITOR.instances.documentBody.insertHtml( '<p>[[authenticated_content]]</p><p>mixed content</p><p>[[/authenticated_content]]</p><p>&nbsp;</p>' );
 				
 			},

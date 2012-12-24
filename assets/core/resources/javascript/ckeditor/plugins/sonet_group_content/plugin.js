@@ -18,7 +18,7 @@ CKEDITOR.plugins.add('sonet_group_content', {
 			
 			exec : function( editor ) {
 				
-				//use the placeholder plugin to insert
+				//use insertHtml to insert
 				CKEDITOR.instances.documentBody.insertHtml( '<p>[[group_content groups="list, groups, that, should, have, access, to, this, content"]]</p><p>mixed content</p><p>[[/group_content]]</p><p>&nbsp;</p>' );
 				
 			},

@@ -18,7 +18,7 @@ CKEDITOR.plugins.add('sonet_smartlink', {
 			
 			exec : function( editor ) {
 				
-				//use the placeholder plugin to insert
+				//use insertHtml to insert
 				CKEDITOR.instances.documentBody.insertHtml( '<p>[[smartlink activeDocument="List, Shortcuts, For, Active, Documents" cssClass="css_class_not_active" activeCssClass="css_class_active" url="/documents/open/ShortcutToDocument" linkOnActive="false"]]link text[[/smartlink]]</p><p>&nbsp;</p>' );
 				
 			},

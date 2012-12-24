@@ -18,8 +18,8 @@ CKEDITOR.plugins.add('sonet_rc_component', {
 			
 			exec : function( editor ) {
 				
-				//use the placeholder plugin to insert
-				CKEDITOR.plugins.placeholder.createPlaceholder( editor, '', '[[rc_component type="document/blog/event/announcement/conversation/member" parameter="supply" parameter="the" parameter="required" parameter="options" parameter="here"]]' );
+				//use insertHtml to insert
+				CKEDITOR.instances.documentBody.insertHtml( '<p>[[rc_component type="document/blog/event/announcement/conversation/member" parameter="supply" parameter="the" parameter="required" parameter="options" parameter="here"]]</p><p>&nbsp;</p>' );
 				
 			},
 			
