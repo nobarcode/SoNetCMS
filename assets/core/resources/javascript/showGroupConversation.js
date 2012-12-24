@@ -13,20 +13,20 @@ function regenerateList(s, d) {
 		
 		if (findId) {
 			
-			scrollTo($('#post_container_' + findId));
+			scrollToPost($('#post_container_' + findId));
 			findId = null;
 			
 		} else if ((s == 'first' && d == '') || d == 'n') {
 			
-			scrollTo($('#conversations_list .post_container').filter(':first'));
+			scrollToPost($('#conversations_list .post_container').filter(':first'));
 			
 		} else if (s == 'last' && d == '') {
 			
-			scrollTo($('#conversations_list .post_container').filter(':first'));
+			scrollToPost($('#conversations_list .post_container').filter(':first'));
 			
 		} else if ((s == 'last_post' && d == '') || d == 'b') {
 			
-			scrollTo($('#conversations_list .post_container').filter(':last'));
+			scrollToPost($('#conversations_list .post_container').filter(':last'));
 			
 		}
 		
@@ -34,7 +34,7 @@ function regenerateList(s, d) {
 	
 }
 
-function scrollTo(target) {
+function scrollToPost(target) {
 	
 	var targetOffset = target.offset().top;
 	$('html,body').animate({scrollTop: targetOffset}, 1000);
@@ -144,7 +144,7 @@ function reply(conversationId) {
 			
 		}
 		
-		scrollTo($('#reply_to_conversation'));
+		scrollToPost($('#reply_to_conversation'));
 		
 	});
 	
