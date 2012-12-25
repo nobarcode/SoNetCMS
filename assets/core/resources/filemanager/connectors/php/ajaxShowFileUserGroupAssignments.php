@@ -76,8 +76,6 @@ function loadGroups($fsPath, $type) {
 		
 	}
 	
-	$return .= "SELECT userGroups.id, userGroups.name FROM fileManager INNER JOIN userGroups ON userGroups.id = fileManager.groupId WHERE fileManager.fsPath = '{$fsPath}' ORDER BY userGroups.name ASC";
-	
 	return($return);
 }
 	
