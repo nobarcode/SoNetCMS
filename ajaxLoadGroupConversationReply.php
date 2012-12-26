@@ -61,7 +61,7 @@ if (trim($id) != "") {
 			$escapeBody = preg_replace('/\'/', '\\\'', $escapeBody);
 			
 			header('Content-type: application/javascript');
-			print "CKEDITOR.instances.documentBody.setData('\[quote=\"$row->author\"\]$escapeBody\[/quote\]\\n\\n ');";
+			print "CKEDITOR.instances.documentBody.setData('\[[quote=\"$row->author\"\]]$escapeBody\[[/quote\]]\\n\\n ');";
 			
 		}
 	

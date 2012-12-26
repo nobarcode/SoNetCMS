@@ -58,7 +58,7 @@ if (mysql_num_rows($result) > 0) {
 		
 		print "if($('#conversation_title').hasClass('locked')) {";
 		print "$('#conversation_title').removeClass('locked');";
-		print "$('#conversation_title').attr(title, '');";
+		print "$('#conversation_title').removeAttr('title');";
 		print "}";
 		
 	}
