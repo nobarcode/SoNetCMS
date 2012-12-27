@@ -10,6 +10,66 @@
 	
 }
 
+#group_conversation_path {
+	
+	float:left;
+	color:#666666;
+	
+}
+
+#group_conversation_path .admin {
+	
+	width:899px;
+	float:left;
+	color:#666666;
+	
+}
+
+#group_conversation_path .nonadmin {
+	
+	width:920px;
+	float:left;
+	color:#666666;
+	
+}
+
+#group_conversation_path a {
+	
+	font-weight:bold;
+	color:#666666;
+	
+}
+
+#group_conversation_path a:hover {
+	
+	color:#333333;
+	
+}
+
+#group_conversation_settings {
+	
+	width:16px;
+	height:16px;
+	float:right;
+	padding-left:5px;
+	
+}
+
+#group_conversation_settings_button {
+	
+	width:16px;
+	height:16px;
+	float:left;
+	background: url('/assets/core/resources/images/group_conversation_settings.png') no-repeat scroll center 0;
+	
+}
+
+#group_conversation_settings_button:hover {
+	
+	background-position:center -16px;
+	
+}
+
 #conversation_editor_container {
 	
 	width:910px;
@@ -28,8 +88,8 @@
 
 .locked {
 	
-	padding-right:16px;
-	background: url('/assets/core/resources/images/group_conversation_locked_posts.gif') no-repeat scroll center right;
+	padding-left:16px;
+	background: url('/assets/core/resources/images/group_conversation_locked_posts.gif') no-repeat scroll center left;
 	
 }
 
@@ -323,6 +383,7 @@
 	
 	width:910px;
 	float:left;
+	margin-top:5px;
 	padding:5px;
 	font-size:12pt;
 	font-weight:bold;

@@ -77,7 +77,11 @@ $groupName = htmlentities($row->name);
 //setup group connversation title options link
 if ($groupValidator->isGroupAdmin || ($_SESSION['userLevel'] == 1 || $_SESSION['userLevel'] == 2 || $_SESSION['userLevel'] == 3)) {
 	
-	$showGroupComversationTitle = "<a id=\"conversation_title\"$showLock href=\"javascript:showConversationEditor();\">$conversationTitle</a>";
+	$adminState = "admin";
+	
+	$showGroupConversationSettingsButton = "<div id=\"group_conversation_settings\"><a id=\"group_conversation_settings_button\" href=\"javascript:showConversationEditor();\" title=\"Conversation Settings\"></a></div>";
+	
+	$showGroupConversationTitle = "<a id=\"conversation_title\"$showLock href=\"javascript:showConversationEditor();\">$conversationTitle</a>";
 	
 	$showGroupConversationOptions .= "					<div id=\"conversation_editor_container\" style=\"display:none;\">\n";
 	$showGroupConversationOptions .= "						<div>\n";
@@ -95,7 +99,9 @@ if ($groupValidator->isGroupAdmin || ($_SESSION['userLevel'] == 1 || $_SESSION['
 	
 } else {
 	
-	$showGroupComversationTitle = "<span id=\"conversation_title\"$showLock>$conversationTitle</span>";
+	$adminState = "nonadmin";
+	
+	$showGroupConversationTitle = "<span id=\"conversation_title\"$showLock>$conversationTitle</span>";
 	
 }
 
@@ -223,7 +229,8 @@ $site_container->showSiteContainerTop();
 include("part_group_admin_options.php");
 
 print <<< EOF
-			<div class="subheader_title"><a href="/groups/id/$groupId">$groupName</a> &gt; <a href="showGroupConversationsList.php?groupId=$groupId">Conversations</a> &gt; $showGroupComversationTitle</div>
+			<div id="group_conversation_path"><div class="$adminState"><a href="/groups/id/$groupId">$groupName</a> &raquo; <a href="showGroupConversationsList.php?groupId=$groupId">Conversations</a></div></div>$showGroupConversationSettingsButton
+			<div class="subheader_title">$showGroupConversationTitle</div>
 			$showGroupConversationOptions
 			<div id="conversations_list"></div>
 			<div id="conversation_options">

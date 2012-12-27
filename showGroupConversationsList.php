@@ -113,7 +113,7 @@ $site_container->showSiteContainerTop();
 include("part_group_admin_options.php");
 
 print <<< EOF
-			<div class="subheader_title"><a href="/groups/id/$groupId">$groupName</a> &gt; Conversations</div>
+			<div class="subheader_title"><a href="/groups/id/$groupId">$groupName</a> &raquo; Conversations</div>
 			<div id="conversations_list"></div>
 			<div id="conversation_options">
 				$showAddConversationOptions

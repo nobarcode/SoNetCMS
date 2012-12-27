@@ -72,7 +72,7 @@ foreach($searchCriteria as $value) {
 
 if ((trim($searchCriteria['category']) != "" || trim($searchCriteria['subcategory']) != "" || trim($searchCriteria['subject']) != "") && trim($searchCriteria['author']) == "") {
 	
-	$header = "Browsing in: ";
+	$header = "Browsing: ";
 	
 } else {
 	
