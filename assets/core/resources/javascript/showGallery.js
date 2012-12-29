@@ -80,6 +80,8 @@ function showImage(imageId) {
 	
 	lastSelection = imageId;
 	
+	$('#outer_content_container').height($('#main_content_container').height());
+	
 	$('#main_content_container').fadeTo(500, 0.0, function() {
 		
 		$.ajax({
@@ -109,6 +111,7 @@ function fadeinMainImage () {
 	.load(function() {
 		
 		$('#main_content_container').fadeTo(500, 1.0);
+		$('#outer_content_container').height($('#main_content_container').height());
 		
 	});
 	

@@ -210,22 +210,24 @@
 
 #editor_navigation {
 	
-	width:920px;
+	width:910px;
 	float:left;
 	margin-top:5px;
-	color:#666666;
+	padding:5px;
+	color:#ffffff;
+	background:#365164;
 	
 }
 
 #editor_navigation a {
 	
-	color:#666666;
+	color:#ffffff;
 	
 }
 
 #editor_navigation a:hover {
 	
-	color:#333333;
+	color:#ffffff;
 	
 }
 
@@ -253,7 +255,7 @@
 	float:left;
 	margin-right:5px;
 	padding-right:5px;
-	border-right:1px solid #666666;
+	border-right:1px solid #ffffff;
 	
 }
 

@@ -149,6 +149,13 @@
 	
 }
 
+#outer_content_container {
+	
+	width:720px;
+	float:left;
+	
+}
+
 #main_content_container {
 	
 	width:720px;

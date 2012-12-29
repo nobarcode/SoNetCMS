@@ -109,7 +109,7 @@ print <<< EOF
 			<div id="thumbnail_arrow_left" style="visibility:hidden;"><a href="javascript:previousThumbSet();"></a></div>$showRightArrow
 			</div>
 			<div id="right_column">
-			<div id="main_content_container"></div>
+			<div id="outer_content_container"><div id="main_content_container"></div></div>
 			<div class="clear_both"></div>
 			<div id="comment_toggle_navigation"><a class="button" href="javascript:showCommentsList();" onclick="this.blur();"><span>Show Comments</span></a></div>
 			<div id="comments_main_container" style="display:none;">
