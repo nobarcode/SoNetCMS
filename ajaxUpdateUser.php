@@ -105,7 +105,8 @@ if ($error != 1) {
 		
 		mysql_query("UPDATE announcements SET usernameCreated = '{$username}' WHERE usernameCreated = '{$oldUsername}'");
 		mysql_query("UPDATE announcements SET usernameUpdated = '{$username}' WHERE usernameUpdated = '{$oldUsername}'");
-		mysql_query("UPDATE blogs SET username = '{$username}' WHERE username = '{$oldUsername}'");
+		mysql_query("UPDATE blogs SET usernameCreated = '{$username}' WHERE usernameCreated = '{$oldUsername}'");
+		mysql_query("UPDATE blogs SET usernameUpdated = '{$username}' WHERE usernameUpdated = '{$oldUsername}'");
 		mysql_query("UPDATE commentsDocuments SET username = '{$username}' WHERE username = '{$oldUsername}'");
 		mysql_query("UPDATE commentsImages SET username = '{$username}' WHERE username = '{$oldUsername}'");
 		mysql_query("UPDATE commentsImages SET parentId = '{$username}' WHERE parentId = '{$oldUsername}'");

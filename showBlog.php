@@ -72,14 +72,8 @@ $result = mysql_query("SELECT blogs.id, blogs.usernameCreated, blogs.category, b
 
 if (mysql_num_rows($result) == 0) {
 	
-	header("Status: 404 Not Found");
-	
-	if ($_SESSION['userLevel'] == 1 || $_SESSION['userLevel'] == 2 || $_SESSION['userLevel'] == 3) {
-		
-		print "<b>Resource ID #$id Not Found!</b><br><br>The requested resource is not available. There are two possible reasons for this error:<ol><li>The requested resource ID has not yet been assigned to anything.<li>The resource associated to the requested ID has been deleted.</ol>";
-		
-	}
-	
+	$_SESSION['status'] = array('not found', $id, '');
+	header("Location: /status.php?type=blog");
 	exit;
 	
 } else {

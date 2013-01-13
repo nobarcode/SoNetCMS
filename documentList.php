@@ -64,7 +64,7 @@ foreach($searchCriteria as $value) {
 	
 	if ($x < count($searchCriteria)) {
 		
-		$showSearch .= " &gt; ";
+		$showSearch .= " &raquo; ";
 		
 	}
 	

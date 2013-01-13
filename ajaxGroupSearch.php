@@ -36,6 +36,8 @@ changeDirection($s, $d, $name, $owner, $minDateEstYear, $minDateEstMonth, $minDa
 
 function changeDirection($s, $d, $name, $owner, $minDateEstYear, $minDateEstMonth, $minDateEstDay, $maxDateEstYear, $maxDateEstMonth, $maxDateEstDay, $minMembers, $maxMembers, $about, $orderBy) {
 	
+	$script_directory = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
+	
 	//validate and define date variables
 	if (trim($minDateEstYear) != "" || trim($minDateEstMonth) != "" || trim($minDateEstDay) != "") {
 		
@@ -178,14 +180,14 @@ function changeDirection($s, $d, $name, $owner, $minDateEstYear, $minDateEstMont
 					
 				}
 				
-				if (trim($row->summaryImage) != "") {
-	
+				if(is_file($script_directory . $row->summaryImage)) {
+					
 					$summaryImage = "			<div class=\"summary_image\"><a href=\"/groups/id/$row->id\"><img src=\"/file.php?load=$row->summaryImage&w=100&h=100\" border=\"0\"></a></div>";
-	
+					
 				} else {
-	
+					
 					$summaryImage = "			<div class=\"summary_image\"><a href=\"/groups/id/$row->id\"><img src=\"/assets/core/resources/images/group_no_image_small.jpg\" border=\"0\"></a></div>";
-	
+					
 				}
 				
 				$showName = htmlentities($row->name);

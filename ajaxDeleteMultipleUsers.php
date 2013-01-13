@@ -80,7 +80,7 @@ foreach($multipleId as $id) {
 			mysql_query("DELETE commentsUserProfiles, documentVotes FROM commentsUserProfiles LEFT JOIN documentVotes ON documentVotes.parentId = commentsUserProfiles.id AND documentVotes.type = 'userProfileComment' WHERE commentsUserProfiles.username = '{$id}'");
 			
 			//delete all comments attached to this user's blog (regardless of who created them) and any votes associated with them
-			mysql_query("DELETE commentsDocuments, documentVotes FROM commentsDocuments LEFT JOIN documentVotes ON documentVotes.parentId = commentsDocuments.id AND documentVotes.type = 'blogComment' INNER JOIN blogs ON blogs.author = '{$id}' WHERE commentsDocuments.parentId = blogs.id AND commentsDocuments.type = 'blogComment'");
+			mysql_query("DELETE commentsDocuments, documentVotes FROM commentsDocuments LEFT JOIN documentVotes ON documentVotes.parentId = commentsDocuments.id AND documentVotes.type = 'blogComment' INNER JOIN blogs ON blogs.usernameCreated = '{$id}' WHERE commentsDocuments.parentId = blogs.id AND commentsDocuments.type = 'blogComment'");
 			
 			//delete all comments associated with this user's gallery along with any votes associated with each comment
 			mysql_query("DELETE commentsImages, documentVotes FROM commentsImages LEFT JOIN documentVotes ON documentVotes.parentId = commentsImages.id AND documentVotes.type = 'userImageComment' WHERE commentsImages.parentId = '{$id}'");
@@ -89,7 +89,7 @@ foreach($multipleId as $id) {
 			mysql_query("DELETE commentsUserProfiles, documentVotes FROM commentsUserProfiles LEFT JOIN documentVotes ON documentVotes.parentId = commentsUserProfiles.id AND documentVotes.type = 'userProfileComment' WHERE commentsUserProfiles.parentId = '{$id}'");
 			
 			//delete user's blogs and any votes associated to each blog
-			mysql_query("DELETE blogs, documentVotes FROM blogs LEFT JOIN documentVotes ON documentVotes.parentId = blogs.id AND documentVotes.type = 'blog' WHERE blogs.author = '{$id}'");
+			mysql_query("DELETE blogs, documentVotes FROM blogs LEFT JOIN documentVotes ON documentVotes.parentId = blogs.id AND documentVotes.type = 'blog' WHERE blogs.usernameCreated = '{$id}'");
 			
 			//delete user's images
 			mysql_query("DELETE imagesUsers FROM imagesUsers WHERE parentId = '{$id}'");
