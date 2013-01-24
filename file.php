@@ -138,64 +138,8 @@ function loadFileData($load, $owner, $security, $w, $h, $thumbs) {
 	
 	$mime = returnMIMEType($load);
 	
-	//if this is not an image
-	if (!stristr($mime, "image/")) {
-		
-		//check security
-		if ($security == "private" && $owner != $_SESSION['username']) {
-			
-			$_SESSION['status'] = array('private', $load, $owner);
-			header("Location: /status.php?type=file");
-			exit;
-			
-		} elseif ($security == "authenticated" && trim($_SESSION['username']) == "") {
-			
-			$_SESSION['status'] = array('authenticated', $load, $owner);
-			header("Location: /status.php?type=file");
-			exit;
-			
-		} elseif ($security == "friends") {
-			
-			$result = mysql_query("SELECT friend FROM friends WHERE owner = '{$owner}' && friend = '{$_SESSION['username']}'");
-			
-			if (mysql_num_rows($result) < 1 && $owner != $_SESSION['username']) {
-				
-				$_SESSION['status'] = array('friends', $load, $owner);
-				header("Location: /status.php?type=file");
-				exit;
-				
-			}
-			
-		}
-		
-		//check group security
-		$userGroup = new FileUserGroupValidator();
-		$userGroup->loadFileUserGroups(sanitize_string($load));
-		if (!$userGroup->allowRead()) {
-			
-			$_SESSION['status'] = array('user group access', $load, $owner);
-			header("Location: /status.php?type=file");
-			exit;
-			
-		}
-		
-		//display file contents if all security checks pass
-		header("Content-Description: File Transfer");
-		header("Content-Type: application/force-download");
-		header("Content-Type: application/octet-stream");
-		header("Content-Type: application/download");
-		header("Content-Disposition: attachment; filename=\"" . basename($load) . "\"");
-		header("Content-Transfer-Encoding: binary");
-		header("Expires: 0");
-		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-		header("Pragma: public");
-		header("Content-length: " . filesize($load));
-		ob_clean();
-		flush();
-		return readfile($load);
-	
 	//if this is an image
-	} else {
+	if (stristr($mime, "image/")) {
 		
 		//check security
 		if ($security == "private" && $owner != $_SESSION['username']) {
@@ -254,6 +198,76 @@ function loadFileData($load, $owner, $security, $w, $h, $thumbs) {
 		header("Content-Disposition: inline; filename=\"" . basename($load) . "\"");
 		echo resize($load, $w, $h, $thumbs);
 		exit;
+		
+	//if this flash load it up without forcing a download or anything else fancy
+	} elseif (stristr($mime, "x-shockwave-flash")) {
+		
+		//display file contents if all security checks pass
+		header("Content-Type: $mime");
+		header("Expires: 0");
+		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+		header("Pragma: public");
+		header("Content-Disposition: inline; filename=\"" . basename($load) . "\"");
+		header("Content-length: " . filesize($load));
+		ob_clean();
+		flush();
+		return readfile($load);
+		
+	//if this any other type of file, try to force a download
+	} else {
+				
+		//check security
+		if ($security == "private" && $owner != $_SESSION['username']) {
+			
+			$_SESSION['status'] = array('private', $load, $owner);
+			header("Location: /status.php?type=file");
+			exit;
+			
+		} elseif ($security == "authenticated" && trim($_SESSION['username']) == "") {
+			
+			$_SESSION['status'] = array('authenticated', $load, $owner);
+			header("Location: /status.php?type=file");
+			exit;
+			
+		} elseif ($security == "friends") {
+			
+			$result = mysql_query("SELECT friend FROM friends WHERE owner = '{$owner}' && friend = '{$_SESSION['username']}'");
+			
+			if (mysql_num_rows($result) < 1 && $owner != $_SESSION['username']) {
+				
+				$_SESSION['status'] = array('friends', $load, $owner);
+				header("Location: /status.php?type=file");
+				exit;
+				
+			}
+			
+		}
+		
+		//check group security
+		$userGroup = new FileUserGroupValidator();
+		$userGroup->loadFileUserGroups(sanitize_string($load));
+		if (!$userGroup->allowRead()) {
+			
+			$_SESSION['status'] = array('user group access', $load, $owner);
+			header("Location: /status.php?type=file");
+			exit;
+			
+		}
+		
+		//display file contents if all security checks pass
+		header("Content-Description: File Transfer");
+		header("Content-Type: application/force-download");
+		header("Content-Type: application/octet-stream");
+		header("Content-Type: application/download");
+		header("Content-Disposition: attachment; filename=\"" . basename($load) . "\"");
+		header("Content-Transfer-Encoding: binary");
+		header("Expires: 0");
+		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+		header("Pragma: public");
+		header("Content-length: " . filesize($load));
+		ob_clean();
+		flush();
+		return readfile($load);
 		
 	}
 	
