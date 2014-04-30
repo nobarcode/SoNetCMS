@@ -51,7 +51,7 @@ function showPersonalDetails($row, $title, $imageSizeX, $imageSizeY) {
 	}
 	
 	$memberSince = $row->newMemberSince;
-	$lastLogin = strtotime($row->lastLogin);
+	$lastLogin = $row->newLastLogin;
 	$name = htmlentities($row->name);
 	$city = htmlentities($row->city);
 	$state = htmlentities($row->state);

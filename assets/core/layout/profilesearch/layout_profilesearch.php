@@ -5,7 +5,7 @@
 print <<< EOF
 			<div class="search_options_container">
 				<form id="profile_search" method="get" action="ajaxProfileSearch.php">
-				<div style="width:290px; float:left;">
+				<div style="width:300px; float:left;">
 				<table border="0" cellspacing="0" cellpadding="2" width="100%">
 					<tr valign="center"><td nowrap>Username:</td><td width="100%"><input type="text" id="username" name="username" size="32" value="$username"></td></tr>
 					<tr valign="center"><td nowrap>Name:</td><td width="100%"><input type="text" id="name" name="name" size="32" value="$name"></td></tr>
@@ -19,7 +19,7 @@ print <<< EOF
 					<tr valign="center"><td nowrap>Order By:</td><td width="100%"><input type="radio" name="orderBy" value="lastLogin" checked> Last Login <input type="radio" name="orderBy" value="username"> Username</td></tr>
 				</table>
 				</div>
-				<div style="width:290px; float:left; margin-left:10px;">
+				<div style="width:300px; float:left; margin-left:5px;">
 				<table border="0" cellspacing="0" cellpadding="2" width="100%">
 					<tr valign="center"><td nowrap>Age:</td><td><input type="text" id="minAge" name="minAge" size="2" value="$minAge"> to <input type="text" id="maxAge" name="maxAge" size="2" value="$maxAge"></td></tr>
 EOF;
@@ -33,7 +33,7 @@ EOF;
 print <<< EOF
 				</table>
 				</div>
-				<div style="width:290px; float:left; margin-left:10px;">
+				<div style="width:300px; float:left; margin-left:5px;">
 				<table border="0" cellspacing="0" cellpadding="2" width="100%">
 EOF;
 				if ($profileField[herefor] == 'true') {print "<tr valign=\"top\"><td nowrap>Here For:</td><td width=\"100%\">$hereFor</td></tr>";}
