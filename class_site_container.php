@@ -131,11 +131,11 @@ class SiteContainer {
 
 			if(trim($this->jb) != "") {
 
-				print "<div id=\"toolbar\"><div id=\"toolbar_inner\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" height=\"16\"><tr valign=\"middle\"><td align=\"left\"><a href=\"/signIn.php?jb=$this->jb\">Sign in</a> or <a href=\"/signUp.php?jb=$this->jb\">Sign up!</a></td><td align=\"right\"><image id=\"spinner\" style=\"float:right; margin:0px; display:none;\" src=\"/assets/core/resources/images/loading_small.gif\" border=\"0\"></td></tr></table></div></div>\n";
+				print "<div id=\"toolbar\"><div id=\"toolbar_inner\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" height=\"16\"><tr valign=\"middle\"><td align=\"left\"><a href=\"/signIn.php?jb=$this->jb\">Sign in</a> or <a href=\"/signUp.php?jb=$this->jb\">Sign up!</a></td><td align=\"right\"><image id=\"loading\" style=\"float:right; margin:0px; display:none;\" src=\"/assets/core/resources/images/loading_small.gif\" border=\"0\"></td></tr></table></div></div>\n";
 
 			} else {
 
-				print "<div id=\"toolbar\"><div id=\"toolbar_inner\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" height=\"16\"><tr valign=\"middle\"><td align=\"left\"><a href=\"/signIn.php\">Sign in</a> or <a href=\"/signUp.php\">Sign up!</a></td><td align=\"right\"><image id=\"spinner\" style=\"float:right; margin:0px; display:none;\" src=\"/assets/core/resources/images/loading_small.gif\" border=\"0\"></td></tr></table></div></div>\n";
+				print "<div id=\"toolbar\"><div id=\"toolbar_inner\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" height=\"16\"><tr valign=\"middle\"><td align=\"left\"><a href=\"/signIn.php\">Sign in</a> or <a href=\"/signUp.php\">Sign up!</a></td><td align=\"right\"><image id=\"loading\" style=\"float:right; margin:0px; display:none;\" src=\"/assets/core/resources/images/loading_small.gif\" border=\"0\"></td></tr></table></div></div>\n";
 
 			}
 
