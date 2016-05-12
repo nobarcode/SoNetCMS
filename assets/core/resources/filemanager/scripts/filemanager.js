@@ -269,7 +269,7 @@ var connectString = fileConnector + '?mode=download&path=' + data['Path'];
 	
 }
 
-//sets the security of ghe chosen file
+//sets the security of the chosen file
 var setSecurity = function(data){
 	
 	var connectString = fileConnector + '?mode=security&path=' + data['Path'] + '&security=' + $('select#security').val();
@@ -789,7 +789,7 @@ var setMenus = function(action, path){
 				break;
 			
 			case 'download':
-				window.location = fileConnector + '?mode=download&path=' + data['Path'];
+				download(data);
 				break;
 				
 			case 'copy':
