@@ -24,8 +24,12 @@ $month_option[] = "October";
 $month_option[] = "November";
 $month_option[] = "December";
 
+//create user groups validation object
+$userGroup = new CategoryUserGroupValidator();
+$excludeCategories = $userGroup->editCategoryExclusionList('events');
+
 //create month and year selection for event list -- default to latest event month and year
-$result = mysql_query("SELECT EXTRACT(YEAR FROM startDate) AS year FROM events WHERE 1 = 1 ORDER BY startDate ASC LIMIT 1");
+$result = mysql_query("SELECT EXTRACT(YEAR FROM startDate) AS year FROM  events LEFT JOIN groupsMembers ON events.groupId = groupsMembers.parentId AND groupsMembers.username = '{$_SESSION['username']}' AND (groupsMembers.memberLevel = '1' OR groupsMembers.memberLevel = '2') AND groupsMembers.status = 'approved' WHERE groupId IS NULL$excludeCategories ORDER BY startDate ASC LIMIT 1");
 $row = mysql_fetch_object($result);
 if (trim($row->year) == "") {
 	
@@ -37,7 +41,7 @@ if (trim($row->year) == "") {
 	
 }
 
-$result = mysql_query("SELECT EXTRACT(MONTH FROM startDate) AS month, EXTRACT(YEAR FROM startDate) AS year FROM events WHERE 1 = 1 ORDER BY expireDate DESC LIMIT 1");
+$result = mysql_query("SELECT EXTRACT(MONTH FROM startDate) AS month, EXTRACT(YEAR FROM startDate) AS year FROM events LEFT JOIN groupsMembers ON events.groupId = groupsMembers.parentId AND groupsMembers.username = '{$_SESSION['username']}' AND (groupsMembers.memberLevel = '1' OR groupsMembers.memberLevel = '2') AND groupsMembers.status = 'approved' WHERE groupId IS NULL$excludeCategorie ORDER BY expireDate DESC LIMIT 1");
 $row = mysql_fetch_object($result);
 if (trim($row->year) == "") {
 	
