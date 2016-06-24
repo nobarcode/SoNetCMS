@@ -7,13 +7,13 @@ print <<< EOF
 				<form id="profile_search" method="get" action="ajaxProfileSearch.php">
 				<div style="width:300px; float:left;">
 				<table border="0" cellspacing="0" cellpadding="2" width="100%">
-					<tr valign="center"><td nowrap>Username:</td><td width="100%"><input type="text" id="username" name="username" size="32" value="$username"></td></tr>
-					<tr valign="center"><td nowrap>Name:</td><td width="100%"><input type="text" id="name" name="name" size="32" value="$name"></td></tr>
-					<tr valign="center"><td nowrap>E-mail:</td><td width="100%"><input type="text" id="email" name="email" size="32" value="$email"></td></tr>
-					<tr valign="center"><td nowrap>Company:</td><td width="100%"><input type="text" id="company" name="company" size="32" value="$company" size="32"></td></tr>
-					<tr valign="center"><td nowrap>Profession:</td><td width="100%"><input type="text" id="profession" name="profession" size="32" value="$profession" size="32"></td></tr>
-					<tr valign="center"><td nowrap>City:</td><td width="100%"><input type="text" id="city" name="city" size="32" value="$city"></td></tr>
-					<tr valign="center"><td nowrap>State:</td><td width="100%"><input type="text" id="state" name="state" size="32" value="$state"></td></tr>
+					<tr valign="center"><td nowrap>Username:</td><td width="100%"><input type="text" id="username" name="username" style="width:85%;" value="$username"></td></tr>
+					<tr valign="center"><td nowrap>Name:</td><td width="100%"><input type="text" id="name" name="name" style="width:85%;" value="$name"></td></tr>
+					<tr valign="center"><td nowrap>E-mail:</td><td width="100%"><input type="text" id="email" name="email" style="width:85%;" value="$email"></td></tr>
+					<tr valign="center"><td nowrap>Company:</td><td width="100%"><input type="text" id="company" name="company" style="width:85%;" value="$company" style="width:85%;"></td></tr>
+					<tr valign="center"><td nowrap>Profession:</td><td width="100%"><input type="text" id="profession" name="profession" style="width:85%;" value="$profession" style="width:85%;"></td></tr>
+					<tr valign="center"><td nowrap>City:</td><td width="100%"><input type="text" id="city" name="city" style="width:85%;" value="$city"></td></tr>
+					<tr valign="center"><td nowrap>State:</td><td width="100%"><input type="text" id="state" name="state" style="width:85%;" value="$state"></td></tr>
 					<tr valign="center"><td nowrap>Zip:</td><td width="100%"><select id="radius" name="radius"><option value="5">5</option><option value="15">15</option><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="250">250</option><option value="500">500</option><option value="1000">1000</option></select> miles of: <input type="text" id="zip" name="zip" size="9" value="$zip"></td></tr>
 					<tr valign="center"><td nowrap>Country:</td><td width="100%"><select name="country"><option value=""></option>$country</select></td></tr>
 					<tr valign="center"><td nowrap>Order By:</td><td width="100%"><input type="radio" name="orderBy" value="lastLogin" checked> Last Login <input type="radio" name="orderBy" value="username"> Username</td></tr>
@@ -39,8 +39,8 @@ EOF;
 				if ($profileField[herefor] == 'true') {print "<tr valign=\"top\"><td nowrap>Here For:</td><td width=\"100%\">$hereFor</td></tr>";}
 print <<< EOF
 
-					<tr valign="center"><td nowrap>About:</td><td width="100%"><input type="text" id="about" name="about" size="32" value="$about"></td></tr>
-					<tr valign="center"><td nowrap>Interests:</td><td width="100%"><input type="text" id="interests" name="interests" size="32" value="$interests"></td></tr>
+					<tr valign="center"><td nowrap>About:</td><td width="100%"><input type="text" id="about" name="about" style="width:85%;" value="$about"></td></tr>
+					<tr valign="center"><td nowrap>Interests:</td><td width="100%"><input type="text" id="interests" name="interests" style="width:85%;" value="$interests"></td></tr>
 				</table>
 				</div>
 				<div class="form_buttons"><input type="submit" id="submit" value="Search"></div>
