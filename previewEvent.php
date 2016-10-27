@@ -28,7 +28,7 @@ $componentLoader = new ComponentLoader();
 $loadAttributes = array($componentLoader, 'loadAttributes');
 
 //document attributes
-$body = preg_replace_callback("/\[attribute type=\"(.*?)\"\]/i", $loadAttributes, $body);
+$body = preg_replace_callback("/\[\[attribute type=\"(.*?)\"\]\]/i", $loadAttributes, $body);
 
 print <<< EOF
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
