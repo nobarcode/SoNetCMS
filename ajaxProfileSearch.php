@@ -245,7 +245,7 @@ function changeDirection($s, $d, $username, $name, $email, $company, $profession
 		
 	}
 	
-	if (trim($hereFor) != "") {
+	if (count($hereFor) > 0) {
 		
 		$searchQuery .= " AND (";
 		
